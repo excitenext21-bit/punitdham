@@ -145,7 +145,14 @@ export default function AboutUs() {
               {/* Enhanced Facets Under 1st Paragraph */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6 pt-4 border-t border-zinc-200/50 max-w-4xl">
                 {/* 1. Technological Innovation */}
-                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-brand-green-mid rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-brand-green-mid rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300"
+                >
                   <motion.div 
                     animate={{ scale: [1, 1.06, 1] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -177,10 +184,17 @@ export default function AboutUs() {
                       })}
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* 2. Community Partnership */}
-                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-[#f4d068] rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-[#f4d068] rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300"
+                >
                   <motion.div 
                     animate={{ scale: [1, 1.06, 1] }}
                     transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
@@ -213,10 +227,17 @@ export default function AboutUs() {
                       })}
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* 3. National Impact */}
-                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-[#f4d068] rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-[#f4d068] rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300"
+                >
                   <motion.div 
                     animate={{ scale: [1, 1.06, 1] }}
                     transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
@@ -247,10 +268,17 @@ export default function AboutUs() {
                       })}
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* 4. Operational Excellence */}
-                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-brand-green-mid rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-brand-green-mid rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300"
+                >
                   <motion.div 
                     animate={{ scale: [1, 1.06, 1] }}
                     transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -282,7 +310,7 @@ export default function AboutUs() {
                       })}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
