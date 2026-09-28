@@ -35,7 +35,7 @@ export interface SectionStyle {
 
 export interface CMSSection {
   id: string;
-  type: "hero" | "stats" | "about" | "strengths" | "products" | "operations" | "leaders" | "organization" | "contact" | "custom";
+  type: "hero" | "stats" | "about" | "why-us" | "strengths" | "products" | "operations" | "leaders" | "organization" | "contact" | "custom";
   title: string;
   subtitle: string;
   content: string; // Dynamic description or markdown copy
@@ -185,6 +185,18 @@ const DEFAULT_SECTIONS: Record<string, CMSSection[]> = {
         typography: { titleSize: "text-4xl", fontFamily: "font-serif", alignment: "left" },
         background: { type: "solid", colorClass: "bg-brand-bg-light" },
         animation: { type: "slide", duration: 1.2 }
+      }
+    },
+    {
+      id: "sec-why-us",
+      type: "why-us",
+      title: "Why Us",
+      subtitle: "Four Pillars of Reliability",
+      content: "Zero gaps in quality, direct sourcing, synergistic network and prompt delivery across national supply chains.",
+      style: {
+        typography: { titleSize: "text-4xl", fontFamily: "font-serif", alignment: "center" },
+        background: { type: "solid", colorClass: "bg-brand-bg-light" },
+        animation: { type: "fade", duration: 1.0 }
       }
     },
     {
@@ -344,7 +356,7 @@ export function CMSProvider({ children }: { children: ReactNode }) {
               if (p.slug === "home" && (sec.type === "organization" || sec.type === "products" || sec.type === "leaders")) {
                 return false;
               }
-              const isUniqueType = ["hero", "stats", "about", "strengths", "products", "operations", "leaders", "organization"].includes(sec.type);
+              const isUniqueType = ["hero", "stats", "about", "why-us", "strengths", "products", "operations", "leaders", "organization"].includes(sec.type);
               if (isUniqueType) {
                 if (seenTypes.has(sec.type)) {
                   return false;
@@ -353,6 +365,19 @@ export function CMSProvider({ children }: { children: ReactNode }) {
               }
               return true;
             });
+
+            // Ensure why-us section exists on home page
+            if (p.slug === "home" && !uniqueSections.some((s: any) => s.type === "why-us")) {
+              const aboutIndex = uniqueSections.findIndex((s: any) => s.type === "about");
+              const whyUsSec = DEFAULT_SECTIONS.home.find(s => s.type === "why-us");
+              if (whyUsSec) {
+                if (aboutIndex !== -1) {
+                  uniqueSections.splice(aboutIndex + 1, 0, whyUsSec);
+                } else {
+                  uniqueSections.push(whyUsSec);
+                }
+              }
+            }
 
             return {
               ...p,

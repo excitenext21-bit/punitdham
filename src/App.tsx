@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import StatsSection from "./components/StatsSection";
 import AboutUs from "./components/AboutUs";
+import WhyUs from "./components/WhyUs";
 import OrganizationDetails from "./components/OrganizationDetails";
 import Strengths from "./components/Strengths";
 import Products from "./components/Products";
@@ -150,7 +151,14 @@ export default function App() {
                     case "stats":
                       return <StatsSection key={sec.id} />;
                     case "about":
-                      return <AboutUs key={sec.id} />;
+                      return (
+                        <React.Fragment key={sec.id}>
+                          <AboutUs />
+                          {!activePage.sections.some(s => s.type === "why-us") && <WhyUs />}
+                        </React.Fragment>
+                      );
+                    case "why-us":
+                      return <WhyUs key={sec.id} />;
                     case "strengths":
                       return <Strengths key={sec.id} />;
                     case "products":

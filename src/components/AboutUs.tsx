@@ -99,59 +99,6 @@ export default function AboutUs() {
       });
   const aboutImage = section?.images?.[0] || "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=800";
 
-  const getLocalizedPillar = (id: string, defTitle: string, defDesc: string, defBadge: string) => {
-    if (language === "hi") {
-      switch(id) {
-        case "pillar-1": return {
-          title: "गुणवत्ता में शून्य समझौता",
-          desc: "कड़े रासायनिक और भौतिक विश्लेषण प्रयोगशाला परीक्षणों के माध्यम से हर फसल चक्र में शुद्धता सुनिश्चित करना।",
-          badge: "गुणवत्ता गारंटी"
-        };
-        case "pillar-2": return {
-          title: "पारस्परिक विश्वास और संबंध",
-          desc: "दशकों पुराने किसान साझेदारी नेटवर्क और पारदर्शी व्यापारिक नैतिकता पर आधारित अटूट विश्वास।",
-          badge: "नैतिक व्यापार"
-        };
-        case "pillar-3": return {
-          title: "प्रत्यक्ष किसान खरीद",
-          desc: "सहकारी समितियों और स्थानीय उत्पादकों से सीधे अनाज प्राप्त करके बिचौलियों को समाप्त करना।",
-          badge: "किसान हित"
-        };
-        case "pillar-4": return {
-          title: "सटीक और तीव्र आपूर्ति",
-          desc: "प्रतिदिन 400+ मीट्रिक टन प्रसंस्करण क्षमता के साथ पूरे भारत में समय पर थोक आपूर्ति सुनिश्चित करना।",
-          badge: "दैनिक क्षमता"
-        };
-        default: return { title: defTitle, desc: defDesc, badge: defBadge };
-      }
-    } else if (language === "gu") {
-      switch(id) {
-        case "pillar-1": return {
-          title: "ગુણવત્તામાં કોઈ બાંધછોડ નહીં",
-          desc: "લેબોરેટરી ટેસ્ટિંગ અને કડક ગુણવત્તા ધોરણો દ્વારા દરેક દાણાની સંપૂર્ણ શુદ્ધતા સુનિશ્ચિત કરવી.",
-          badge: "ગુણવત્તા ગેરંટી"
-        };
-        case "pillar-2": return {
-          title: "વિશ્વાસ અને સંબંધો",
-          desc: "ખેડૂતો અને વેપારીઓ સાથે દાયકાઓ જૂના સંબંધો અને નૈતિક વેપાર પર આધારિત પારદર્શિતા.",
-          badge: "નૈતિક વેપાર"
-        };
-        case "pillar-3": return {
-          title: "સીધી ખેડૂત ખરીદી",
-          desc: "સ્થાનિક ખેડૂત મંડળીઓ પાસેથી સીધું અનાજ ખરીદીને ખેડૂતોને વાજબી વળતર પૂરું પાડવું.",
-          badge: "ખેડૂત કલ્યાણ"
-        };
-        case "pillar-4": return {
-          title: "સમયસર વિશાળ સપ્લાય",
-          desc: "દૈનિક ૪૦૦+ મેટ્રિક ટન મિલિંગ ક્ષમતા સાથે સમગ્ર દેશમાં સમયસર બલ્ક સપ્લાય સુનિશ્ચિત કરવી.",
-          badge: "વિશાળ ક્ષમતા"
-        };
-        default: return { title: defTitle, desc: defDesc, badge: defBadge };
-      }
-    }
-    return { title: defTitle, desc: defDesc, badge: defBadge };
-  };
-
   return (
     <section id="about" className="py-24 bg-brand-bg-light relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-45 pointer-events-none" />
@@ -269,68 +216,6 @@ export default function AboutUs() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Pillars Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 relative z-10 py-6 font-sans">
-              
-              {(section?.items || []).map((pillar: any, index: number) => {
-                const styles = [
-                  {
-                    iconColor: "text-brand-gold bg-amber-50 border-brand-gold/10",
-                    badgeColor: "text-brand-gold bg-amber-50/50 border-brand-gold/10",
-                    borderColor: "hover:border-brand-gold/40",
-                    lineColor: "from-brand-gold/20 via-brand-gold"
-                  },
-                  {
-                    iconColor: "text-brand-green-mid bg-emerald-50 border-brand-green-mid/10",
-                    badgeColor: "text-brand-green-mid bg-emerald-50/50 border-brand-green-mid/10",
-                    borderColor: "hover:border-brand-green-mid/40",
-                    lineColor: "from-brand-green-mid/20 via-brand-green-mid"
-                  },
-                  {
-                    iconColor: "text-brand-green-dark bg-green-50 border-brand-green-dark/10",
-                    badgeColor: "text-brand-green-dark bg-green-50/50 border-brand-green-dark/10",
-                    borderColor: "hover:border-[#0f2e1e]/40",
-                    lineColor: "from-brand-green-dark/20 via-[#0f2e1e]"
-                  },
-                  {
-                    iconColor: "text-amber-700 bg-amber-50 border-brand-accent/20",
-                    badgeColor: "text-amber-800 bg-amber-50/40 border-brand-accent/20",
-                    borderColor: "hover:border-brand-accent/40",
-                    lineColor: "from-brand-accent/20 via-brand-accent"
-                  }
-                ];
-                const st = styles[index % styles.length];
-                const locPillar = getLocalizedPillar(pillar.id, pillar.title || "", pillar.description || "", pillar.badge || "Core Pillar");
-                const pillarTitle = language === "en" ? pillar.title : locPillar.title;
-                const pillarDesc = language === "en" ? pillar.description : locPillar.desc;
-                const pillarBadge = language === "en" ? (pillar.badge || "Core Pillar") : locPillar.badge;
-                
-                return (
-                  <div key={pillar.id || index} className={`group relative flex flex-col justify-between h-full bg-gradient-to-br from-zinc-50 to-white hover:from-white hover:to-zinc-50/50 border border-zinc-200/50 border-l-4 ${index % 2 === 0 ? "border-l-brand-green-mid" : "border-l-[#f4d068]"} rounded-2xl p-8 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.01)] hover:-translate-y-1.5 hover:shadow-lg overflow-hidden`}>
-                    <div className="space-y-6">
-                      <div className="flex flex-wrap items-center justify-between gap-4">
-                        <div className={`w-12 h-12 rounded-xl ${st.iconColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                          {pillar.iconName === "Cpu" ? <Cpu className="w-6 h-6" /> :
-                           pillar.iconName === "Users" ? <Users className="w-6 h-6" /> :
-                           pillar.iconName === "ShieldCheck" ? <ShieldCheck className="w-6 h-6" /> :
-                           pillar.iconName === "Globe" ? <Globe className="w-6 h-6" /> :
-                           <CheckCircle2 className="w-6 h-6" />}
-                        </div>
-                        <span className={`text-[10px] font-mono font-bold tracking-wider ${st.badgeColor} px-3 py-1.5 rounded-full border uppercase`}>
-                          {pillarBadge}
-                        </span>
-                      </div>
-                      <h4 className="text-xl font-bold text-zinc-950 tracking-tight leading-snug">{pillarTitle}</h4>
-                      <p className="text-sm text-zinc-600 leading-relaxed font-normal">
-                        {pillarDesc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-
             </div>
 
           </div>
