@@ -91,18 +91,18 @@ export default function StatsSection() {
                 <motion.div
                   key={stat.id}
                   className={`p-6 rounded-2xl border bg-white/5 backdrop-blur-md border-white/10 hover:bg-[#123623]/40 hover:border-[#f4d068]/30 hover:shadow-xl transition-all duration-350 relative group ${
-                    idx === 4 ? "sm:col-span-2 flex items-center justify-between gap-6" : ""
+                    idx === 4 ? "sm:col-span-2" : ""
                   }`}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
                 >
-                  <div className={`${idx === 4 ? "flex items-start gap-4" : "space-y-4"}`}>
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 inline-block group-hover:bg-[#123623]/80 group-hover:border-white/15 text-[#f4d068] transition-colors">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 shrink-0 group-hover:bg-[#123623]/80 group-hover:border-white/15 text-[#f4d068] transition-colors mt-0.5">
                       {stat.icon}
                     </div>
-                    <div>
-                      <span className="block text-2xl sm:text-3xl font-serif font-black text-[#f4d068] tracking-tight mt-1">
+                    <div className="flex-1 min-w-0">
+                      <span className="block text-2xl sm:text-3xl font-serif font-black text-[#f4d068] tracking-tight">
                         {stat.value}
                       </span>
                       <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mt-1">
