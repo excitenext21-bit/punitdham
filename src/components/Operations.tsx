@@ -82,13 +82,6 @@ export default function Operations() {
         
         {/* Title area */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-3">
-          <span className="text-xs font-mono uppercase tracking-widest text-brand-accent bg-white/5 border border-white/10 px-3 py-1 bg-brand-green-mid rounded font-bold">
-            {localize({
-              en: "NATION BUILDING & WELFARE",
-              hi: "राष्ट्र निर्माण एवं कल्याणकारी योजनाएं",
-              gu: "રાષ્ટ્ર નિર્માણ અને લોકોપયોગી કલ્યાણ યોજનાઓ"
-            })}
-          </span>
           <h2 className="text-3xl sm:text-4xl font-serif text-white tracking-tight">
             {localize({
               en: "Present Operations & Welfare Integrations",
@@ -143,17 +136,6 @@ export default function Operations() {
 
           {/* Right panel: Welfare schemes Grid */}
           <div className="lg:col-span-8 space-y-6">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-2 h-2 bg-brand-accent rounded-full" />
-              <h3 className="font-serif font-bold text-lg text-white">
-                {localize({
-                  en: "Powering National Welfare Platforms",
-                  hi: "राष्ट्रीय जन कल्याणकारी मंचों को सशक्त बनाना",
-                  gu: "રાષ્ટ્રીય લોકકલ્યાણ મંચ માટે વિશેષ અનાજ પુરવઠો"
-                })}
-              </h3>
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {WELFARE_SCHEMES.map((scheme) => {
                 const localizedS = getLocalizedScheme(scheme.id, scheme.title, scheme.desc);

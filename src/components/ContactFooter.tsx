@@ -187,13 +187,6 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
           {/* Section 1: Editorial Brand & Mission (Col span 5) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-3">
-              <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase font-bold bg-[#f4d068]/10 px-3.5 py-1.5 rounded-full border border-[#f4d068]/20 inline-block">
-                {localize({
-                  en: "ESTABLISHED AGRICULTURAL LEADERSHIP",
-                  hi: "वैश्विक कृषि मूल्य श्रृंखला",
-                  gu: "શ્રેષ્ઠ ભારતીય કૃષિ નિકાસ"
-                })}
-              </span>
               <h3 className="text-2xl sm:text-3xl font-serif text-white font-extrabold tracking-tight">
                 {COMPANY_PROFILE.name}
               </h3>
