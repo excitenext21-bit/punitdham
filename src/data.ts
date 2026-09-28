@@ -187,7 +187,7 @@ export const LEADERS: Leader[] = [
       "He is a strong advocate for operational excellence and cost efficiency. Through data-driven insights and innovative financial strategies, he has contributed significantly to the company’s growth and profitability."
     ],
     avatarColor: "from-blue-700 via-emerald-850 to-emerald-950",
-    photoUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800"
+    photoUrl: "/punit.jpg"
   },
   {
     id: "chika",

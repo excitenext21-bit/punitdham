@@ -23,7 +23,7 @@ import { useCMS } from "../context/CMSContext";
 // Mapping of high-fidelity premium professional corporate portraits
 const LEADER_IMAGES: Record<string, string> = {
   prakashchand: "/prakashchand.jpg",
-  punit: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+  punit: "/punit.jpg",
   dhanashree: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
   chika: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
 };
