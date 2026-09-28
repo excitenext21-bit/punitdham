@@ -23,35 +23,70 @@ export default function StatsSection() {
       value: localize({ en: "38+ Years", hi: "38+ वर्ष", gu: "૩૮+ વર્ષ" }),
       label: localize({ en: "Industrial Legacy", hi: "औद्योगिक विरासत", gu: "ઔદ્યોગિક વારસો" }),
       desc: localize({ en: "Est. 1988, bridging decades of trust.", hi: "स्थापना 1988, दशकों के विश्वास का प्रतीक।", gu: "સ્થાપના ૧૯૮૮, દાયકાઓનો વિશ્વાસ." }),
-      icon: <Calendar className="w-5 h-5 text-[#f4d068]" />
+      icon: (
+        <motion.div
+          animate={{ rotate: [0, -7, 7, -4, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Calendar className="w-5 h-5 text-[#f4d068]" />
+        </motion.div>
+      )
     },
     {
       id: "capacity",
       value: localize({ en: "400+ MT", hi: "400+ मीट्रिक टन", gu: "૪૦૦+ મેટ્રિક ટન" }),
       label: localize({ en: "Daily Processing", hi: "दैनिक प्रसंस्करण", gu: "દૈનિક પ્રોસેસિંગ" }),
       desc: localize({ en: "High-speed automatic milling capacity.", hi: "उच्च गति स्वचालित मिलिंग क्षमता।", gu: "હાઇ-સ્પીડ ઓટોમેટિક મિલિંગ ક્ષમતા." }),
-      icon: <Cpu className="w-5 h-5 text-[#f4d068]" />
+      icon: (
+        <motion.div
+          animate={{ scale: [1, 1.18, 1, 1.1, 1], rotate: [0, 6, -6, 0] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+        >
+          <Cpu className="w-5 h-5 text-[#f4d068]" />
+        </motion.div>
+      )
     },
     {
       id: "volume",
       value: localize({ en: "25,000+ MT", hi: "25,000+ मीट्रिक टन", gu: "૨૫,૦૦૦+ મેટ્રિક ટન" }),
       label: localize({ en: "Annual Volume Handled", hi: "वार्षिक प्रसंस्कृत मात्रा", gu: "વાર્ષિક જથ્થો" }),
       desc: localize({ en: "Premium graded and packaged food grains.", hi: "प्रीमियम वर्गीकृत और पैक किए गए खाद्यान्न।", gu: "પ્રીમિયમ ગ્રેડિંગ અને પેકેજિંગ કરેલ અનાજ." }),
-      icon: <Wheat className="w-5 h-5 text-[#f4d068]" />
+      icon: (
+        <motion.div
+          animate={{ rotate: [0, 12, -8, 5, 0], scale: [1, 1.08, 1] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+        >
+          <Wheat className="w-5 h-5 text-[#f4d068]" />
+        </motion.div>
+      )
     },
     {
       id: "logistics",
       value: localize({ en: "2,000+ Lorries", hi: "2,000+ लॉरी/ट्रक", gu: "૨,૦૦૦+ ટ્રક" }),
       label: localize({ en: "Dispatched Annually", hi: "वार्षिक प्रेषण", gu: "વાર્ષિક ડિસ્પેચ" }),
       desc: localize({ en: "Seamless logistical supply chain across India.", hi: "पूरे भारत में निर्बाध लॉजिस्टिक आपूर्ति श्रृंखला।", gu: "સમગ્ર ભારતમાં અવિરત લોજિસ્ટિક સપ્લાય ચેઇન." }),
-      icon: <Truck className="w-5 h-5 text-[#f4d068]" />
+      icon: (
+        <motion.div
+          animate={{ x: [0, 4, 0, -2, 0], y: [0, -1.5, 0, -1, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+        >
+          <Truck className="w-5 h-5 text-[#f4d068]" />
+        </motion.div>
+      )
     },
     {
       id: "compliance",
       value: localize({ en: "ISO & HACCP", hi: "ISO एवं HACCP", gu: "ISO અને HACCP" }),
       label: localize({ en: "Certified Operations", hi: "प्रमाणित संचालन", gu: "પ્રમાણિત કામગીરી" }),
       desc: localize({ en: "ISO 9001:2015 & HACCP gold standards.", hi: "आईएसओ 9001:2015 और एचएसीसीपी स्वर्ण मानक।", gu: "ISO 9001:2015 અને HACCP સુવર્ણ ધોરણો." }),
-      icon: <ShieldCheck className="w-5 h-5 text-[#f4d068]" />
+      icon: (
+        <motion.div
+          animate={{ scale: [1, 1.16, 1], y: [0, -2, 0] }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+        >
+          <ShieldCheck className="w-5 h-5 text-[#f4d068]" />
+        </motion.div>
+      )
     }
   ];
 
@@ -98,9 +133,13 @@ export default function StatsSection() {
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 shrink-0 group-hover:bg-[#123623]/80 group-hover:border-white/15 text-[#f4d068] transition-colors mt-0.5">
+                    <motion.div 
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
+                      className="p-2.5 rounded-xl bg-white/5 border border-white/10 shrink-0 group-hover:bg-[#123623]/80 group-hover:border-white/15 text-[#f4d068] transition-colors mt-0.5 flex items-center justify-center"
+                    >
                       {stat.icon}
-                    </div>
+                    </motion.div>
                     <div className="flex-1 min-w-0">
                       <span className="block text-2xl sm:text-3xl font-serif font-black text-[#f4d068] tracking-tight">
                         {stat.value}
