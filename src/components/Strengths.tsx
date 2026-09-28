@@ -165,16 +165,16 @@ export default function Strengths() {
         </div>
 
         {/* Highlight Banner at bottom */}
-        <div className="mt-16 bg-gradient-to-r from-brand-accent/10 to-transparent border border-brand-accent/20 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-sm">
+        <div className="mt-16 bg-[#fbfcfa] border border-zinc-200/80 border-l-2 border-l-[#d4af37] rounded-3xl p-6 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-black/10 transition-all duration-300">
           <div className="space-y-2 text-center sm:text-left">
-            <h4 className="font-serif text-lg font-semibold text-brand-accent">
+            <h4 className="font-serif text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight">
               {localize({
                 en: "Need detailed custom packing or bulk shipment exports?",
                 hi: "क्या आपको विस्तृत कस्टम पैकिंग या थोक शिपमेंट निर्यात की आवश्यकता है?",
                 gu: "શું તમારે કસ્ટમ પેકિંગ અથવા બલ્ક નિકાસ શિપમેન્ટની જરૂર છે?"
               })}
             </h4>
-            <p className="text-xs sm:text-sm text-brand-sage max-w-xl font-sans">
+            <p className="text-xs sm:text-sm text-zinc-600 max-w-xl font-sans leading-relaxed">
               {localize({
                 en: "Our direct association with Civil Supplies Corporation of India and NAFED enables us to handle custom packaging configurations from 400kg massive bags to 1kg household pouches.",
                 hi: "भारतीय नागरिक आपूर्ति निगम और नेफेड (NAFED) के साथ हमारा सीधा संबंध हमें 400 किलोग्राम के बड़े बैग से लेकर 1 किलोग्राम के घरेलू पाउच तक कस्टम पैकेजिंग कॉन्फ़िगरेशन को संभालने में सक्षम बनाता है।",
@@ -184,7 +184,7 @@ export default function Strengths() {
           </div>
           <button
             onClick={() => setIsBulkModalOpen(true)}
-            className="whitespace-nowrap bg-brand-accent hover:bg-brand-gold text-brand-green-dark font-bold px-6 py-3 rounded-lg shadow-md transition-all text-sm uppercase font-mono tracking-wider cursor-pointer"
+            className="whitespace-nowrap bg-[#f4d068] hover:bg-brand-green-dark hover:text-white text-brand-green-dark font-bold px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all text-xs uppercase font-mono tracking-wider cursor-pointer shrink-0"
           >
             {localize({
               en: "Enquire Bulk Rates",
