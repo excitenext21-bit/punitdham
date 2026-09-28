@@ -1,5 +1,5 @@
-import React from "react";
-import { ArrowRight, Wheat, ShieldCheck, Download } from "lucide-react";
+import React, { useEffect } from "react";
+import { ArrowRight, Wheat } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useCMS } from "../context/CMSContext";
 
@@ -10,7 +10,75 @@ interface HeroProps {
 
 export default function Hero({ sectionId }: HeroProps) {
   const { localize } = useLanguage();
-  const { setActivePageSlug, globalSettings } = useCMS();
+  const { setActivePageSlug } = useCMS();
+
+  useEffect(() => {
+    let player: any = null;
+    let isMounted = true;
+
+    const startPlayer = () => {
+      const YT = (window as any).YT;
+      if (!YT || !YT.Player) return;
+
+      try {
+        player = new YT.Player("hero-yt-player", {
+          events: {
+            onReady: (e: any) => {
+              if (!isMounted) return;
+              e.target.mute();
+              e.target.playVideo();
+            },
+            onStateChange: (e: any) => {
+              if (!isMounted) return;
+              // State 2 = PAUSED, State 0 = ENDED, State -1 = UNSTARTED
+              if (e.data === 2 || e.data === 0 || e.data === -1) {
+                e.target.playVideo();
+              }
+            }
+          }
+        });
+      } catch (err) {
+        // Fallback gracefully
+      }
+    };
+
+    if ((window as any).YT && (window as any).YT.Player) {
+      startPlayer();
+    } else {
+      const existingScript = document.getElementById("youtube-iframe-api");
+      if (!existingScript) {
+        const tag = document.createElement("script");
+        tag.id = "youtube-iframe-api";
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+      }
+      const prevCallback = (window as any).onYouTubeIframeAPIReady;
+      (window as any).onYouTubeIframeAPIReady = () => {
+        if (prevCallback) prevCallback();
+        startPlayer();
+      };
+    }
+
+    // Safety heartbeat interval to ensure background video remains playing without pause
+    const heartbeat = setInterval(() => {
+      if (player && typeof player.getPlayerState === "function") {
+        const state = player.getPlayerState();
+        if (state === 2 || state === 0) {
+          player.playVideo();
+        }
+      }
+    }, 2000);
+
+    return () => {
+      isMounted = false;
+      clearInterval(heartbeat);
+      if (player && player.destroy) {
+        try {
+          player.destroy();
+        } catch (e) {}
+      }
+    };
+  }, []);
 
   const headingLine1 = localize({
     en: "Nourishing the nation one grain at a time.",
@@ -46,8 +114,9 @@ export default function Hero({ sectionId }: HeroProps) {
       {/* Background Video Wrapper */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
         <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-full min-h-[56.25vw] pointer-events-none scale-125 border-0"
-          src="https://www.youtube-nocookie.com/embed/E_NRicYz6os?autoplay=1&mute=1&loop=1&playlist=E_NRicYz6os&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&disablekb=1&fs=0"
+          id="hero-yt-player"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-full min-h-[56.25vw] pointer-events-none scale-125 border-0 select-none"
+          src="https://www.youtube.com/embed/E_NRicYz6os?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=E_NRicYz6os&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&disablekb=1&fs=0"
           title="Punitdhan Pulses Hero Background Video"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -67,16 +136,15 @@ export default function Hero({ sectionId }: HeroProps) {
         
         {/* Left main text elements */}
         <div className="flex-1 text-left space-y-6 max-w-3xl font-sans">
-          {/* Main Display Heading */}
-          <h1 className="text-[25.2px] sm:text-[33.6px] lg:text-[42px] font-serif text-white leading-[1.15] tracking-tight font-black flex flex-col gap-4">
-            <span>{headingLine1}</span>
-            
-            <span className="text-[#f4d068]">
-              {headingLine2}
-            </span>
+          {/* Main Display Heading - Font size reduced by 20%, gap between headers reduced by 10% */}
+          <h1 className="text-[20.16px] sm:text-[26.88px] lg:text-[33.6px] font-serif tracking-tight font-black flex flex-col gap-3.5">
+            <div className="flex flex-col gap-[7.2px] sm:gap-[9px] leading-[1.12]">
+              <span className="text-white">{headingLine1}</span>
+              <span className="text-[#f4d068]">{headingLine2}</span>
+            </div>
 
             {/* Accent Ribbon */}
-            <div className="self-start">
+            <div className="self-start pt-1">
               <div className="inline-flex items-center gap-2 bg-brand-accent/15 border border-brand-accent/45 text-brand-accent px-3 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase font-semibold">
                 <Wheat size={14} className="stroke-[2.5]" />
                 <span>{subtitle}</span>
@@ -89,24 +157,8 @@ export default function Hero({ sectionId }: HeroProps) {
             {content}
           </p>
 
-          {/* Compliance features indicators */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 font-mono text-xs text-brand-sage font-bold">
-            <div className="flex items-center gap-2">
-              <ShieldCheck size={16} className="text-[#f4d068] stroke-[2.5]" />
-              <span>{localize({ en: "ISO 9001:2015 Operations", hi: "आईएसओ 9001:2015 संचालन", gu: "ISO 9001:2015 સંચાલન" })}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck size={16} className="text-[#f4d068] stroke-[2.5]" />
-              <span>{localize({ en: "HACCP Certified", hi: "HACCP प्रमाणित", gu: "HACCP પ્રમાણિત" })}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck size={16} className="text-[#f4d068] stroke-[2.5]" />
-              <span>{localize({ en: "FSSAI Registered", hi: "FSSAI पंजीकृत", gu: "FSSAI નોંધાયેલ" })}</span>
-            </div>
-          </div>
-
           {/* Action CTAs */}
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-wrap gap-4 pt-2">
             <button
               onClick={() => {
                 setActivePageSlug("services");
