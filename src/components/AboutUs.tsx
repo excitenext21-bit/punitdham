@@ -7,6 +7,53 @@ import {
 import { useLanguage } from "../context/LanguageContext";
 import { useCMS } from "../context/CMSContext";
 
+function RunningCounter({
+  target,
+  decimals = 0,
+  prefix = "",
+  suffix = "",
+  duration = 2000
+}: {
+  target: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+  duration?: number;
+}) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp: number | null = null;
+    let animationFrameId: number;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setCount(easeOut * target);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [target, duration]);
+
+  const formatted = decimals > 0 
+    ? count.toFixed(decimals) 
+    : Math.round(count).toString();
+
+  return (
+    <span>
+      {prefix}
+      {formatted}
+      {suffix}
+    </span>
+  );
+}
+
 export default function AboutUs() {
   const { localize, language } = useLanguage();
   const { pages, activePageSlug, globalSettings } = useCMS();
@@ -374,25 +421,45 @@ export default function AboutUs() {
                         <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest block font-bold">
                           {localize({ en: "DAILY MILLING RUN", hi: "दैनिक मिलिंग क्षमता", gu: "દૈનિક મિલિંગ ક્ષમતા" })}
                         </span>
-                        <p className="text-3xl font-serif text-white font-bold">{localize({ en: "400+ MT", hi: "400+ मीट्रिक टन", gu: "૪૦૦+ મેટ્રિક ટન" })}</p>
+                        <p className="text-3xl font-serif text-white font-bold">
+                          <RunningCounter 
+                            target={400} 
+                            suffix={language === "hi" ? "+ मीट्रिक टन" : language === "gu" ? "+ મેટ્રિક ટન" : "+ MT"} 
+                            duration={2000} 
+                          />
+                        </p>
                       </div>
                       <div className="space-y-1">
                         <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest block font-bold">
                           {localize({ en: "SORTEX REFINEMENT", hi: "सॉर्टेक्स परिशोधन", gu: "સોર્ટેક્સ શુદ્ધતા" })}
                         </span>
-                        <p className="text-3xl font-serif text-[#fcf3c6] font-bold">99.95%</p>
+                        <p className="text-3xl font-serif text-[#fcf3c6] font-bold">
+                          <RunningCounter 
+                            target={99.95} 
+                            decimals={2} 
+                            suffix="%" 
+                            duration={2200} 
+                          />
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <div className="lg:col-span-5">
-                    <div className="relative overflow-hidden border border-white/10 bg-black/10 rounded-2xl">
+                    <div className="relative overflow-hidden border border-white/15 bg-black/20 rounded-2xl shadow-2xl group/img">
                       <img 
-                        src="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?auto=format&fit=crop&q=80&w=600" 
-                        alt="High capacity Sortex refinement flow"
-                        className="w-full h-56 object-cover filter grayscale transition-all duration-700 hover:grayscale-0"
-                        referrerPolicy="no-referrer"
+                        src="/milling_sorting_sortex.jpg" 
+                        alt="High capacity Optical Color Sortex grain refinement machine"
+                        className="w-full h-64 sm:h-72 object-cover object-center transition-all duration-700 group-hover/img:scale-105"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
+                        <span className="flex items-center gap-1.5 font-bold text-[#fcf3c6]">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          SORTEX A • Optical Laser Sortex
+                        </span>
+                        <span className="text-white/70">Grade-A+ Quality</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
