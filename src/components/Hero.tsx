@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ArrowRight, Wheat } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useCMS } from "../context/CMSContext";
@@ -11,74 +11,6 @@ interface HeroProps {
 export default function Hero({ sectionId }: HeroProps) {
   const { localize } = useLanguage();
   const { setActivePageSlug } = useCMS();
-
-  useEffect(() => {
-    let player: any = null;
-    let isMounted = true;
-
-    const startPlayer = () => {
-      const YT = (window as any).YT;
-      if (!YT || !YT.Player) return;
-
-      try {
-        player = new YT.Player("hero-yt-player", {
-          events: {
-            onReady: (e: any) => {
-              if (!isMounted) return;
-              e.target.mute();
-              e.target.playVideo();
-            },
-            onStateChange: (e: any) => {
-              if (!isMounted) return;
-              // State 2 = PAUSED, State 0 = ENDED, State -1 = UNSTARTED
-              if (e.data === 2 || e.data === 0 || e.data === -1) {
-                e.target.playVideo();
-              }
-            }
-          }
-        });
-      } catch (err) {
-        // Fallback gracefully
-      }
-    };
-
-    if ((window as any).YT && (window as any).YT.Player) {
-      startPlayer();
-    } else {
-      const existingScript = document.getElementById("youtube-iframe-api");
-      if (!existingScript) {
-        const tag = document.createElement("script");
-        tag.id = "youtube-iframe-api";
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.body.appendChild(tag);
-      }
-      const prevCallback = (window as any).onYouTubeIframeAPIReady;
-      (window as any).onYouTubeIframeAPIReady = () => {
-        if (prevCallback) prevCallback();
-        startPlayer();
-      };
-    }
-
-    // Safety heartbeat interval to ensure background video remains playing without pause
-    const heartbeat = setInterval(() => {
-      if (player && typeof player.getPlayerState === "function") {
-        const state = player.getPlayerState();
-        if (state === 2 || state === 0) {
-          player.playVideo();
-        }
-      }
-    }, 2000);
-
-    return () => {
-      isMounted = false;
-      clearInterval(heartbeat);
-      if (player && player.destroy) {
-        try {
-          player.destroy();
-        } catch (e) {}
-      }
-    };
-  }, []);
 
   const headingLine1 = localize({
     en: "Nourishing the nation one grain at a time.",
@@ -111,17 +43,19 @@ export default function Hero({ sectionId }: HeroProps) {
       id="hero-section"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-green-dark"
     >
-      {/* Background Video Wrapper */}
+      {/* Background Video Wrapper - Native HTML5 video: zero YouTube UI, zero buttons */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-        <iframe
-          id="hero-yt-player"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-full min-h-[56.25vw] pointer-events-none scale-125 border-0 select-none"
-          src="https://www.youtube.com/embed/E_NRicYz6os?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=E_NRicYz6os&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&disablekb=1&fs=0"
-          title="Punitdhan Pulses Hero Background Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          tabIndex={-1}
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute w-full h-full object-cover scale-105 opacity-100 pointer-events-none select-none"
+          poster="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1600"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
         {/* Soft elegant green ambient gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-green-dark/95 via-brand-green-dark/70 via-brand-green-dark/30 to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/50 to-transparent pointer-events-none" />
