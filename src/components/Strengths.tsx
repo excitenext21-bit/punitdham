@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import { Globe, Cpu, Leaf, Users, TrendingUp, Heart, Sparkles } from "./HandDrawnIcons";
 import { STRENGTHS } from "../data";
 import { useLanguage } from "../context/LanguageContext";
@@ -147,19 +148,25 @@ export default function Strengths() {
             return (
               <div
                 key={strength.id || index}
-                className={`group bg-gradient-to-b from-brand-green-mid to-brand-green-dark/60 border border-brand-green-light/40 border-l-4 ${index % 2 === 0 ? "border-l-brand-accent" : "border-l-brand-green-light"} rounded-3xl p-8 hover:border-brand-accent/50 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand-accent/5 flex flex-col`}
+                className="group relative bg-[#fbfcfa] hover:bg-gradient-to-b hover:from-brand-green-mid hover:to-[#092215] border border-zinc-200/80 hover:border-brand-green-light/50 border-l-2 border-l-brand-green-mid hover:border-l-brand-accent rounded-3xl p-8 transition-all duration-400 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/25 flex flex-col justify-between overflow-hidden cursor-pointer"
               >
                 <div className="space-y-5">
-                  {/* Icon Container with glowing background */}
-                  <div className="p-3.5 bg-brand-green-light/30 border border-brand-green-light/30 text-brand-accent rounded-2xl w-fit group-hover:scale-110 transition-transform duration-300">
-                    <StrengthIcon name={strength.iconName} size={22} />
+                  {/* Icon Container with glowing background & animated icon */}
+                  <div className="p-3.5 bg-brand-green-mid/10 text-brand-green-dark border border-brand-green-mid/20 rounded-2xl w-fit group-hover:bg-brand-green-light/40 group-hover:text-brand-accent group-hover:border-brand-accent/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(244,208,104,0.25)] transition-all duration-300 flex items-center justify-center">
+                    <motion.div
+                      animate={{ y: [0, -3, 0] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: index * 0.25 }}
+                      className="group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300"
+                    >
+                      <StrengthIcon name={strength.iconName} size={24} />
+                    </motion.div>
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-lg font-serif font-bold tracking-wide text-white group-hover:text-brand-accent transition-colors">
+                    <h3 className="text-lg font-serif font-bold tracking-wide text-zinc-950 group-hover:text-white transition-colors duration-300">
                       {title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-sans">
+                    <p className="text-xs sm:text-sm text-zinc-650 group-hover:text-gray-200 leading-relaxed font-sans transition-colors duration-300">
                       {desc}
                     </p>
                   </div>
