@@ -142,8 +142,6 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
   const careerFileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Board of Directors interactive states
-  const [viewMode, setViewMode] = React.useState<"card" | "list" | "detail">("card");
-  const [activeLeaderId, setActiveLeaderId] = React.useState<string>("prakashchand");
   const [selectedLeaderId, setSelectedLeaderId] = React.useState<string | null>(null);
 
   const { language, localize } = useLanguage();
@@ -684,140 +682,86 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           
           {/* Executive Board of Directors Section - All Members Displayed with Interactive Views */}
           <div className="space-y-10">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-zinc-200/45 pb-6">
-              <div className="flex items-center gap-3">
-                <Users className="w-6 h-6 text-[#0b2418] stroke-[2.5]" />
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                  Our Governing Board
-                </h2>
-              </div>
-
-              {/* View Mode Switcher */}
-              <div className="flex items-center gap-1.5 p-1 bg-zinc-100 rounded-xl self-start md:self-auto w-full md:w-auto">
-                <button
-                  onClick={() => setViewMode("card")}
-                  className={`flex-1 md:flex-initial flex items-center justify-center gap-1.5 py-1.5 px-3.5 rounded-lg text-xs font-sans font-bold transition-all cursor-pointer ${
-                    viewMode === "card"
-                      ? "bg-[#092215] text-[#f4d068] shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-900"
-                  }`}
-                >
-                  <LayoutGrid size={13} />
-                  <span>{localize({ en: "Card View", hi: "कार्ड व्यू", gu: "કાર્ડ વ્યુ" })}</span>
-                </button>
-                <button
-                  onClick={() => setViewMode("list")}
-                  className={`flex-1 md:flex-initial flex items-center justify-center gap-1.5 py-1.5 px-3.5 rounded-lg text-xs font-sans font-bold transition-all cursor-pointer ${
-                    viewMode === "list"
-                      ? "bg-[#092215] text-[#f4d068] shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-900"
-                  }`}
-                >
-                  <List size={13} />
-                  <span>{localize({ en: "List View", hi: "सूची दृश्य", gu: "યાદી વ્યુ" })}</span>
-                </button>
-                <button
-                  onClick={() => setViewMode("detail")}
-                  className={`flex-1 md:flex-initial flex items-center justify-center gap-1.5 py-1.5 px-3.5 rounded-lg text-xs font-sans font-bold transition-all cursor-pointer ${
-                    viewMode === "detail"
-                      ? "bg-[#092215] text-[#f4d068] shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-900"
-                  }`}
-                >
-                  <User size={13} />
-                  <span>{localize({ en: "Detail View", hi: "विस्तृत दृश्य", gu: "વિગતવાર વ્યુ" })}</span>
-                </button>
-              </div>
+            <div className="flex items-center gap-3 border-b border-zinc-200/45 pb-6">
+              <Users className="w-6 h-6 text-[#0b2418] stroke-[2.5]" />
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
+                Our Governing Board
+              </h2>
             </div>
 
-            {/* Render Card View */}
-            {viewMode === "card" && (
-              <div className="space-y-12 w-full max-w-7xl mx-auto">
-                {/* Board Directors (With Photographs) */}
-                <div className="space-y-6">
-                  <div className="flex items-center">
-                    <span className="text-[10px] font-mono tracking-widest text-brand-green-light uppercase font-bold bg-[#0b2418]/5 px-3.5 py-1.5 rounded-full border border-[#0b2418]/15 inline-block">
-                      {localize({ en: "BOARD DIRECTORS", hi: "बोर्ड निदेशक", gu: "બોર્ડ ડિરેક્ટર્સ" })}
-                    </span>
-                  </div>
+            <div className="space-y-12 w-full max-w-7xl mx-auto">
+              {/* Board Directors (With Photographs) */}
+              <div className="space-y-6">
+                <div className="flex items-center">
+                  <span className="text-[10px] font-mono tracking-widest text-brand-green-light uppercase font-bold bg-[#0b2418]/5 px-3.5 py-1.5 rounded-full border border-[#0b2418]/15 inline-block">
+                    {localize({ en: "BOARD DIRECTORS", hi: "बोर्ड निदेशक", gu: "બોર્ડ ડિરેક્ટર્સ" })}
+                  </span>
+                </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
-                    {LEADERS.filter(l => l.id === "prakashchand" || l.id === "punit").map((leader, index) => {
-                      const locName = getLocalizedLeaderName(leader.id, leader.name);
-                      const locTitle = getLocalizedLeaderTitle(leader.id, leader.title);
-                      const leaderImg = LEADER_IMAGES[leader.id];
-                      const stats = LEADER_STATS[leader.id];
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+                  {LEADERS.filter(l => l.id === "prakashchand" || l.id === "punit").map((leader, index) => {
+                    const locName = getLocalizedLeaderName(leader.id, leader.name);
+                    const locTitle = getLocalizedLeaderTitle(leader.id, leader.title);
+                    const leaderImg = LEADER_IMAGES[leader.id];
+                    const stats = LEADER_STATS[leader.id];
 
-                      return (
-                        <motion.div
-                          key={leader.id}
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: index * 0.15 }}
-                          className={`group relative flex flex-col bg-white rounded-[2rem] border border-zinc-200/80 border-l-4 ${index % 2 === 0 ? "border-l-brand-green-mid" : "border-l-[#f4d068]"} shadow-md hover:shadow-xl hover:border-brand-green-dark/20 hover:-translate-y-1.5 transition-all duration-500 overflow-hidden cursor-pointer`}
-                          onClick={() => setSelectedLeaderId(leader.id)}
-                        >
-                          {/* Image Wrap */}
-                          <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
-                            {/* Decorative Frame corner brackets */}
-                            <div className="absolute top-5 left-5 w-4 h-4 border-t border-l border-white/40 z-20" />
-                            <div className="absolute top-5 right-5 w-4 h-4 border-t border-r border-white/40 z-20" />
-                            
-                            {/* Executive Tag Floating */}
-                            <span className="absolute top-5 left-5 z-20 bg-[#122e20]/90 text-[#f4d068] text-[9px] font-mono tracking-widest px-3.5 py-1.5 rounded-full uppercase border border-white/10 font-bold">
-                              {stats.tag[language] || stats.tag.en}
-                            </span>
+                    return (
+                      <motion.div
+                        key={leader.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.15 }}
+                        className={`group relative flex flex-col bg-white rounded-[2rem] border border-zinc-200/80 border-l-4 ${index % 2 === 0 ? "border-l-brand-green-mid" : "border-l-[#f4d068]"} shadow-md hover:shadow-xl hover:border-brand-green-dark/20 hover:-translate-y-1.5 transition-all duration-500 overflow-hidden cursor-pointer`}
+                        onClick={() => setSelectedLeaderId(leader.id)}
+                      >
+                        {/* Image Wrap - Full size photo matching attached images */}
+                        <div className="relative aspect-[4/4.6] w-full overflow-hidden bg-white flex items-center justify-center border-b border-zinc-100 p-2 sm:p-3">
+                          <img
+                            src={leaderImg}
+                            alt={leader.name}
+                            className="w-full h-full object-contain object-top transition-transform duration-700 ease-out group-hover:scale-102"
+                          />
+                        </div>
 
-                            <img
-                              src={leaderImg}
-                              alt={leader.name}
-                              className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105 group-hover:filter group-hover:brightness-105 filter grayscale-[10%] brightness-95"
-                              referrerPolicy="no-referrer"
-                            />
-
-                            {/* Luxurious vignette shadow gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent" />
-                            
-                            {/* Highlight on Hover Glow overlay */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-brand-green-dark/10 transition-opacity duration-500" />
-                            
-                            {/* Mini info overlay on image bottom */}
-                            <div className="absolute bottom-0 left-0 w-full p-6 text-white space-y-1 z-15">
-                              <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase block font-extrabold">
+                        {/* Card Footer and Description */}
+                        <div className="p-6 md:p-8 flex-1 flex flex-col justify-between bg-white space-y-5">
+                          <div className="space-y-3">
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
+                              <span className="text-[10px] font-mono tracking-widest text-[#b45309] bg-[#fffbeb] border border-[#fde68a] px-3 py-1 rounded-full uppercase font-bold inline-block">
                                 {stats.record[language] || stats.record.en} {localize({ en: "DIRECTIVE", hi: "निदेशक", gu: "નિર્દેશક" })}
                               </span>
-                              <h4 className="font-serif font-black text-xl sm:text-2xl tracking-tight leading-tight text-white group-hover:text-brand-accent transition-colors">
+                              <span className="bg-[#122e20] text-[#f4d068] text-[9px] font-mono tracking-widest px-3 py-1 rounded-full uppercase border border-[#0b2418]/20 font-bold shadow-xs">
+                                {stats.tag[language] || stats.tag.en}
+                              </span>
+                            </div>
+
+                            <div>
+                              <h4 className="font-serif font-black text-2xl sm:text-3xl tracking-tight leading-tight text-zinc-950 group-hover:text-brand-green-dark transition-colors">
                                 {locName}
                               </h4>
-                              <p className="text-xs text-zinc-300 font-sans tracking-wide truncate max-w-full font-medium">
+                              <p className="text-xs sm:text-sm text-brand-green-mid font-mono uppercase tracking-wider font-bold mt-1">
                                 {locTitle}
+                              </p>
+                            </div>
+
+                            <div className="pt-2 border-t border-zinc-100">
+                              <span className="text-[8px] font-mono tracking-widest uppercase text-zinc-400 font-bold block mb-1">
+                                {localize({ en: "Executive Profile", hi: "कार्यकारी प्रोफ़ाइल", gu: "કાર્યકારી પ્રોફાઇલ" })}
+                              </span>
+                              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans font-normal">
+                                {getLocalizedLeaderRole(leader.id, leader.role)}
                               </p>
                             </div>
                           </div>
 
-                          {/* Card Footer and Description */}
-                          <div className="p-6 md:p-8 flex-1 flex flex-col justify-between bg-white bg-radial-[circle_at_bottom_right,rgba(255,255,255,1),rgba(250,250,248,1)]">
-                            <div className="space-y-4">
-                              <div className="space-y-1">
-                                <span className="text-[8px] font-mono tracking-widest uppercase text-zinc-450 font-bold block">
-                                  {localize({ en: "Executive Profile", hi: "कार्यकारी प्रोफ़ाइल", gu: "કાર્યકારી પ્રોફાઇલ" })}
-                                </span>
-                                <p className="text-xs text-zinc-550 leading-relaxed font-sans font-medium">
-                                  {getLocalizedLeaderRole(leader.id, leader.role)}
-                                </p>
-                              </div>
-                            </div>
-
-                            <div className="pt-5 mt-6 border-t border-zinc-100 flex items-center justify-between text-[#0b2418] hover:text-[#122e20] transition-colors">
-                              <span className="text-[11px] font-mono tracking-wider font-extrabold uppercase">
-                                {getLocalizedStatLabel("ctaButton")}
-                              </span>
-                              <ChevronRight size={13} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
-                            </div>
+                          <div className="pt-4 border-t border-zinc-100 flex items-center justify-between text-[#0b2418] hover:text-brand-green-mid transition-colors font-mono text-[11px] font-extrabold uppercase">
+                            <span>{getLocalizedStatLabel("ctaButton")}</span>
+                            <ChevronRight size={13} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
                           </div>
-                        </motion.div>
-                      );
-                    })}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                   </div>
                 </div>
 
@@ -890,224 +834,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   </div>
                 </div>
               </div>
-            )}
-
-            {/* Render List View */}
-            {viewMode === "list" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="space-y-4 max-w-5xl mx-auto"
-              >
-                {LEADERS.map((leader, index) => {
-                  const locName = getLocalizedLeaderName(leader.id, leader.name);
-                  const locTitle = getLocalizedLeaderTitle(leader.id, leader.title);
-                  const leaderImg = LEADER_IMAGES[leader.id];
-                  const stats = LEADER_STATS[leader.id];
-                  const hasPhoto = leader.id === "prakashchand" || leader.id === "punit";
-
-                  return (
-                    <motion.div
-                      key={leader.id}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className={`bg-white rounded-2xl border border-zinc-200 border-l-4 ${index % 2 === 0 ? "border-l-brand-green-mid" : "border-l-[#f4d068]"} p-5 flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-md hover:border-brand-green-dark/20 hover:-translate-y-1 transition-all cursor-pointer`}
-                      onClick={() => {
-                        setSelectedLeaderId(leader.id);
-                        setActiveLeaderId(leader.id);
-                      }}
-                    >
-                      <div className="flex items-center gap-4 w-full md:w-auto">
-                        <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border border-zinc-150 flex items-center justify-center bg-brand-green-dark/5">
-                          {hasPhoto ? (
-                            <img src={leaderImg} alt={leader.name} className="w-full h-full object-cover grayscale-[10%]" referrerPolicy="no-referrer" />
-                          ) : (
-                            <span className="text-brand-green-dark font-serif font-black text-sm">
-                              {leader.id === "dhanashree" ? "DB" : "CB"}
-                            </span>
-                          )}
-                        </div>
-                        <div>
-                          <span className="text-[9px] font-mono font-bold text-brand-green-light bg-brand-green-dark/5 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                            {stats.tag[language] || stats.tag.en}
-                          </span>
-                          <h4 className="text-lg font-serif font-bold text-brand-green-dark mt-1">{locName}</h4>
-                          <p className="text-xs text-zinc-500 font-sans">{locTitle}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-wrap items-center gap-6 w-full md:w-auto md:justify-end text-xs font-medium text-zinc-600">
-                        <div className="space-y-0.5">
-                          <span className="text-[9px] font-mono text-zinc-400 block uppercase tracking-wider">{getLocalizedStatLabel("focusProtocol")}</span>
-                          <span className="text-xs text-brand-green-dark font-semibold">{stats.focus[language] || stats.focus.en}</span>
-                        </div>
-                        <div className="space-y-0.5">
-                          <span className="text-[9px] font-mono text-zinc-400 block uppercase tracking-wider">{getLocalizedStatLabel("governingRecord")}</span>
-                          <span className="text-xs text-zinc-800 font-semibold">{stats.record[language] || stats.record.en}</span>
-                        </div>
-                        <button 
-                          className="bg-[#092215] text-[#f4d068] hover:bg-brand-green-dark hover:text-white px-4 py-2.5 rounded-xl text-[10px] font-mono uppercase tracking-wider font-bold transition-all ml-auto md:ml-0 cursor-pointer shadow-sm"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedLeaderId(leader.id);
-                            setActiveLeaderId(leader.id);
-                          }}
-                        >
-                          {getLocalizedStatLabel("ctaButton")}
-                        </button>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-            )}
-
-            {/* Render Detail View */}
-            {viewMode === "detail" && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-[2.5rem] border border-zinc-200 border-l-4 border-l-brand-green-mid shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden grid grid-cols-1 lg:grid-cols-12 max-w-5xl mx-auto"
-              >
-                {/* Left Selection Column (Col-span 4) */}
-                <div className="lg:col-span-4 bg-zinc-50 border-r border-zinc-200 p-6 flex flex-col justify-between space-y-6">
-                  <div>
-                    <span className="text-[9px] font-mono font-bold tracking-wider text-zinc-400 uppercase block mb-3">
-                      {localize({ en: "SELECT LEADER PROFILE", hi: "प्रोफ़ाइल चुनें", gu: "પસંદગી કરો" })}
-                    </span>
-                    <div className="space-y-2">
-                      {LEADERS.map((leader) => {
-                        const isSelected = leader.id === activeLeaderId;
-                        const locName = getLocalizedLeaderName(leader.id, leader.name);
-                        return (
-                          <button
-                            key={leader.id}
-                            onClick={() => setActiveLeaderId(leader.id)}
-                            className={`w-full text-left p-3.5 rounded-xl transition-all relative flex items-center gap-3 border cursor-pointer ${
-                              isSelected
-                                ? "bg-[#092215] border-[#f4d068]/30 font-bold text-[#f4d068] shadow-md"
-                                : "bg-white border-zinc-200 hover:bg-zinc-100 text-zinc-750"
-                            }`}
-                          >
-                            <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-zinc-200 flex items-center justify-center bg-brand-green-dark/5">
-                              {leader.id === "prakashchand" || leader.id === "punit" ? (
-                                <img src={LEADER_IMAGES[leader.id]} alt={leader.name} className="w-full h-full object-cover object-top" referrerPolicy="no-referrer" />
-                              ) : (
-                                <span className="text-brand-green-dark font-serif font-black text-[10px]">
-                                  {leader.id === "dhanashree" ? "DB" : "CB"}
-                                </span>
-                              )}
-                            </div>
-                            <div className="truncate">
-                              <p className="text-xs font-bold leading-tight">{locName}</p>
-                              <p className={`text-[9px] font-mono ${isSelected ? "text-[#f4d068]/80" : "text-zinc-400"}`}>
-                                {LEADER_STATS[leader.id].tag[language] || LEADER_STATS[leader.id].tag.en}
-                              </p>
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                  
-                  <div className="bg-brand-green-dark/5 p-4 rounded-xl border border-brand-green-dark/10">
-                    <p className="text-[10px] font-mono text-brand-green-dark leading-relaxed text-center font-bold">
-                      {localize({
-                        en: "Our Board unites expert Chartered Accountants and Operations Directors under the vision of ethical value delivery.",
-                        hi: "हमारा बोर्ड नैतिक मूल्य वितरण के दृष्टिकोण के तहत विशेषज्ञ चार्टर्ड अकाउंटेंट और संचालन निदेशकों को एकजुट करता है।",
-                        gu: "અમારું બોર્ડ ઓફ ડિરેક્ટર્સ નાણાકીય નિષ્ણાતો અને ઓપરેશન્સ ક્ષેત્રના અગ્રણીઓનું બનેલું છે."
-                      })}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Right Content Column (Col-span 8) */}
-                <div className="lg:col-span-8 p-6 sm:p-10 flex flex-col justify-between bg-white min-h-[500px]">
-                  <div className="space-y-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-100">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-full overflow-hidden border border-zinc-200 shrink-0 flex items-center justify-center bg-brand-green-dark/5">
-                          {activeLeaderId === "prakashchand" || activeLeaderId === "punit" ? (
-                            <img src={LEADER_IMAGES[activeLeaderId]} alt={activeLeaderId} className="w-full h-full object-cover object-top" referrerPolicy="no-referrer" />
-                          ) : (
-                            <span className="text-brand-green-dark font-serif font-black text-sm">
-                              {activeLeaderId === "dhanashree" ? "DB" : "CB"}
-                            </span>
-                          )}
-                        </div>
-                        <div>
-                          <h3 className="text-xl sm:text-2xl font-serif text-brand-green-dark font-extrabold tracking-tight">
-                            {getLocalizedLeaderName(activeLeaderId, "")}
-                          </h3>
-                          <p className="text-xs text-brand-green-light font-bold">
-                            {getLocalizedLeaderTitle(activeLeaderId, "")}
-                          </p>
-                        </div>
-                      </div>
-                      <span className="self-start sm:self-center inline-flex items-center gap-1.5 px-3 py-1 bg-brand-green-dark text-brand-accent text-[9px] font-mono tracking-widest font-black rounded-full uppercase shadow-xs">
-                        {LEADER_STATS[activeLeaderId].tag[language] || LEADER_STATS[activeLeaderId].tag.en}
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="p-3 bg-zinc-50 border border-zinc-200/60 rounded-xl flex items-center gap-2">
-                        <Clock size={16} className="text-brand-green-light shrink-0" />
-                        <div>
-                          <span className="text-[8px] font-mono font-bold text-gray-400 block uppercase tracking-wider">{getLocalizedStatLabel("governingRecord")}</span>
-                          <span className="text-xs font-bold text-brand-green-dark block mt-0.5">{LEADER_STATS[activeLeaderId].record[language] || LEADER_STATS[activeLeaderId].record.en}</span>
-                        </div>
-                      </div>
-                      <div className="p-3 bg-zinc-50 border border-zinc-200/60 rounded-xl flex items-center gap-2">
-                        <Briefcase size={16} className="text-brand-green-light shrink-0" />
-                        <div>
-                          <span className="text-[8px] font-mono font-bold text-gray-400 block uppercase tracking-wider">{getLocalizedStatLabel("focusProtocol")}</span>
-                          <span className="text-xs font-bold text-brand-green-dark block mt-0.5">{LEADER_STATS[activeLeaderId].focus[language] || LEADER_STATS[activeLeaderId].focus.en}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative p-5 bg-zinc-50 rounded-xl border border-zinc-200/60">
-                      <Quote size={20} className="absolute top-3 right-4 opacity-10 text-brand-green-light" />
-                      <span className="text-[8px] font-mono font-extrabold text-brand-green-dark uppercase tracking-widest block mb-1">
-                        {getLocalizedStatLabel("statement")}
-                      </span>
-                      <p className="text-xs sm:text-sm font-sans italic text-zinc-700 leading-relaxed font-semibold">
-                        "{getLocalizedLeaderRole(activeLeaderId, "")}"
-                      </p>
-                    </div>
-
-                    <div className="space-y-2">
-                      <h5 className="text-[9px] text-zinc-400 font-mono uppercase tracking-widest font-extrabold flex items-center gap-1.5">
-                        <Award size={12} className="text-brand-green-light" />
-                        {getLocalizedStatLabel("achievements")}
-                      </h5>
-                      <p className="text-xs sm:text-sm text-zinc-600 font-sans leading-relaxed font-medium bg-zinc-50/50 p-4 rounded-xl border border-zinc-150">
-                        {LEADERS.find(l => l.id === activeLeaderId)?.description.map((achievement, idx) => 
-                          getLocalizedAchievement(activeLeaderId, idx, achievement)
-                        ).join(" ")}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between">
-                    <div className="flex items-center gap-2 bg-zinc-50 border border-zinc-200/50 py-1.5 px-3 rounded-lg">
-                      <span className="text-xs font-sans italic text-brand-green-dark font-bold">
-                        {LEADER_STATS[activeLeaderId].signature}
-                      </span>
-                    </div>
-                    <button
-                      onClick={() => setSelectedLeaderId(activeLeaderId)}
-                      className="text-xs font-mono font-bold text-brand-green-dark hover:text-brand-green-light flex items-center gap-1 transition-colors cursor-pointer"
-                    >
-                      <span>{localize({ en: "View Credentials Modal", hi: "प्रमाणपत्र विवरण", gu: "લાયકાત મોડલ" })}</span>
-                      <ArrowRight size={12} />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </div>
+            </div>
 
               {/* Committee & Stewardship Blueprint - Clean of heading numbering */}
           <div className="space-y-8">
@@ -1211,12 +938,12 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                 </button>
 
                 {/* Profile Visual Display Side (Col-span 5) */}
-                <div className="relative col-span-5 aspect-[4/3] md:aspect-auto md:h-full min-h-[250px] md:min-h-[550px] bg-[#0b2418] overflow-hidden flex flex-col justify-end">
+                <div className="relative col-span-5 aspect-[4/3] md:aspect-auto md:h-full min-h-[280px] md:min-h-[550px] bg-white overflow-hidden flex flex-col justify-end">
                   {selectedLeaderId === "prakashchand" || selectedLeaderId === "punit" ? (
                     <img
                       src={LEADER_IMAGES[selectedLeaderId]}
                       alt={selectedLeaderId}
-                      className="absolute inset-0 w-full h-full object-cover object-top brightness-90 filter grayscale-[10%]"
+                      className="absolute inset-0 w-full h-full object-contain object-top"
                       referrerPolicy="no-referrer"
                     />
                   ) : (
@@ -1225,11 +952,11 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     </div>
                   )}
                   
-                  {/* Subtle brand color tone overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#092215] via-[#1e3a1e]/40 to-transparent z-10" />
+                  {/* Subtle bottom shadow overlay to keep typography readable */}
+                  <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/85 via-black/40 to-transparent z-10" />
 
                   {/* Highlight corner brackets */}
-                  <div className="absolute top-6 left-6 w-5 h-5 border-t-2 border-l-2 border-[#f4d068]/50 z-20" />
+                  <div className="absolute top-6 left-6 w-5 h-5 border-t-2 border-l-2 border-zinc-300/60 z-20" />
                   <div className="absolute bottom-6 left-6 w-5 h-5 border-b-2 border-l-2 border-[#f4d068]/50 z-20" />
 
                   <div className="p-8 relative z-20 text-white space-y-2">
