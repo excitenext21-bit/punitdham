@@ -144,10 +144,27 @@ export default function AboutUs() {
 
               {/* Enhanced Facets Under 1st Paragraph */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6 pt-4 border-t border-zinc-200/50 max-w-4xl">
-                <div className="flex gap-3.5 items-start bg-white/50 border border-zinc-200/40 border-l-4 border-l-brand-green-mid rounded-xl p-4 hover:shadow-xs transition-all duration-300">
-                  <div className="p-2 bg-brand-green-mid/10 text-brand-green-dark rounded-lg shrink-0">
-                    <Cpu className="w-4 h-4" />
-                  </div>
+                {/* 1. Technological Innovation */}
+                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-brand-green-mid rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                  <motion.div 
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    className="p-2.5 bg-brand-green-mid/10 text-brand-green-dark rounded-xl shrink-0 group-hover:bg-brand-green-mid/20 transition-colors duration-300 flex items-center justify-center relative"
+                  >
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.15, 1],
+                        rotate: [0, 6, -6, 0]
+                      }}
+                      transition={{ 
+                        duration: 3, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
+                    >
+                      <Cpu className="w-4 h-4" />
+                    </motion.div>
+                  </motion.div>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider font-mono">
                       {localize({ en: "Technological Innovation", hi: "तकनीकी नवाचार", gu: "ટેકનોલોજીકલ ઇનોવેશન" })}
@@ -162,10 +179,28 @@ export default function AboutUs() {
                   </div>
                 </div>
 
-                <div className="flex gap-3.5 items-start bg-white/50 border border-zinc-200/40 border-l-4 border-l-[#f4d068] rounded-xl p-4 hover:shadow-xs transition-all duration-300">
-                  <div className="p-2 bg-[#f4d068]/10 text-amber-800 rounded-lg shrink-0">
-                    <Users className="w-4 h-4" />
-                  </div>
+                {/* 2. Community Partnership */}
+                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-[#f4d068] rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                  <motion.div 
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                    className="p-2.5 bg-[#f4d068]/15 text-amber-800 rounded-xl shrink-0 group-hover:bg-[#f4d068]/25 transition-colors duration-300 flex items-center justify-center relative"
+                  >
+                    <motion.div
+                      animate={{ 
+                        y: [0, -3.5, 0],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        duration: 2.8, 
+                        repeat: Infinity, 
+                        ease: "easeInOut",
+                        delay: 0.2
+                      }}
+                    >
+                      <Users className="w-4 h-4" />
+                    </motion.div>
+                  </motion.div>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider font-mono">
                       {localize({ en: "Community Partnership", hi: "सामुदायिक साझेदारी", gu: "સામુદાયિક ભાગીદારી" })}
@@ -180,10 +215,26 @@ export default function AboutUs() {
                   </div>
                 </div>
 
-                <div className="flex gap-3.5 items-start bg-white/50 border border-zinc-200/40 border-l-4 border-l-[#f4d068] rounded-xl p-4 hover:shadow-xs transition-all duration-300">
-                  <div className="p-2 bg-[#f4d068]/10 text-amber-800 rounded-lg shrink-0">
-                    <Globe className="w-4 h-4" />
-                  </div>
+                {/* 3. National Impact */}
+                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-[#f4d068] rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                  <motion.div 
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                    className="p-2.5 bg-[#f4d068]/15 text-amber-800 rounded-xl shrink-0 group-hover:bg-[#f4d068]/25 transition-colors duration-300 flex items-center justify-center relative"
+                  >
+                    <motion.div
+                      animate={{ 
+                        rotate: 360
+                      }}
+                      transition={{ 
+                        duration: 12, 
+                        repeat: Infinity, 
+                        ease: "linear" 
+                      }}
+                    >
+                      <Globe className="w-4 h-4" />
+                    </motion.div>
+                  </motion.div>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider font-mono">
                       {localize({ en: "National Impact", hi: "राष्ट्रीय प्रभाव", gu: "રાષ્ટ્રીય યોગદાન" })}
@@ -198,10 +249,27 @@ export default function AboutUs() {
                   </div>
                 </div>
 
-                <div className="flex gap-3.5 items-start bg-white/50 border border-zinc-200/40 border-l-4 border-l-brand-green-mid rounded-xl p-4 hover:shadow-xs transition-all duration-300">
-                  <div className="p-2 bg-brand-green-mid/10 text-brand-green-dark rounded-lg shrink-0">
-                    <Activity className="w-4 h-4" />
-                  </div>
+                {/* 4. Operational Excellence */}
+                <div className="group flex gap-3.5 items-start bg-white/60 hover:bg-white border border-zinc-200/50 hover:border-zinc-300/80 border-l-4 border-l-brand-green-mid rounded-xl p-4 shadow-xs hover:shadow-md transition-all duration-300">
+                  <motion.div 
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    className="p-2.5 bg-brand-green-mid/10 text-brand-green-dark rounded-xl shrink-0 group-hover:bg-brand-green-mid/20 transition-colors duration-300 flex items-center justify-center relative"
+                  >
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.25, 1, 1.15, 1]
+                      }}
+                      transition={{ 
+                        duration: 2.2, 
+                        repeat: Infinity, 
+                        ease: "easeInOut",
+                        delay: 0.5
+                      }}
+                    >
+                      <Activity className="w-4 h-4" />
+                    </motion.div>
+                  </motion.div>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider font-mono">
                       {localize({ en: "Operational Excellence", hi: "परिचालन उत्कृष्टता", gu: "ઓપરેશનલ શ્રેષ્ઠતા" })}
