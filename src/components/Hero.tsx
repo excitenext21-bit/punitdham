@@ -37,7 +37,6 @@ export default function Hero({ sectionId }: HeroProps) {
     hi: "हमारी सेवाएं देखें",
     gu: "અમારી સેવાઓ જાણો"
   });
-  const videoUrl = "https://excitetemplate.com/1.mp4";
 
   return (
     <section 
@@ -45,20 +44,15 @@ export default function Hero({ sectionId }: HeroProps) {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-green-dark"
     >
       {/* Background Video Wrapper */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute w-full h-full object-cover scale-105 opacity-100"
-          poster="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1600"
-        >
-          <source 
-            src={videoUrl} 
-            type="video/mp4" 
-          />
-        </video>
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <iframe
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-full min-h-[56.25vw] pointer-events-none scale-125 border-0"
+          src="https://www.youtube-nocookie.com/embed/E_NRicYz6os?autoplay=1&mute=1&loop=1&playlist=E_NRicYz6os&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&disablekb=1&fs=0"
+          title="Punitdhan Pulses Hero Background Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          tabIndex={-1}
+        />
         {/* Soft elegant green ambient gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-green-dark/95 via-brand-green-dark/70 via-brand-green-dark/30 to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/50 to-transparent pointer-events-none" />

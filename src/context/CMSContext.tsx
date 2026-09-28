@@ -121,7 +121,7 @@ const DEFAULT_SECTIONS: Record<string, CMSSection[]> = {
       content: "Indian Grains & Pulses processing pioneer, state-of-the-art facilities, direct sourcing, national cooperative partnerships.",
       buttonLabel: "Explore Dynamic Catalog",
       buttonLink: "#products",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-agriculture-machines-harvesting-in-the-field-42251-large.mp4",
+      videoUrl: "https://youtu.be/E_NRicYz6os",
       images: [],
       style: {
         typography: { titleSize: "text-5xl", fontFamily: "font-serif", alignment: "center" },
