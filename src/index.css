@@ -172,4 +172,18 @@ p {
   line-height: 1.625 !important;
 }
 
+@keyframes icon-pulse-gentle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.06);
+  }
+}
+
+.animate-icon-pulse {
+  animation: icon-pulse-gentle 3.5s ease-in-out infinite;
+}
+
+
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "motion/react";
 import { Globe, Cpu, Leaf, Users, TrendingUp, Heart, Sparkles } from "./HandDrawnIcons";
 import { STRENGTHS } from "../data";
 import { useLanguage } from "../context/LanguageContext";
@@ -38,13 +37,6 @@ export default function Strengths() {
         en: "Our Key Strengths & Operational Principles",
         hi: "हमारी प्रमुख ताकत और परिचालन सिद्धांत",
         gu: "અમારી મુખ્ય શક્તિઓ અને સંચાલન સિદ્ધાંતો"
-      });
-  const sectionSubtitle = language === "en"
-    ? (section?.subtitle || "WHY CLIENTS PARTNER WITH US")
-    : localize({
-        en: "WHY CLIENTS PARTNER WITH US",
-        hi: "ग्राहक हमारे साथ क्यों जुड़ते हैं",
-        gu: "શા માટે ગ્રાહકો અમારી પસંદગી કરે છે"
       });
   const sectionContent = language === "en"
     ? (section?.content || "Combining state-of-the-art technological processing with strict ethical and sustainable supply networks, we set high benchmarks in agrarian product quality.")
@@ -128,13 +120,10 @@ export default function Strengths() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-3">
-          <span className="text-xs font-mono uppercase tracking-widest text-brand-accent bg-white/5 border border-white/10 px-3 py-1 bg-brand-green-mid rounded font-bold">
-            {sectionSubtitle}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-serif text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif text-white tracking-tight font-extrabold">
             {sectionTitle}
           </h2>
-          <p className="text-brand-sage text-sm sm:text-base font-sans max-w-2xl mx-auto">
+          <p className="text-brand-sage text-sm sm:text-base font-sans max-w-2xl mx-auto leading-relaxed">
             {sectionContent}
           </p>
         </div>
@@ -148,25 +137,24 @@ export default function Strengths() {
             return (
               <div
                 key={strength.id || index}
-                className="group relative bg-[#fbfcfa] hover:bg-gradient-to-b hover:from-brand-green-mid hover:to-[#092215] border border-zinc-200/80 hover:border-brand-green-light/50 border-l-2 border-l-brand-green-mid hover:border-l-brand-accent rounded-3xl p-8 transition-all duration-400 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/25 flex flex-col justify-between overflow-hidden cursor-pointer"
+                className={`group relative bg-[#fbfcfa] hover:bg-gradient-to-b hover:from-brand-green-mid hover:to-[#0f2e1e] border border-zinc-200/80 hover:border-brand-accent/50 border-l-2 ${index % 2 === 0 ? "border-l-brand-green-mid hover:border-l-brand-accent" : "border-l-[#d4af37] hover:border-l-brand-accent"} rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/25 flex flex-col justify-between`}
               >
                 <div className="space-y-5">
-                  {/* Icon Container with glowing background & animated icon */}
-                  <div className="p-3.5 bg-brand-green-mid/10 text-brand-green-dark border border-brand-green-mid/20 rounded-2xl w-fit group-hover:bg-brand-green-light/40 group-hover:text-brand-accent group-hover:border-brand-accent/40 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(244,208,104,0.25)] transition-all duration-300 flex items-center justify-center">
-                    <motion.div
-                      animate={{ y: [0, -3, 0] }}
-                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: index * 0.25 }}
-                      className="group-hover:rotate-6 group-hover:scale-110 transition-transform duration-300"
+                  {/* Icon Container with animated icon */}
+                  <div className="p-3.5 bg-brand-green-mid/10 group-hover:bg-brand-green-light/40 border border-brand-green-mid/20 group-hover:border-brand-accent/30 text-brand-green-dark group-hover:text-brand-accent rounded-2xl w-fit transition-all duration-500 shadow-xs">
+                    <div 
+                      className="animate-icon-pulse transition-transform duration-500 group-hover:scale-120 group-hover:rotate-6 group-hover:-translate-y-1"
+                      style={{ animationDelay: `${(index % 3) * 0.4}s` }}
                     >
                       <StrengthIcon name={strength.iconName} size={24} />
-                    </motion.div>
+                    </div>
                   </div>
 
                   <div className="space-y-2">
                     <h3 className="text-lg font-serif font-bold tracking-wide text-zinc-950 group-hover:text-white transition-colors duration-300">
                       {title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-zinc-650 group-hover:text-gray-200 leading-relaxed font-sans transition-colors duration-300">
+                    <p className="text-xs sm:text-sm text-zinc-600 group-hover:text-zinc-200 leading-relaxed font-sans font-normal transition-colors duration-300">
                       {desc}
                     </p>
                   </div>
