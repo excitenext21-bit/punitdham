@@ -1,0 +1,132 @@
+import React from "react";
+import { ArrowRight, Wheat, ShieldCheck, Download } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { useCMS } from "../context/CMSContext";
+
+interface HeroProps {
+  sectionId?: string;
+  key?: string;
+}
+
+export default function Hero({ sectionId }: HeroProps) {
+  const { localize } = useLanguage();
+  const { setActivePageSlug, globalSettings } = useCMS();
+
+  const headingLine1 = localize({
+    en: "Nourishing the nation one grain at a time.",
+    hi: "हर दाने के साथ देश को पोषण प्रदान करते हुए।",
+    gu: "દરેક દાણા સાથે રાષ્ટ્રને પોષણ પૂરું પાડવું."
+  });
+  const headingLine2 = localize({
+    en: "Sourcing Integrity. Scaling Innovation.",
+    hi: "सटीक सोर्सिंग सत्यनिष्ठा। स्केलिंग नवाचार।",
+    gu: "વિશ્વસનીય સોર્સિંગ. અદ્યતન ઇનોવેશન."
+  });
+  const subtitle = localize({
+    en: "Over 38 Years of Industrial Legacy (Est. 1988)",
+    hi: "38+ वर्षों की औद्योगिक विरासत (स्थापना 1988)",
+    gu: "૩૮+ વર્ષનો ઔદ્યોગિક વારસો (સ્થાપના ૧૯૮૮)"
+  });
+  const content = localize({
+    en: "Punitdhan Pulses Limited has stood at the apex of the agricultural supply chain—transitioning from a trusted partnership into a Public Limited company processing over 400 MT daily.",
+    hi: "पुनीतधन पल्सेस लिमिटेड कृषि आपूर्ति श्रृंखला के शीर्ष पर खड़ा है—एक विश्वसनीय साझेदारी से 400 मीट्रिक टन से अधिक दैनिक प्रसंस्करण वाली पब्लिक लिमिटेड कंपनी में परिवर्तित।",
+    gu: "પુનીતધન પલ્સ લિમિટેડ કૃષિ પુરવઠા શૃંખલાના શિખર પર ઊભી છે—વિશ્વાસપાત્ર પેઢીમાંથી દૈનિક ૪૦૦+ મેટ્રિક ટન પ્રોસેસિંગ ક્ષમતા ધરાવતી પબ્લિક લિમિટેડ કંપની."
+  });
+  const buttonLabel = localize({
+    en: "Explore Our Services",
+    hi: "हमारी सेवाएं देखें",
+    gu: "અમારી સેવાઓ જાણો"
+  });
+  const videoUrl = "https://excitetemplate.com/1.mp4";
+
+  return (
+    <section 
+      id="hero-section"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-green-dark"
+    >
+      {/* Background Video Wrapper */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute w-full h-full object-cover scale-105 opacity-100"
+          poster="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1600"
+        >
+          <source 
+            src={videoUrl} 
+            type="video/mp4" 
+          />
+        </video>
+        {/* Soft elegant green ambient gradients */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-green-dark/95 via-brand-green-dark/70 via-brand-green-dark/30 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/50 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Floating Ambient Accent Circles */}
+      <div className="absolute top-1/4 right-[5%] w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-[5%] w-80 h-80 bg-brand-sage/10 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Hero Content Area */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+        
+        {/* Left main text elements */}
+        <div className="flex-1 text-left space-y-6 max-w-3xl font-sans">
+          {/* Main Display Heading */}
+          <h1 className="text-[25.2px] sm:text-[33.6px] lg:text-[42px] font-serif text-white leading-[1.15] tracking-tight font-black flex flex-col gap-4">
+            <span>{headingLine1}</span>
+            
+            <span className="text-[#f4d068]">
+              {headingLine2}
+            </span>
+
+            {/* Accent Ribbon */}
+            <div className="self-start">
+              <div className="inline-flex items-center gap-2 bg-brand-accent/15 border border-brand-accent/45 text-brand-accent px-3 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase font-semibold">
+                <Wheat size={14} className="stroke-[2.5]" />
+                <span>{subtitle}</span>
+              </div>
+            </div>
+          </h1>
+
+          {/* Core Subtitle Description */}
+          <p className="text-base sm:text-lg text-gray-100 font-sans leading-relaxed tracking-wide max-w-2xl">
+            {content}
+          </p>
+
+          {/* Compliance features indicators */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 font-mono text-xs text-brand-sage font-bold">
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={16} className="text-[#f4d068] stroke-[2.5]" />
+              <span>{localize({ en: "ISO 9001:2015 Operations", hi: "आईएसओ 9001:2015 संचालन", gu: "ISO 9001:2015 સંચાલન" })}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={16} className="text-[#f4d068] stroke-[2.5]" />
+              <span>{localize({ en: "HACCP Certified", hi: "HACCP प्रमाणित", gu: "HACCP પ્રમાણિત" })}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={16} className="text-[#f4d068] stroke-[2.5]" />
+              <span>{localize({ en: "FSSAI Registered", hi: "FSSAI पंजीकृत", gu: "FSSAI નોંધાયેલ" })}</span>
+            </div>
+          </div>
+
+          {/* Action CTAs */}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button
+              onClick={() => {
+                setActivePageSlug("services");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="bg-[#f4d068] hover:bg-white text-brand-green-dark font-mono font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-accent/10 hover:shadow-brand-accent/20 transition-all duration-300 hover:-translate-y-0.5 text-xs uppercase tracking-wider flex items-center gap-2 group cursor-pointer"
+            >
+              <span>{buttonLabel}</span>
+              <ArrowRight size={18} className="translate-x-0 group-hover:translate-x-1.5 transition-transform" />
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

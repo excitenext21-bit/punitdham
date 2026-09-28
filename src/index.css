@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-green-dark: #0f2e1e;
+  --color-brand-green-mid: #1d432b;
+  --color-brand-green-light: #2c5e3f;
+  --color-brand-sage: #8fa89b;
+  --color-brand-gold: #d4af37;
+  --color-brand-accent: #f4d068;
+  --color-brand-bg-light: #f3f7f4;
+  --color-brand-bg-card: #e8f0eb;
+}
+
+/* Custom smooth scroll and ambient animation classes with Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  scroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f2e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2c5e3f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+@keyframes float-slow {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(120px, -60px) scale(1.15); }
+  66% { transform: translate(-60px, 80px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(-90px, 100px) scale(0.85); }
+  66% { transform: translate(100px, -60px) scale(1.1); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s infinite ease-in-out;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 25s infinite ease-in-out;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-super-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+  transform-origin: center;
+}
+
+.animate-spin-super-slow {
+  animation: spin-super-slow 120s linear infinite;
+  transform-origin: center;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s ease-in-out infinite;
+}
+
+@keyframes laser-flow {
+  0% { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-laser {
+  stroke-dasharray: 10 6;
+  animation: laser-flow 1.2s linear infinite;
+}
+
+.animate-laser-reverse {
+  stroke-dasharray: 10 6;
+  animation: laser-flow 1.2s linear infinite reverse;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.08); }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Custom small font overrides to make them 10% bigger on all pages */
+.text-\[8px\] {
+  font-size: 8.8px !important;
+}
+.text-\[9px\] {
+  font-size: 9.9px !important;
+}
+.text-\[10px\] {
+  font-size: 11px !important;
+}
+.text-\[10\.5px\] {
+  font-size: 11.55px !important;
+}
+.text-\[11px\] {
+  font-size: 12.1px !important;
+}
+.text-\[11\.5px\] {
+  font-size: 12.65px !important;
+}
+.text-xs {
+  font-size: 13.2px !important;
+}
+.text-\[13px\] {
+  font-size: 14.3px !important;
+}
+
+/* Responsive states for small text classes */
+@media (min-width: 640px) {
+  .sm\:text-xs {
+    font-size: 13.2px !important;
+  }
+  .sm\:text-\[13px\] {
+    font-size: 14.3px !important;
+  }
+}
+
+/* Make paragraph font size same on all the pages */
+p {
+  font-size: 15px !important;
+  line-height: 1.625 !important;
+}
+
+

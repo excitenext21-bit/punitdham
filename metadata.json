@@ -1,0 +1,8 @@
+{
+  "name": "New-Punitdhan Pulses Limited",
+  "description": "The official corporate web portal for Punitdhan Pulses Limited (formerly Prakash Agro Mills) - A leading pioneer in sourcing, processing, and supplying high-quality agricultural commodities, pulses, grains, and oil across India since 1988.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
