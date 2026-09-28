@@ -354,9 +354,6 @@ export default function AboutUs() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12 relative z-10">
             <div className="lg:col-span-6 space-y-3">
-              <span className="text-[10px] font-mono tracking-widest uppercase text-white/55 font-bold block">
-                {localize({ en: "02 — Operational Framework", hi: "02 — परिचालन ढांचा", gu: "૦૨ — ઓપરેશનલ ફ્રેમવર્ક" })}
-              </span>
               <h3 className="text-3xl sm:text-4xl font-serif text-white tracking-tight font-extrabold leading-tight">
                 {localize({ en: "Operational Excellence & Agri-Tech Pillars", hi: "परिचालन उत्कृष्टता और कृषि-तकनीक स्तंभ", gu: "ઓપરેશનલ શ્રેષ્ઠતા અને એગ્રી-ટેક આધારસ્તંભો" })}
               </h3>
@@ -452,14 +449,6 @@ export default function AboutUs() {
                         alt="High capacity Optical Color Sortex grain refinement machine"
                         className="w-full h-64 sm:h-72 object-cover object-center transition-all duration-700 group-hover/img:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-white/90 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
-                        <span className="flex items-center gap-1.5 font-bold text-[#fcf3c6]">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                          SORTEX A • Optical Laser Sortex
-                        </span>
-                        <span className="text-white/70">Grade-A+ Quality</span>
-                      </div>
                     </div>
                   </div>
                 </motion.div>
