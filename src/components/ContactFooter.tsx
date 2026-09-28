@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Phone, MapPin, Send, Check, Loader2, ChevronDown, ChevronUp, Building, ShieldCheck, Landmark, Globe, X, Award, Sparkles, Navigation, SendHorizontal, Lock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Check, Loader2, ChevronDown, ChevronUp, Building, ShieldCheck, Landmark, Globe, X, Award, Sparkles, Navigation, SendHorizontal } from "lucide-react";
 import { COMPANY_PROFILE } from "../data";
 import { ContactMessage } from "../types";
 import { useLanguage } from "../context/LanguageContext";
@@ -15,23 +15,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
   const { localize, language } = useLanguage();
   
   // CMS state & action hooks
-  const { login, isAdmin, logout, setView, setActivePageSlug, isBulkModalOpen, setIsBulkModalOpen } = useCMS();
-  const [showAdminLogin, setShowAdminLogin] = useState(false);
-  const [adminPassword, setAdminPassword] = useState("");
-  const [loginError, setLoginError] = useState(false);
-
-  const handleAdminLoginSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const success = login(adminPassword);
-    if (success) {
-      setLoginError(false);
-      setAdminPassword("");
-      setShowAdminLogin(false);
-      setView("admin");
-    } else {
-      setLoginError(true);
-    }
-  };
+  const { setView, setActivePageSlug, isBulkModalOpen, setIsBulkModalOpen } = useCMS();
 
   const handleNavClick = (slug: string) => {
     setView("home");
@@ -355,79 +339,10 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
           )}
         </AnimatePresence>
 
-        {/* Discreet Admin Login Reveal Panel */}
-        <AnimatePresence>
-          {showAdminLogin && (
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              className="mt-6 mb-4 p-5 bg-[#0b1f15] border border-brand-green-light/20 rounded-2xl max-w-sm mx-auto shadow-xl"
-            >
-              <form onSubmit={handleAdminLoginSubmit} className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono tracking-widest text-[#f4d068] font-bold uppercase flex items-center gap-1">
-                    <Lock className="w-3 h-3" />
-                    <span>CMS AUTHENTICATION</span>
-                  </span>
-                  <button 
-                    type="button" 
-                    onClick={() => setShowAdminLogin(false)}
-                    className="text-zinc-500 hover:text-white text-[10px]"
-                  >
-                    {localize({ en: "Cancel", hi: "रद्द करें", gu: "રદ કરો" })}
-                  </button>
-                </div>
-                <div className="space-y-1">
-                  <input 
-                    type="password"
-                    required
-                    value={adminPassword}
-                    onChange={(e) => setAdminPassword(e.target.value)}
-                    placeholder={localize({ en: "Enter Admin Password (default: admin)", hi: "एडमिन पासवर्ड दर्ज करें (डिफ़ॉल्ट: admin)", gu: "એડમિન પાસવર્ડ દાખલ કરો (ડિફોલ્ટ: admin)" })}
-                    className="w-full bg-[#07170f] border border-brand-green-light/35 rounded-xl px-3 py-2 text-white outline-none focus:border-[#f4d068] transition-colors text-xs font-mono"
-                  />
-                  {loginError && (
-                    <p className="text-[10px] text-red-400 font-bold mt-1">
-                      {localize({ en: "❌ Invalid credentials. Hint: default is \"admin\"", hi: "❌ अमान्य पासवर्ड। संकेत: डिफ़ॉल्ट \"admin\" है", gu: "❌ અમાન્ય પાસવર્ડ. સંકેત: ડિફોલ્ટ \"admin\" છે" })}
-                    </p>
-                  )}
-                </div>
-                <button 
-                  type="submit"
-                  className="w-full bg-[#f4d068] hover:bg-white text-brand-green-dark font-bold py-2 rounded-xl text-xs uppercase tracking-wide transition-all cursor-pointer"
-                >
-                  {localize({ en: "Verify Key & Open Builder", hi: "सत्यापित करें और सीएमएस खोलें", gu: "પાસવર્ડ ચકાસો અને બિલ્ડર ખોલો" })}
-                </button>
-              </form>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
         {/* Small Bottom Copyright Strip */}
         <div className="flex flex-col sm:flex-row items-center justify-between font-mono text-[9px] text-zinc-650 pt-4 border-t border-white/5 gap-2">
           <div className="flex flex-wrap items-center gap-2 sm:gap-4 justify-center sm:justify-start">
             <span>{localize({ en: "*Standard Trade Mark & Certified Safe Food Partner", hi: "*सत्यापित कृषि ट्रेडमार्क मूल्य श्रृंखला साझीदार", gu: "*સત્તાવાર કૃષિ ટ્રેડમાર્ક અને ગુણવત્તા નિયંત્રણ સાથી" })}</span>
-            <span className="text-zinc-800 hidden sm:inline">|</span>
-            {isAdmin ? (
-              <button 
-                onClick={logout}
-                className="text-red-400 hover:text-red-300 transition-colors duration-200 font-bold cursor-pointer flex items-center gap-1"
-              >
-                <span>{localize({ en: "Log out CMS Admin", hi: "लॉग आउट सीएमएस", gu: "સીએમએસ લોગ આઉટ" })}</span>
-              </button>
-            ) : (
-              <button 
-                onClick={() => {
-                  setShowAdminLogin(!showAdminLogin);
-                  setLoginError(false);
-                }}
-                className="text-zinc-500 hover:text-[#f4d068] transition-colors duration-200 font-bold cursor-pointer flex items-center gap-1"
-              >
-                <Lock className="w-2.5 h-2.5" />
-                <span>{localize({ en: "Admin Login", hi: "एडमिन लॉगिन", gu: "એડમિન લૉગિન" })}</span>
-              </button>
-            )}
           </div>
         </div>
 

@@ -85,13 +85,10 @@ export interface GlobalSettings {
 interface CMSContextProps {
   pages: CMSPage[];
   globalSettings: GlobalSettings;
-  isAdmin: boolean;
   activePageSlug: string;
   setActivePageSlug: (slug: string) => void;
-  view: "home" | "contact" | "admin";
-  setView: (v: "home" | "contact" | "admin") => void;
-  login: (password: string) => boolean;
-  logout: () => void;
+  view: "home" | "contact";
+  setView: (v: "home" | "contact") => void;
   addPage: (slug: string, title: string, seoTitle?: string) => void;
   deletePage: (slug: string) => void;
   updatePageSeo: (slug: string, seo: CMSPage["seo"]) => void;
@@ -389,10 +386,6 @@ export function CMSProvider({ children }: { children: ReactNode }) {
     return saved ? JSON.parse(saved) : INITIAL_SETTINGS;
   });
 
-  const [isAdmin, setIsAdmin] = useState<boolean>(() => {
-    return localStorage.getItem("punitdhan_is_admin") === "true";
-  });
-
   const [activePageSlug, setActivePageSlugState] = useState<string>(() => {
     const path = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
     return path || "home";
@@ -417,7 +410,7 @@ export function CMSProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const [view, setView] = useState<"home" | "contact" | "admin">("home");
+  const [view, setView] = useState<"home" | "contact">("home");
 
   const [candidates, setCandidates] = useState<CandidateApplication[]>(() => {
     const saved = localStorage.getItem("punitdhan_candidates");
@@ -454,22 +447,6 @@ export function CMSProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     localStorage.setItem("punitdhan_cms_settings", JSON.stringify(globalSettings));
   }, [globalSettings]);
-
-  const login = (password: string): boolean => {
-    // Elegant enterprise administrator password
-    if (password === "punitdhan1988" || password === "admin") {
-      setIsAdmin(true);
-      localStorage.setItem("punitdhan_is_admin", "true");
-      return true;
-    }
-    return false;
-  };
-
-  const logout = () => {
-    setIsAdmin(false);
-    setView("home");
-    localStorage.removeItem("punitdhan_is_admin");
-  };
 
   const addPage = (slug: string, title: string, seoTitle?: string) => {
     const formattedSlug = slug.toLowerCase().replace(/[^a-z0-9-]/g, "-");
@@ -724,13 +701,10 @@ export function CMSProvider({ children }: { children: ReactNode }) {
     <CMSContext.Provider value={{
       pages,
       globalSettings,
-      isAdmin,
       activePageSlug,
       setActivePageSlug,
       view,
       setView,
-      login,
-      logout,
       addPage,
       deletePage,
       updatePageSeo,

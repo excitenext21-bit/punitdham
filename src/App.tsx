@@ -16,7 +16,6 @@ import ContactPage from "./components/ContactPage";
 import { useLanguage } from "./context/LanguageContext";
 import { useCMS } from "./context/CMSContext";
 import CustomSection from "./components/CustomSection";
-import CMSEditor from "./components/CMSEditor";
 import BackgroundElements from "./components/BackgroundElements";
 import SidebarSupport from "./components/SidebarSupport";
 import Preloader from "./components/Preloader";
@@ -29,17 +28,10 @@ export default function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSupportDrawerExpanded, setIsSupportDrawerExpanded] = useState(true);
   const { t, localize } = useLanguage();
-  const { pages, activePageSlug, setActivePageSlug, view, setView, isAdmin } = useCMS();
+  const { pages, activePageSlug, setActivePageSlug, view, setView } = useCMS();
 
   // Active page context from our CMS Provider
   const activePage = pages.find(p => p.slug === activePageSlug) || pages[0];
-
-  // Redirect to home if they somehow end up on admin view without credentials
-  useEffect(() => {
-    if (view === "admin" && !isAdmin) {
-      setView("home");
-    }
-  }, [view, isAdmin, setView]);
 
   useEffect(() => {
     // Initialize Lenis smooth scroll
@@ -117,14 +109,6 @@ export default function App() {
   const clearSelectedProduct = () => {
     setSelectedProductName("");
   };
-
-  if (view === "admin" && isAdmin) {
-    return (
-      <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-[#f4d068] selection:text-brand-green-dark flex flex-col w-full relative">
-        <CMSEditor />
-      </div>
-    );
-  }
 
   return (
     <>
