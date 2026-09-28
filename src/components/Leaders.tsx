@@ -22,7 +22,7 @@ import { useCMS } from "../context/CMSContext";
 
 // Mapping of high-fidelity premium professional corporate portraits
 const LEADER_IMAGES: Record<string, string> = {
-  prakashchand: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
+  prakashchand: "/prakashchand.jpg",
   punit: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
   dhanashree: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
   chika: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
@@ -354,7 +354,7 @@ export default function Leaders() {
                     <img
                       src={leaderImg}
                       alt={leader.name}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-hover:filter group-hover:brightness-105 filter grayscale-[20%] brightness-95"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105 group-hover:filter group-hover:brightness-105 filter grayscale-[20%] brightness-95"
                       referrerPolicy="no-referrer"
                     />
 
@@ -490,7 +490,7 @@ export default function Leaders() {
                         }`}
                       >
                         <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-zinc-200">
-                          <img src={LEADER_IMAGES[leader.id]} alt={leader.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                          <img src={LEADER_IMAGES[leader.id]} alt={leader.name} className="w-full h-full object-cover object-top" referrerPolicy="no-referrer" />
                         </div>
                         <div className="truncate">
                           <p className="text-xs font-bold leading-tight">{locName}</p>
@@ -632,7 +632,7 @@ export default function Leaders() {
                   <img
                     src={LEADER_IMAGES[selectedLeaderId]}
                     alt={LEADERS[activeLeaderIndex].name}
-                    className="absolute inset-0 w-full h-full object-cover brightness-90 filter grayscale-[10%]"
+                    className="absolute inset-0 w-full h-full object-cover object-top brightness-90 filter grayscale-[10%]"
                     referrerPolicy="no-referrer"
                   />
                   

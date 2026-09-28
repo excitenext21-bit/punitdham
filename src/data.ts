@@ -174,7 +174,7 @@ export const LEADERS: Leader[] = [
       "His unwavering dedication to excellence continues to inspire the entire team at Punitdhan Pulses Ltd. His legacy is etched in the company’s history as we step into an era of rapid expansion."
     ],
     avatarColor: "from-amber-700 via-emerald-805 to-emerald-950",
-    photoUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+    photoUrl: "/prakashchand.jpg"
   },
   {
     id: "punit",
