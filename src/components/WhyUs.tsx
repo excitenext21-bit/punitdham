@@ -172,14 +172,6 @@ export default function WhyUs() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16 space-y-3">
-          <motion.div 
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-green-mid/10 border border-brand-green-mid/20 text-brand-green-dark text-[11px] font-mono font-bold tracking-widest uppercase shadow-xs"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-green-mid animate-pulse" />
-            {localize({ en: "Core Pillars", hi: "मुख्य आधार स्तंभ", gu: "મુખ્ય આધારસ્તંભો" })}
-          </motion.div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-zinc-950 tracking-tight font-extrabold">
             {localize({
               en: "Why Us",
