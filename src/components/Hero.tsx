@@ -36,7 +36,7 @@ export default function Hero({ sectionId }: HeroProps) {
   return (
     <section 
       id="hero-section"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-green-dark"
+      className="relative min-h-screen flex items-end justify-center overflow-hidden bg-brand-green-dark"
     >
       {/* Background Video Wrapper - Native HTML5 video: zero YouTube UI, zero buttons */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
@@ -52,18 +52,18 @@ export default function Hero({ sectionId }: HeroProps) {
         </video>
         {/* Soft elegant green ambient gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-green-dark/95 via-brand-green-dark/70 via-brand-green-dark/30 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/50 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/60 to-transparent pointer-events-none" />
       </div>
 
       {/* Floating Ambient Accent Circles */}
       <div className="absolute top-1/4 right-[5%] w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 left-[5%] w-80 h-80 bg-brand-sage/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Hero Content Area */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+      {/* Hero Content Area - aligned to bottom area starting from the designated baseline */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 sm:pb-14 lg:pb-16 pt-32 w-full flex flex-col lg:flex-row items-end justify-between gap-12 lg:gap-8">
         
-        {/* Left main text elements - shifted 10% above bottom line */}
-        <div className="flex-1 text-left space-y-6 max-w-3xl font-sans -translate-y-[6vh] sm:-translate-y-[8vh] lg:-translate-y-[10vh]">
+        {/* Left main text elements */}
+        <div className="flex-1 text-left space-y-5 max-w-3xl font-sans">
           {/* Main Display Heading */}
           <h1 className="text-[20.16px] sm:text-[26.88px] lg:text-[33.6px] font-serif tracking-tight font-black leading-[1.15]">
             <div className="flex flex-col gap-[7.2px] sm:gap-[9px]">
