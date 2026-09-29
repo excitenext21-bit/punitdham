@@ -366,7 +366,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-[#0b1f15] border border-brand-green-light/40 rounded-2xl sm:rounded-[2rem] p-5 sm:p-6 md:p-7 max-w-2xl lg:max-w-3xl w-full relative shadow-2xl z-10 text-white overflow-hidden max-h-[90vh] my-auto flex flex-col"
+              className="bg-[#0b1f15] border border-brand-green-light/40 rounded-2xl sm:rounded-[2rem] p-6 sm:p-7 md:p-8 max-w-2xl lg:max-w-3xl w-full relative shadow-2xl z-10 text-white overflow-hidden max-h-[94vh] my-auto flex flex-col"
             >
               <button 
                 onClick={() => { setIsBulkModalOpen(false); clearSelectedProduct(); }}
@@ -389,7 +389,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-3 font-sans text-xs sm:text-sm mt-3 flex-1 overflow-y-auto pr-1">
+              <form onSubmit={handleSubmit} className="space-y-3.5 font-sans text-xs sm:text-sm mt-3.5 flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pr-0.5">
                 
                 {selectedProductName && (
                   <div className="p-2.5 bg-[#f4d068]/10 border border-[#f4d068]/30 rounded-xl text-brand-accent text-xs flex items-center justify-between leading-none font-bold">
@@ -471,11 +471,11 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
                   </label>
                   <textarea
                     required
-                    rows={2}
+                    rows={6}
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full bg-[#07170f] border border-brand-green-light/35 rounded-xl px-3.5 py-2 text-white outline-none focus:border-[#f4d068] transition-colors resize-none leading-relaxed text-xs"
+                    className="w-full bg-[#07170f] border border-brand-green-light/35 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-[#f4d068] transition-colors resize-none leading-relaxed text-xs min-h-[140px] sm:min-h-[150px] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                   />
                 </div>
 
