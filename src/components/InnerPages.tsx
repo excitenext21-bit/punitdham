@@ -5,7 +5,7 @@ import {
   Compass, Goal, CheckCircle2, ArrowRight, Star, Heart, Flame, ShieldAlert,
   Globe2, Landmark, GraduationCap, ChevronRight, Scale, Calendar, Sparkles, Quote,
   Droplet, Layers, Check, Sprout, User, List, LayoutGrid, Clock, X, ChevronLeft, TrendingUp,
-  UploadCloud, FileText
+  UploadCloud, FileText, ArrowLeft
 } from "lucide-react";
 import { useCMS } from "../context/CMSContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -1390,9 +1390,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
       }
     ];
 
-    const filteredProducts = productTab === "all" 
-      ? REDESIGNED_PRODUCTS 
-      : REDESIGNED_PRODUCTS.filter(p => p.category === productTab);
+    const filteredProducts = REDESIGNED_PRODUCTS;
 
     return (
       <motion.div 
@@ -1417,85 +1415,8 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-12 font-sans">
+        <div id="products-catalog-section" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-12 font-sans scroll-mt-24">
           
-          {/* Interactive Filter Navigation & Responsive Layout Switch */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-4 rounded-3xl border border-zinc-200/50 shadow-sm max-w-5xl mx-auto">
-            {/* Category tabs */}
-            <div className="flex flex-wrap items-center gap-1.5 p-1 bg-zinc-100 rounded-2xl">
-              <button
-                onClick={() => setProductTab("all")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  productTab === "all"
-                    ? "bg-brand-green-dark text-white shadow-md"
-                    : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/50"
-                }`}
-              >
-                All Commodities
-              </button>
-              <button
-                onClick={() => setProductTab("pulses")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  productTab === "pulses"
-                    ? "bg-brand-green-dark text-white shadow-md"
-                    : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/50"
-                }`}
-              >
-                Primary Pulses
-              </button>
-              <button
-                onClick={() => setProductTab("diversified")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  productTab === "diversified"
-                    ? "bg-brand-green-dark text-white shadow-md"
-                    : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-200/50"
-                }`}
-              >
-                Diversified Sourcing
-              </button>
-            </div>
-
-            {/* View Switching buttons: Card View, List View, Detail View */}
-            <div className="flex items-center gap-1.5 p-1 bg-zinc-100 border border-zinc-200/80 rounded-2xl shrink-0">
-              <button
-                onClick={() => setProductViewMode("card")}
-                className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  productViewMode === "card"
-                    ? "bg-brand-green-dark text-[#f4d068] shadow-md"
-                    : "text-zinc-600 hover:text-brand-green-dark hover:bg-zinc-200/50"
-                }`}
-                title="Card View"
-              >
-                <LayoutGrid className="w-3.5 h-3.5" />
-                <span>Card View</span>
-              </button>
-              <button
-                onClick={() => setProductViewMode("list")}
-                className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  productViewMode === "list"
-                    ? "bg-brand-green-dark text-[#f4d068] shadow-md"
-                    : "text-zinc-600 hover:text-brand-green-dark hover:bg-zinc-200/50"
-                }`}
-                title="List View"
-              >
-                <List className="w-3.5 h-3.5" />
-                <span>List View</span>
-              </button>
-              <button
-                onClick={() => setProductViewMode("detail")}
-                className={`py-2 px-3.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  productViewMode === "detail"
-                    ? "bg-brand-green-dark text-[#f4d068] shadow-md"
-                    : "text-zinc-600 hover:text-brand-green-dark hover:bg-zinc-200/50"
-                }`}
-                title="Detail View"
-              >
-                <Layers className="w-3.5 h-3.5" />
-                <span>Detail View</span>
-              </button>
-            </div>
-          </div>
-
           {/* Catalog Standard Box */}
           <div className="bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-brand-green-mid p-6 sm:p-8 md:p-10 shadow-[0_15px_40px_rgba(15,46,30,0.015)] flex flex-col md:flex-row gap-6 items-center hover:-translate-y-1 transition-all duration-300">
             <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-brand-green-dark shrink-0">
@@ -1533,9 +1454,6 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute top-4 left-4 bg-brand-green-dark text-white text-[9px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">
-                        {product.categoryLabel || product.category}
-                      </div>
                     </div>
 
                     {/* Content Section */}
@@ -1558,6 +1476,10 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                           onClick={() => {
                             setProductViewMode("detail");
                             setActiveSpecProductId(product.id);
+                            const section = document.getElementById("products-catalog-section");
+                            if (section) {
+                              section.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }
                           }}
                           className="flex-1 text-center bg-zinc-100 hover:bg-zinc-200/70 text-zinc-700 transition-all py-2 rounded-xl text-xs font-bold cursor-pointer"
                         >
@@ -1639,7 +1561,25 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
               if (!activeProduct) return null;
 
               return (
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div className="space-y-6">
+                  {/* Back to All Products Navigation Button */}
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => {
+                        setProductViewMode("card");
+                        const section = document.getElementById("products-catalog-section");
+                        if (section) {
+                          section.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }}
+                      className="inline-flex items-center gap-2 bg-white hover:bg-zinc-100 text-brand-green-dark border border-zinc-200/80 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer group"
+                    >
+                      <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+                      <span>Back to All Products</span>
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   {/* Left Column - Master Selection Panel */}
                   <div className="lg:col-span-4 space-y-2.5">
                     <span className="text-[10px] font-mono font-bold tracking-wider text-zinc-400 uppercase block pl-1">
@@ -1770,8 +1710,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     </motion.div>
                   </div>
                 </div>
-              );
-            })()}
+              </div>
+            );
+          })()}
           </div>
 
           {/* Custom Volume Call to Action */}
