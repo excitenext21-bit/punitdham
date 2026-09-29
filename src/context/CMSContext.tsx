@@ -150,7 +150,7 @@ const DEFAULT_SECTIONS: Record<string, CMSSection[]> = {
       content: "Since our modest beginnings as Prakash Agro Mills in 1988, our focus has always been the flawless processing of high-nutrition staples. Under the vision of our founders, we have transitioned into Punitdhan Pulses Limited—now supporting national government supply chains and feeding millions of households.",
       buttonLabel: "Meet the Leadership",
       buttonLink: "#leaders",
-      images: ["https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=800"],
+      images: [],
       items: [
         {
           id: "pillar-1",

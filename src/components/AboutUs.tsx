@@ -97,7 +97,6 @@ export default function AboutUs() {
         hi: "1988 में प्रकाश एग्रो मिल्स के रूप में स्थापित, हमारे फर्म ने उत्कृष्टता की प्रतिष्ठा बनाई। सीए प्रकाशचंद बाच्छावत के नेतृत्व में राष्ट्रीय स्तर के व्यापार का समर्थन करने के लिए, 31 मार्च 2025 को यह व्यवसाय 'पुनीतधन पल्सेस लिमिटेड' नाम से पब्लिक लिमिटेड कंपनी में परिवर्तित हो गया।",
         gu: "૧૯૮૮માં પ્રકાશ એગ્રો મિલ્સ તરીકે સ્થપાયેલી અમારી પેઢીએ શ્રેષ્ઠ ગુણવત્તા માટે વિશિષ્ટ નામના મેળવી. CA પ્રકાશચંદ બચ્છાવતના નેતૃત્વ હેઠળ વ્યાપક વિકાસ અને રાષ્ટ્રીય સ્તરના વેપાર માટે, ૩૧ માર્ચ ૨૦૨૫ના રોજ આ વ્યવસાય 'પુનીતધન પલ્સ લિમિટેડ' પબ્લિક લિમિટેડ કંપનીમાં પરિવર્તિત થયો."
       });
-  const aboutImage = section?.images?.[0] || "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=800";
 
   return (
     <section id="about" className="py-24 bg-brand-bg-light relative overflow-hidden">
@@ -463,7 +462,7 @@ export default function AboutUs() {
                   <div className="lg:col-span-5">
                     <div className="relative overflow-hidden border border-white/10 bg-black/10 rounded-2xl">
                       <img 
-                        src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=600" 
+                        src="/milling_sorting_sortex.jpg" 
                         alt="Eco-friendly agro processing footprint"
                         className="w-full h-56 object-cover filter grayscale transition-all duration-700 hover:grayscale-0"
                         referrerPolicy="no-referrer"

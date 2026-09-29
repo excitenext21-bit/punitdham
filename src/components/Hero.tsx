@@ -47,7 +47,6 @@ export default function Hero({ sectionId }: HeroProps) {
           playsInline
           preload="auto"
           className="absolute w-full h-full object-cover scale-105 opacity-100 pointer-events-none select-none"
-          poster="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1600"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
