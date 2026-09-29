@@ -381,10 +381,14 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           
           <div className="max-w-4xl mx-auto space-y-5 relative z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-white leading-tight">
-              Corporate Profile & Heritage
+              {localize({ en: "Corporate Profile & Heritage", hi: "कॉर्पोरेट प्रोफाइल और विरासत", gu: "કોર્પોરેટ પ્રોફાઇલ અને વારસો" })}
             </h1>
             <p className="text-gray-300 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              A journey of pure quality, trusted agro-standards, and cooperative excellence since 1988.
+              {localize({
+                en: "A journey of pure quality, trusted agro-standards, and cooperative excellence since 1988.",
+                hi: "1988 से शुद्ध गुणवत्ता, विश्वसनीय कृषि मानकों और सहकारी उत्कृष्टता की यात्रा।",
+                gu: "૧૯૮૮ થી શુદ્ધ ગુણવત્તા, વિશ્વસનીય કૃષિ ધોરણો અને સહકારી શ્રેષ્ઠતાની સફર."
+              })}
             </p>
           </div>
         </div>
@@ -401,25 +405,33 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   <Compass className="w-6 h-6 stroke-[2]" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight leading-snug">
-                  38+ Years of Uncompromising Purity
+                  {localize({ en: "38+ Years of Uncompromising Purity", hi: "38+ वर्षों की अटूट शुद्धता", gu: "૩૮+ વર્ષની અવિરત શુદ્ધતા" })}
                 </h2>
                 
                 {/* Custom Quote Box */}
                 <div className="border-l-4 border-[#f4d068] pl-4 py-1 my-4 bg-amber-50/40 rounded-r-xl">
                   <Quote className="w-6 h-6 text-[#f4d068]/60 mb-1" />
                   <p className="text-sm font-serif italic text-zinc-800 leading-relaxed">
-                    "From a single local processing plant in Gujarat to one of Western India's most trusted public corporate agro-commodity networks."
+                    {localize({
+                      en: "\"From a single local processing plant in Gujarat to one of Western India's most trusted public corporate agro-commodity networks.\"",
+                      hi: "\"गुजरात में एक स्थानीय प्रसंस्करण संयंत्र से लेकर पश्चिमी भारत के सबसे भरोसेमंद सार्वजनिक कॉर्पोरेट कृषि-जिंस नेटवर्क में से एक बनने तक।\"",
+                      gu: "\"ગુજરાતમાં એક નાના પ્રોસેસિંગ યુનિટથી શરૂ કરીને પશ્ચિમ ભારતના સૌથી વિશ્વસનીય જાહેર કોર્પોરેટ કૃષિ નેટવર્ક્સમાંનું એક બનવા સુધી.\""
+                    })}
                   </p>
                 </div>
 
                 <p className="text-zinc-650 leading-relaxed text-sm sm:text-base">
-                  Founded on <strong>April 1, 1988</strong>, as <em>Prakash Agro Mills</em>, our organization spent nearly four decades solidifying its positioning as a foundational leader in the Indian agrifood market. To accommodate structural scale, broaden institutional capital opportunities, and optimize governance transparency, the entity officially transitioned into its current public corporate structure as <strong>Punitdhan Pulses Limited on March 31, 2025</strong>. This milestone marks an exciting new era of global standards.
+                  {localize({
+                    en: "Founded on April 1, 1988, as Prakash Agro Mills, our organization spent nearly four decades solidifying its positioning as a foundational leader in the Indian agrifood market. To accommodate structural scale, broaden institutional capital opportunities, and optimize governance transparency, the entity officially transitioned into its current public corporate structure as Punitdhan Pulses Limited on March 31, 2025. This milestone marks an exciting new era of global standards.",
+                    hi: "1 अप्रैल 1988 को प्रकाश एग्रो मिल्स के रूप में स्थापित, हमारे संगठन ने भारतीय कृषि-खाद्य बाजार में एक मजबूत अग्रणी के रूप में अपनी स्थिति मजबूत करने में लगभग चार दशक बिताए। संरचनात्मक पैमाने को समायोजित करने, संस्थागत पूंजी के अवसरों को व्यापक बनाने और शासन पारदर्शिता को अनुकूलित करने के लिए, संस्था ने 31 मार्च 2025 को आधिकारिक तौर पर पुनीतधन पल्सेस लिमिटेड के रूप में अपनी वर्तमान सार्वजनिक कॉर्पोरेट संरचना में परिवर्तन किया। यह मील का पत्थर वैश्विक मानकों के एक रोमांचक नए युग का प्रतीक है।",
+                    gu: "૧ એપ્રિલ ૧૯૮૮ ના રોજ પ્રકાશ એગ્રો મિલ્સ તરીકે સ્થપાયેલી અમારી સંસ્થાએ ભારતીય કૃષિ બજારમાં અગ્રણી તરીકે સ્થાન મજબૂત કરવામાં લગભગ ચાર દાયકા વિતાવ્યા. માળખાકીય સ્કેલ વધારવા, મૂડીની તકો વિસ્તૃત કરવા અને સુશાસન પારદર્શિતા વધારવા માટે, સંસ્થાએ ૩૧ માર્ચ ૨૦૨૫ ના રોજ પુનીતધન પલ્સ લિમિટેડ તરીકે જાહેર કોર્પોરેટ માળખામાં પરિવર્તન કર્યું."
+                  })}
                 </p>
               </div>
 
               <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-400">
-                <span>ESTD. 1988</span>
-                <span>STATE-OF-THE-ART MILLING</span>
+                <span>{localize({ en: "ESTD. 1988", hi: "स्थापना 1988", gu: "સ્થાપના ૧૯૮૮" })}</span>
+                <span>{localize({ en: "STATE-OF-THE-ART MILLING", hi: "अत्याधुनिक मिलिंग", gu: "અત્યાધુનિક મિલિંગ" })}</span>
               </div>
             </div>
 
@@ -427,10 +439,10 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             <div className="lg:col-span-7 bg-white rounded-3xl border border-zinc-200/80 border-l-4 border-l-[#f4d068] p-8 md:p-10 shadow-[0_20px_50px_rgba(15,46,30,0.02)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-center">
               <div className="space-y-3 mb-8">
                 <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase font-bold bg-[#f4d068]/10 px-3 py-1 rounded-full border border-[#f4d068]/20">
-                  Milestones
+                  {localize({ en: "Milestones", hi: "प्रमुख पड़ाव", gu: "માઈલસ્ટોન્સ" })}
                 </span>
                 <h3 className="text-lg sm:text-xl font-serif font-bold text-zinc-900">
-                  Our Evolutionary Timeline
+                  {localize({ en: "Our Evolutionary Timeline", hi: "हमारी विकास यात्रा", gu: "અમારી વિકાસ યાત્રા" })}
                 </h3>
               </div>
 
@@ -438,27 +450,43 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                 {[
                   {
                     year: "1988",
-                    title: "The Genesis & Foundation",
-                    desc: "Prakash Agro Mills is founded on April 1, pioneering local raw grain processing and standardizing grading methodologies.",
-                    badge: "Prakash Agro Mills"
+                    title: localize({ en: "The Genesis & Foundation", hi: "शुरुआत और स्थापना", gu: "શરૂઆત અને સ્થાપના" }),
+                    desc: localize({
+                      en: "Prakash Agro Mills is founded on April 1, pioneering local raw grain processing and standardizing grading methodologies.",
+                      hi: "1 अप्रैल को प्रकाश एग्रो मिल्स की स्थापना हुई, जिसने स्थानीय कच्चे अनाज के प्रसंस्करण और ग्रेडिंग पद्धतियों के मानकीकरण की शुरुआत की।",
+                      gu: "૧ એપ્રિલના રોજ પ્રકાશ એગ્રો મિલ્સની સ્થાપના થઈ, જેણે અનાજ પ્રોસેસિંગ અને ગ્રેડિંગ પદ્ધતિઓનું માનકીકરણ કર્યું."
+                    }),
+                    badge: localize({ en: "Prakash Agro Mills", hi: "प्रकाश एग्रो मिल्स", gu: "પ્રકાશ એગ્રો મિલ્સ" })
                   },
                   {
                     year: "2005",
-                    title: "Infrastructure & National Network",
-                    desc: "Expanded processing capacity to over 100 metric tons daily and built cooperative partnerships with mandis across multiple states.",
-                    badge: "Scale Phase"
+                    title: localize({ en: "Infrastructure & National Network", hi: "बुनियादी ढांचा और राष्ट्रीय नेटवर्क", gu: "ઈન્ફ્રાસ્ટ્રક્ચર અને નેશનલ નેટવર્ક" }),
+                    desc: localize({
+                      en: "Expanded processing capacity to over 100 metric tons daily and built cooperative partnerships with mandis across multiple states.",
+                      hi: "दैनिक प्रसंस्करण क्षमता को 100 मीट्रिक टन से अधिक तक बढ़ाया और कई राज्यों की मंडियों के साथ सहकारी भागीदारी का निर्माण किया।",
+                      gu: "દૈનિક પ્રોસેસિંગ ક્ષમતા વધારીને ૧૦૦ મેટ્રિક ટનથી વધુ કરી અને વિવિધ રાજ્યોની મંડીઓ સાથે સહયોગી ભાગીદારી સ્થાપી."
+                    }),
+                    badge: localize({ en: "Scale Phase", hi: "विस्तार चरण", gu: "વિસ્તાર તબક્કો" })
                   },
                   {
                     year: "2018",
-                    title: "Advanced Tech Integration",
-                    desc: "Implemented high-precision computerized Sortex sorting and mechanical purification systems ensuring 99.9% grain purity.",
-                    badge: "Computerized Sortex"
+                    title: localize({ en: "Advanced Tech Integration", hi: "उन्नत तकनीक एकीकरण", gu: "અદ્યતન ટેકનોલોજી એકીકરણ" }),
+                    desc: localize({
+                      en: "Implemented high-precision computerized Sortex sorting and mechanical purification systems ensuring 99.9% grain purity.",
+                      hi: "उच्च-सटीक कम्प्यूटरीकृत सॉर्टेक्स छंटाई और यांत्रिक शुद्धिकरण प्रणाली लागू की, जिससे 99.9% अनाज शुद्धता सुनिश्चित हुई।",
+                      gu: "ઉચ્ચ ચોકસાઇવાળા કોમ્પ્યુટરાઇઝ્ડ સોર્ટેક્સ સોર્ટિંગ અને શુદ્ધિકરણ પ્રણાલી લાગુ કરી, જેનાથી ૯૯.૯% અનાજની શુદ્ધતા સુનિશ્ચિત થઈ."
+                    }),
+                    badge: localize({ en: "Computerized Sortex", hi: "कम्प्यूटरीकृत सॉर्टेक्स", gu: "કમ્પ્યુટરાઇઝ્ડ સોર્ટેક્સ" })
                   },
                   {
                     year: "2025",
-                    title: "Public Corporate Transition",
-                    desc: "Officially incorporated as Punitdhan Pulses Limited on March 31, introducing supreme audit compliance and institutional transparency.",
-                    badge: "Punitdhan Pulses"
+                    title: localize({ en: "Public Corporate Transition", hi: "पब्लिक कॉर्पोरेट परिवर्तन", gu: "પબ્લિક કોર્પોરેટ પરિવર્તન" }),
+                    desc: localize({
+                      en: "Officially incorporated as Punitdhan Pulses Limited on March 31, introducing supreme audit compliance and institutional transparency.",
+                      hi: "31 मार्च को पुनीतधन पल्सेस लिमिटेड के रूप में आधिकारिक तौर पर निगमित, सर्वोच्च ऑडिट अनुपालन और संस्थागत पारदर्शिता पेश की।",
+                      gu: "૩૧ માર્ચના રોજ પુનીતધન પલ્સ લિમિટેડ તરીકે સત્તાવાર રીતે નિગમિત, સર્વોચ્ચ ઓડિટ પાલન અને સંસ્થાકીય પારદર્શિતા રજૂ કરી."
+                    }),
+                    badge: localize({ en: "Punitdhan Pulses", hi: "पुनीतधन पल्सेस", gu: "પુનીતધન પલ્સ" })
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="relative group">
@@ -493,13 +521,17 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           <div className="space-y-8">
             <div className="text-center space-y-2">
               <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase font-bold bg-[#f4d068]/10 px-3 py-1 rounded-full border border-[#f4d068]/20">
-                Corporate Intent
+                {localize({ en: "Corporate Intent", hi: "कॉर्पोरेट दृष्टिकोण", gu: "કોર્પોરેટ હેતુ" })}
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                Our Purpose Frameworks
+                {localize({ en: "Our Purpose Frameworks", hi: "हमारे उद्देश्य का ढांचा", gu: "અમારા હેતુનું માળખું" })}
               </h2>
               <p className="text-zinc-500 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-                A systemized approach to food security, agrarian partnership, and institutional transparency.
+                {localize({
+                  en: "A systemized approach to food security, agrarian partnership, and institutional transparency.",
+                  hi: "खाद्य सुरक्षा, कृषि साझेदारी और संस्थागत पारदर्शिता के लिए एक व्यवस्थित दृष्टिकोण।",
+                  gu: "અન્ન સુરક્ષા, કૃષિ ભાગીદારી અને સંસ્થાકીય પારદર્શિતા માટે એક વ્યવસ્થિત અભિગમ."
+                })}
               </p>
             </div>
 
@@ -512,11 +544,15 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     <Goal className="w-5.5 h-5.5 stroke-[2.5]" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-serif font-bold text-zinc-900">
-                    Corporate Vision
+                    {localize({ en: "Corporate Vision", hi: "कॉर्पोरेट विज़न (दूरदर्शिता)", gu: "કોર્પોરેટ વિઝન" })}
                   </h3>
                 </div>
                 <p className="text-zinc-650 text-sm sm:text-base leading-relaxed relative z-10">
-                  To drive multi-tiered growth within the global food processing sector, ensuring premium-grade agricultural products remain universally accessible to all consumer demographics while structurally empowering agrarian communities through sustainable economics.
+                  {localize({
+                    en: "To drive multi-tiered growth within the global food processing sector, ensuring premium-grade agricultural products remain universally accessible to all consumer demographics while structurally empowering agrarian communities through sustainable economics.",
+                    hi: "वैश्विक खाद्य प्रसंस्करण क्षेत्र में बहुस्तरीय विकास को गति देना, यह सुनिश्चित करना कि प्रीमियम-ग्रेड कृषि उत्पाद सभी उपभोक्ता वर्गों के लिए सुलभ रहें, साथ ही टिकाऊ अर्थशास्त्र के माध्यम से कृषि समुदायों को सशक्त बनाना।",
+                    gu: "વૈશ્વિક ફૂડ પ્રોસેસિંગ ક્ષેત્રે બહુસ્તરીય વૃદ્ધિને વેગ આપવો, પ્રીમિયમ કૃષિ ઉત્પાદનો તમામ ગ્રાહકો સુધી પહોંચે તે સુનિશ્ચિત કરવું અને ટકાઉ અર્થતંત્ર દ્વારા ખેડૂત સમુદાયોને સશક્ત બનાવવા."
+                  })}
                 </p>
               </div>
 
@@ -528,11 +564,15 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     <Award className="w-5.5 h-5.5 stroke-[2.5]" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-serif font-bold text-zinc-900">
-                    Corporate Mission
+                    {localize({ en: "Corporate Mission", hi: "कॉर्पोरेट मिशन (उद्देश्य)", gu: "કોર્પોરેટ મિશન" })}
                   </h3>
                 </div>
                 <p className="text-zinc-650 text-sm sm:text-base leading-relaxed relative z-10">
-                  To remain the definitive benchmark supplier of premium, sustainably sourced food grains, pulses, and allied agricultural commodities, globally recognized for operational transparency, execution speed, and supply chain integrity.
+                  {localize({
+                    en: "To remain the definitive benchmark supplier of premium, sustainably sourced food grains, pulses, and allied agricultural commodities, globally recognized for operational transparency, execution speed, and supply chain integrity.",
+                    hi: "प्रीमियम और स्थायी रूप से प्राप्त खाद्यान्नों, दालों और कृषि उत्पादों का निश्चित बेंचमार्क आपूर्तिकर्ता बने रहना, जिसे परिचालन पारदर्शिता, निष्पादन गति और आपूर्ति श्रृंखला की विश्वसनीयता के लिए पहचाना जाए।",
+                    gu: "પ્રીમિયમ અને ટકાઉ રીતે મેળવેલા અનાજ, કઠોળ અને કૃષિ પેદાશોના અગ્રણી સપ્લાયર તરીકે રહેવું, જે સંચાલન પારદર્શિતા અને સપ્લાય ચેઇન અખંડિતતા માટે ઓળખાય."
+                  })}
                 </p>
               </div>
 
@@ -541,7 +581,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                 <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-5 pointer-events-none" />
                 <div className="flex items-center gap-3 relative z-10">
                   <Sparkles className="w-5 h-5 text-[#f4d068]" />
-                  <h4 className="text-lg sm:text-xl font-serif font-bold text-white">Our Tri-Core Institutional Values</h4>
+                  <h4 className="text-lg sm:text-xl font-serif font-bold text-white">
+                    {localize({ en: "Our Tri-Core Institutional Values", hi: "हमारे तीन प्रमुख संस्थागत मूल्य", gu: "અમારા ત્રણ મુખ્ય સંસ્થાકીય મૂલ્યો" })}
+                  </h4>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 pt-4 border-t border-white/10">
                   <div className="space-y-3 group/value">
@@ -549,10 +591,16 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                       <div className="p-2 bg-[#f4d068]/10 text-[#f4d068] rounded-xl border border-[#f4d068]/20 group-hover/value:bg-[#f4d068] group-hover/value:text-[#0b2418] transition-all duration-300">
                         <Award className="w-5 h-5 stroke-[2]" />
                       </div>
-                      <span className="text-base sm:text-lg font-serif font-bold text-white block">Unmatched Quality</span>
+                      <span className="text-base sm:text-lg font-serif font-bold text-white block">
+                        {localize({ en: "Unmatched Quality", hi: "अतुलनीय गुणवत्ता", gu: "અજોડ ગુણવત્તા" })}
+                      </span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                      Rigorous multi-stage sorting protocols and computer Sortex diagnostics ensuring pure, safe, and nutritious commodities.
+                      {localize({
+                        en: "Rigorous multi-stage sorting protocols and computer Sortex diagnostics ensuring pure, safe, and nutritious commodities.",
+                        hi: "सख्त बहु-चरणीय छंटाई प्रोटोकॉल और कंप्यूटर सॉर्टेक्स परीक्षण जो शुद्ध, सुरक्षित और पौष्टिक उत्पाद सुनिश्चित करते हैं।",
+                        gu: "કમ્પ્યુટર સોર્ટેક્સ અને મલ્ટી-સ્ટેજ સોર્ટિંગ જે શુદ્ધ અને પૌષ્ટિક અનાજ સુનિશ્ચિત કરે છે."
+                      })}
                     </p>
                   </div>
                   <div className="space-y-3 group/value">
@@ -560,10 +608,16 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                       <div className="p-2 bg-[#f4d068]/10 text-[#f4d068] rounded-xl border border-[#f4d068]/20 group-hover/value:bg-[#f4d068] group-hover/value:text-[#0b2418] transition-all duration-300">
                         <Scale className="w-5 h-5 stroke-[2]" />
                       </div>
-                      <span className="text-base sm:text-lg font-serif font-bold text-white block">Absolute Integrity</span>
+                      <span className="text-base sm:text-lg font-serif font-bold text-white block">
+                        {localize({ en: "Absolute Integrity", hi: "पूर्ण सत्यनिष्ठा", gu: "સંપૂર્ણ અખંડિતતા" })}
+                      </span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                      Sovereign compliance benchmarks, clear corporate governance audits, and fair trade practices across all mandis.
+                      {localize({
+                        en: "Sovereign compliance benchmarks, clear corporate governance audits, and fair trade practices across all mandis.",
+                        hi: "संप्रभु अनुपालन मानक, स्पष्ट कॉर्पोरेट प्रशासन ऑडिट और सभी मंडियों में निष्पक्ष व्यापार प्रथाएं।",
+                        gu: "સરકારી ધોરણોનું પાલન, પારદર્શક કોર્પોરેટ ઓડિટ અને તમામ મંડીઓમાં ન્યાયી વેપાર પદ્ધતિઓ."
+                      })}
                     </p>
                   </div>
                   <div className="space-y-3 group/value">
@@ -571,10 +625,16 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                       <div className="p-2 bg-[#f4d068]/10 text-[#f4d068] rounded-xl border border-[#f4d068]/20 group-hover/value:bg-[#f4d068] group-hover/value:text-[#0b2418] transition-all duration-300">
                         <Sprout className="w-5 h-5 stroke-[2]" />
                       </div>
-                      <span className="text-base sm:text-lg font-serif font-bold text-white block">Agrarian Legacy</span>
+                      <span className="text-base sm:text-lg font-serif font-bold text-white block">
+                        {localize({ en: "Agrarian Legacy", hi: "कृषि विरासत", gu: "કૃષિ વારસો" })}
+                      </span>
                     </div>
                     <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                      Strengthening regional crop economics and ensuring farmers receive premium prices and direct technical assistance.
+                      {localize({
+                        en: "Strengthening regional crop economics and ensuring farmers receive premium prices and direct technical assistance.",
+                        hi: "क्षेत्रीय फसल अर्थशास्त्र को मजबूत करना और किसानों को प्रीमियम मूल्य और प्रत्यक्ष तकनीकी सहायता प्राप्त होना सुनिश्चित करना।",
+                        gu: "પ્રાદેશિક પાક અર્થતંત્રને મજબૂત બનાવવું અને ખેડૂતોને વાજબી ભાવો અને ટેકનિકલ સહાય મળે તે સુનિશ્ચિત કરવું."
+                      })}
                     </p>
                   </div>
                 </div>
@@ -586,13 +646,17 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           <div className="space-y-8">
             <div className="text-center space-y-2">
               <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase font-bold bg-[#f4d068]/10 px-3 py-1 rounded-full border border-[#f4d068]/20">
-                Pillars
+                {localize({ en: "Pillars", hi: "आधार स्तंभ", gu: "આધારસ્તંભો" })}
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                Core Institutional Pillars & Strengths
+                {localize({ en: "Core Institutional Pillars & Strengths", hi: "मुख्य संस्थागत स्तंभ और ताकत", gu: "મુખ્ય સંસ્થાકીય સ્તંભો અને શક્તિઓ" })}
               </h2>
               <p className="text-zinc-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                Built upon multi-generational trust and absolute performance benchmarks.
+                {localize({
+                  en: "Built upon multi-generational trust and absolute performance benchmarks.",
+                  hi: "पीढ़ियों के विश्वास और पूर्ण प्रदर्शन मानकों पर निर्मित।",
+                  gu: "પેઢીઓના વિશ્વાસ અને સર્વોચ્ચ કાર્યક્ષમતાના ધોરણો પર આધારિત."
+                })}
               </p>
             </div>
 
@@ -604,26 +668,42 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             >
               {[
                 {
-                  title: "Global Sourcing Network",
-                  desc: "We maintain an agile, highly sophisticated logistics and sourcing architecture that guarantees seamless raw asset acquisition and localized distribution under tight deadlines.",
+                  title: localize({ en: "Global Sourcing Network", hi: "वैश्विक सोर्सिंग नेटवर्क", gu: "વૈશ્વિક સોર્સિંગ નેટવર્ક" }),
+                  desc: localize({
+                    en: "We maintain an agile, highly sophisticated logistics and sourcing architecture that guarantees seamless raw asset acquisition and localized distribution under tight deadlines.",
+                    hi: "हम एक चुस्त, अत्यधिक परिष्कृत लॉजिस्टिक्स और सोर्सिंग ढांचा बनाए रखते हैं जो सख्त समय सीमा के तहत निर्बाध कच्चे माल के अधिग्रहण और स्थानीय वितरण की गारंटी देता है।",
+                    gu: "અમે એક અત્યાધુનિક લોજિસ્ટિક્સ અને સોર્સિંગ સિસ્ટમ ધરાવીએ છીએ જે સમયસર કાચા માલની ખરીદી અને વિતરણની ખાતરી આપે છે."
+                  }),
                   icon: Globe2,
                   color: "text-blue-600 bg-blue-50 border-blue-100/60"
                 },
                 {
-                  title: "State-of-the-Art Processing Infrastructure",
-                  desc: "Our milling environments integrate advanced computerized sortex and processing equipment, driving down downtime, eliminating human error, and maintaining complete product safety.",
+                  title: localize({ en: "State-of-the-Art Processing Infrastructure", hi: "अत्याधुनिक प्रसंस्करण बुनियादी ढांचा", gu: "અત્યાધુનિક પ્રોસેસિંગ ઇન્ફ્રાસ્ટ્રક્ચર" }),
+                  desc: localize({
+                    en: "Our milling environments integrate advanced computerized sortex and processing equipment, driving down downtime, eliminating human error, and maintaining complete product safety.",
+                    hi: "हमारे मिलिंग वातावरण में उन्नत कम्प्यूटरीकृत सॉर्टेक्स और प्रसंस्करण उपकरण शामिल हैं, जो समय की बर्बादी घटाते हैं, मानवीय त्रुटि को समाप्त करते हैं और पूर्ण उत्पाद सुरक्षा बनाए रखते हैं।",
+                    gu: "અમારા મિલિંગ યુનિટ્સમાં આધુનિક કોમ્પ્યુટરાઇઝ્ડ સોર્ટેક્સ મશીનરી છે, જે ભૂલો ઘટાડીને સંપૂર્ણ ઉત્પાદન સુરક્ષા જાળવે છે."
+                  }),
                   icon: Building2,
                   color: "text-amber-600 bg-amber-50 border-amber-100/60"
                 },
                 {
-                  title: "Agrarian Empowerment & Sourcing Integrity",
-                  desc: "We operate hand-in-hand with state mandis and local producers to promote sustainable agricultural cultivation, stabilize crop pricing, and cultivate regional economic development.",
+                  title: localize({ en: "Agrarian Empowerment & Sourcing Integrity", hi: "कृषक सशक्तिकरण और सोर्सिंग सत्यनिष्ठा", gu: "ખેડૂત સશક્તિકરણ અને સોર્સિંગ અખંડિતતા" }),
+                  desc: localize({
+                    en: "We operate hand-in-hand with state mandis and local producers to promote sustainable agricultural cultivation, stabilize crop pricing, and cultivate regional economic development.",
+                    hi: "हम टिकाऊ कृषि को बढ़ावा देने, फसल मूल्य निर्धारण को स्थिर करने और क्षेत्रीय आर्थिक विकास को बढ़ावा देने के लिए राज्य मंडियों और स्थानीय उत्पादकों के साथ मिलकर काम करते हैं।",
+                    gu: "અમે ટકાઉ ખેતીને પ્રોત્સાહન આપવા, પાકના ભાવો સ્થિર રાખવા અને પ્રાદેશિક આર્થિક વિકાસ માટે મંડીઓ અને ખેડૂતો સાથે મળીને કામ કરીએ છીએ."
+                  }),
                   icon: Heart,
                   color: "text-emerald-600 bg-emerald-50 border-emerald-100/60"
                 },
                 {
-                  title: "Socio-Economic Development Catalyst",
-                  desc: "By establishing extensive manufacturing bases in semi-rural peripheries, our corporate footprint directly creates technical employment opportunities and acts as a catalyst for rural infrastructure development.",
+                  title: localize({ en: "Socio-Economic Development Catalyst", hi: "सामाजिक-आर्थिक विकास उत्प्रेरक", gu: "સામાજિક-આર્થિક વિકાસ ઉત્પ્રેરક" }),
+                  desc: localize({
+                    en: "By establishing extensive manufacturing bases in semi-rural peripheries, our corporate footprint directly creates technical employment opportunities and acts as a catalyst for rural infrastructure development.",
+                    hi: "अर्ध-ग्रामीण क्षेत्रों में व्यापक विनिर्माण आधार स्थापित करके, हमारी कॉर्पोरेट उपस्थिति सीधे तकनीकी रोजगार के अवसर पैदा करती है और ग्रामीण बुनियादी ढांचे के विकास के लिए एक उत्प्रेरक के रूप में कार्य करती है।",
+                    gu: "ગ્રામીણ વિસ્તારોમાં મોટા મેન્યુફેક્ચરિંગ એકમો સ્થાપીને, અમારી કંપની રોજગારીની તકો ઊભી કરે છે અને ગ્રામીણ વિકાસને વેગ આપે છે."
+                  }),
                   icon: Landmark,
                   color: "text-purple-600 bg-purple-50 border-purple-100/60"
                 }
@@ -670,10 +750,14 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           
           <div className="max-w-4xl mx-auto space-y-5 relative z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-white leading-tight">
-              The Board of Directors
+              {localize({ en: "The Board of Directors", hi: "निदेशक मंडल", gu: "બોર્ડ ઓફ ડિરેક્ટર્સ" })}
             </h1>
             <p className="text-gray-300 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              Steering Punitdhan Pulses with professional financial expertise, visionary industrial legacy, and uncompromising corporate oversight.
+              {localize({
+                en: "Steering Punitdhan Pulses with professional financial expertise, visionary industrial legacy, and uncompromising corporate oversight.",
+                hi: "व्यावसायिक वित्तीय विशेषज्ञता, दूरदर्शी औद्योगिक विरासत और अटूट कॉर्पोरेट निगरानी के साथ पुनीतधन पल्सेस का संचालन।",
+                gu: "વ્યાવસાયિક નાણાકીય નિપુણતા, દૂરંદેશી ઔદ્યોગિક વારસો અને મજબૂત કોર્પોરેટ દેખરેખ સાથે પુનીતધન પલ્સનું સંચાલન."
+              })}
             </p>
           </div>
         </div>
@@ -685,7 +769,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             <div className="flex items-center gap-3 border-b border-zinc-200/45 pb-6">
               <Users className="w-6 h-6 text-[#0b2418] stroke-[2.5]" />
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                Our Governing Board
+                {localize({ en: "Our Governing Board", hi: "हमारा संचालक बोर्ड", gu: "અમારું સંચાલક મંડળ" })}
               </h2>
             </div>
 
@@ -841,28 +925,52 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             <div className="flex items-center gap-3 border-b border-zinc-200/40 pb-4">
               <ShieldCheck className="w-6 h-6 text-[#0b2418] stroke-[2.5]" />
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                Committee & Stewardship Blueprint
+                {localize({ en: "Committee & Stewardship Blueprint", hi: "समिति और शासन रूपरेखा", gu: "સમિતિ અને સંચાલન માળખું" })}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Audit & Financial Risk Committee",
-                  desc: "Chaired by qualified financial administrators, ensuring total transparency across budgeting, tax compliances, asset valuations, and public accountability.",
-                  bullets: ["FSSAI & GST Auditing", "Macroeconomic Sourcing Shield", "Transparent Cost Engineering"],
+                  title: localize({ en: "Audit & Financial Risk Committee", hi: "ऑडिट एवं वित्तीय जोखिम समिति", gu: "ઓડિટ અને નાણાકીય જોખમ સમિતિ" }),
+                  desc: localize({
+                    en: "Chaired by qualified financial administrators, ensuring total transparency across budgeting, tax compliances, asset valuations, and public accountability.",
+                    hi: "योग्य वित्तीय प्रशासकों की अध्यक्षता में, बजट, कर अनुपालन, परिसंपत्ति मूल्यांकन और सार्वजनिक जवाबदेही में पूर्ण पारदर्शिता सुनिश्चित करना।",
+                    gu: "લાયકાત ધરાવતા નાણાકીય સંચાલકોની અધ્યક્ષતામાં, બજેટિંગ, કરવેરા પાલન અને જાહેર જવાબદારીમાં સંપૂર્ણ પારદર્શિતાની ખાતરી."
+                  }),
+                  bullets: [
+                    localize({ en: "FSSAI & GST Auditing", hi: "FSSAI और GST ऑडिटिंग", gu: "FSSAI અને GST ઓડિટિંગ" }),
+                    localize({ en: "Macroeconomic Sourcing Shield", hi: "मैक्रोइकॉनॉमिक सोर्सिंग सुरक्षा", gu: "મેક્રોઇકોનોમિક સોર્સિંગ સુરક્ષા" }),
+                    localize({ en: "Transparent Cost Engineering", hi: "पारदर्शी लागत इंजीनियरिंग", gu: "પારદર્શક ખર્ચ સંચાલન" })
+                  ],
                   color: "border-l-3 border-amber-500"
                 },
                 {
-                  title: "Human Capital & Culture Committee",
-                  desc: "Spearheading fair-pay, workforce upskilling, and a secure professional environment for our 60+ milling technicians and administrative leaders.",
-                  bullets: ["Continuous Factory Upskilling", "Inclusive Equal-Opportunity Policy", "Workplace Safety Accolades"],
+                  title: localize({ en: "Human Capital & Culture Committee", hi: "मानव संसाधन एवं संस्कृति समिति", gu: "માનવ સંસાધન અને સંસ્કૃતિ સમિતિ" }),
+                  desc: localize({
+                    en: "Spearheading fair-pay, workforce upskilling, and a secure professional environment for our 60+ milling technicians and administrative leaders.",
+                    hi: "हमारे 60+ मिलिंग तकनीशियनों और प्रशासनिक नेताओं के लिए निष्पक्ष वेतन, कार्यबल कौशल और एक सुरक्षित वातावरण का नेतृत्व।",
+                    gu: "અમારા ૬૦+ ટેકનિશિયનો અને વહીવટી સ્ટાફ માટે વાજબી વેતન, કૌશલ્ય નિર્માણ અને સુરક્ષિત વાતાવરણનું નેતૃત્વ."
+                  }),
+                  bullets: [
+                    localize({ en: "Continuous Factory Upskilling", hi: "निरंतर कारखाना कौशल विकास", gu: "કારખાના સ્તરે કૌશલ્ય વિકાસ" }),
+                    localize({ en: "Inclusive Equal-Opportunity Policy", hi: "समावेशी समान अवसर नीति", gu: "સમાન તકની નીતિ" }),
+                    localize({ en: "Workplace Safety Accolades", hi: "कार्यस्थल सुरक्षा मानक", gu: "કાર્યસ્થળ સુરક્ષા ધોરણો" })
+                  ],
                   color: "border-l-3 border-emerald-500"
                 },
                 {
-                  title: "Operational Ethics & Governance Committee",
-                  desc: "Upholding high compliance benchmarks across all national cooperative bids, corporate joint-ventures, and state distribution protocols.",
-                  bullets: ["Conflict Prevention Shield", "Anti-corruption Commerce Code", "Stakeholder Value Protection"],
+                  title: localize({ en: "Operational Ethics & Governance Committee", hi: "परिचालन नैतिकता एवं शासन समिति", gu: "સંચાલન નૈતિકતા અને ગવર્નન્સ સમિતિ" }),
+                  desc: localize({
+                    en: "Upholding high compliance benchmarks across all national cooperative bids, corporate joint-ventures, and state distribution protocols.",
+                    hi: "सभी राष्ट्रीय सहकारी बोलियों, कॉर्पोरेट संयुक्त उद्यमों और राज्य वितरण प्रोटोकॉल में उच्च अनुपालन मानकों को बनाए रखना।",
+                    gu: "તમામ રાષ્ટ્રીય સહકારી ટેન્ડરો અને રાજ્ય વિતરણમાં ઉચ્ચ પાલન ધોરણો જાળવી રાખવા."
+                  }),
+                  bullets: [
+                    localize({ en: "Conflict Prevention Shield", hi: "हित-टकराव रोकथाम तंत्र", gu: "વિવાદ નિવારણ સુરક્ષા" }),
+                    localize({ en: "Anti-corruption Commerce Code", hi: "भ्रष्टाचार-विरोधी व्यापार संहिता", gu: "ભ્રષ્ટાચાર-વિરોધી વ્યાપાર સંહિતા" }),
+                    localize({ en: "Stakeholder Value Protection", hi: "हितधारक मूल्य संरक्षण", gu: "હિતધારકોના મૂલ્યનું રક્ષણ" })
+                  ],
                   color: "border-l-3 border-blue-500"
                 }
               ].map((committee, cIdx) => (
@@ -896,11 +1004,19 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             <div className="max-w-3xl mx-auto space-y-6 relative z-10 text-white font-sans">
               <Sparkles className="w-8 h-8 text-[#f4d068] mx-auto animate-pulse" />
               <p className="text-sm sm:text-base md:text-lg italic font-serif text-[#f4d068] leading-relaxed">
-                "Our legacy has been built upon financial integrity and premium agricultural quality. As we expand across India, our board ensures that every grain processed carries this promise."
+                {localize({
+                  en: "\"Our legacy has been built upon financial integrity and premium agricultural quality. As we expand across India, our board ensures that every grain processed carries this promise.\"",
+                  hi: "\"हमारी विरासत वित्तीय सत्यनिष्ठा और प्रीमियम कृषि गुणवत्ता पर बनी है। जैसे-जैसे हम पूरे भारत में विस्तार कर रहे हैं, हमारा बोर्ड यह सुनिश्चित करता है कि प्रसंस्कृत प्रत्येक दाना इस वादे को निभाए।\"",
+                  gu: "\"અમારો વારસો નાણાકીય અખંડિતતા અને પ્રીમિયમ ગુણવત્તા પર બનેલો છે. દેશભરમાં વિસ્તરણ સાથે અમારું બોર્ડ સુનિશ્ચિત કરે છે કે દરેક દાણામાં આ વચન જળવાઈ રહે.\""
+                })}
               </p>
               <div className="w-12 h-px bg-[#f4d068]/40 mx-auto" />
               <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-300 font-bold">
-                The Board of Directors, Punitdhan Pulses Limited
+                {localize({
+                  en: "The Board of Directors, Punitdhan Pulses Limited",
+                  hi: "निदेशक मंडल, पुनीतधन पल्सेस लिमिटेड",
+                  gu: "બોર્ડ ઓફ ડિરેક્ટર્સ, પુનીતધન પલ્સ લિમિટેડ"
+                })}
               </p>
             </div>
           </div>
@@ -986,7 +1102,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                             {getLocalizedStatLabel("credentials")}
                           </span>
                           <span className="text-xs font-bold text-brand-green-dark block mt-0.5 tracking-tight font-sans">
-                            {selectedLeaderId === "prakashchand" || selectedLeaderId === "punit" || selectedLeaderId === "dhanashree" ? "CA (Chartered Accountant)" : "Governance Expert"}
+                            {selectedLeaderId === "prakashchand" || selectedLeaderId === "punit" || selectedLeaderId === "dhanashree" 
+                              ? localize({ en: "CA (Chartered Accountant)", hi: "सीए (चार्टर्ड अकाउंटेंट)", gu: "સીએ (ચાર્ટર્ડ એકાઉન્ટન્ટ)" })
+                              : localize({ en: "Governance Expert", hi: "शासन एवं प्रबंधन विशेषज्ञ", gu: "ગવર્નન્સ નિષ્ણાત" })}
                           </span>
                         </div>
                       </div>
@@ -1111,10 +1229,14 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           
           <div className="max-w-4xl mx-auto space-y-5 relative z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-white leading-tight">
-              Services
+              {localize({ en: "Services", hi: "सेवाएं", gu: "સેવાઓ" })}
             </h1>
             <p className="text-gray-300 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              Sovereign supply chain logistics, state-regulated welfare distribution, and military-grade procurement networks across India.
+              {localize({
+                en: "Sovereign supply chain logistics, state-regulated welfare distribution, and military-grade procurement networks across India.",
+                hi: "पूरे भारत में संप्रभु आपूर्ति श्रृंखला लॉजिस्टिक्स, राज्य-विनियमित कल्याणकारी वितरण और सैन्य-स्तरीय खरीद नेटवर्क।",
+                gu: "સમગ્ર ભારતમાં સપ્લાય ચેઇન લોજિસ્ટિક્સ, સરકારી કલ્યાણકારી વિતરણ અને ઉચ્ચ સ્તરીય ખરીદી નેટવર્ક."
+              })}
             </p>
           </div>
         </div>
@@ -1127,9 +1249,15 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
               <Landmark className="w-6 h-6 stroke-[2.5]" />
             </div>
             <div className="space-y-1.5">
-              <h3 className="text-lg font-serif font-bold text-zinc-900">National Welfare & Public Sector Operations</h3>
+              <h3 className="text-lg font-serif font-bold text-zinc-900">
+                {localize({ en: "National Welfare & Public Sector Operations", hi: "राष्ट्रीय कल्याणकारी और सार्वजनिक क्षेत्र संचालन", gu: "રાષ્ટ્રીય કલ્યાણ અને જાહેર ક્ષેત્રની કામગીરી" })}
+              </h3>
               <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                Punitdhan Pulses Limited is engineered to fulfill high-volume, highly complex institutional procurement contracts for public sector undertakings and national welfare frameworks. Our custom logistics network is built to handle strict delivery timelines, rigorous quality audits, and massive distribution scopes.
+                {localize({
+                  en: "Punitdhan Pulses Limited is engineered to fulfill high-volume, highly complex institutional procurement contracts for public sector undertakings and national welfare frameworks. Our custom logistics network is built to handle strict delivery timelines, rigorous quality audits, and massive distribution scopes.",
+                  hi: "पुनीतधन पल्सेस लिमिटेड को सार्वजनिक क्षेत्र के उपक्रमों और राष्ट्रीय कल्याणकारी योजनाओं के लिए उच्च मात्रा, जटिल संस्थागत खरीद अनुबंधों को पूरा करने के लिए तैयार किया गया है। हमारा लॉजिस्टिक्स नेटवर्क सख्त डिलीवरी समय सीमा, कड़े गुणवत्ता ऑडिट और बड़े पैमाने पर वितरण संभालने के लिए बनाया गया है।",
+                  gu: "પુનીતધન પલ્સ લિમિટેડ જાહેર ક્ષેત્રના ઉપક્રમો અને સરકારી યોજનાઓ માટે મોટા જથ્થાના સંસ્થાકીય કરારો પૂરા કરવા સક્ષમ છે. અમારું નેટવર્ક સમયસર ડિલિવરી અને સખત ઓડિટ સંભાળવા સજ્જ છે."
+                })}
               </p>
             </div>
           </div>
@@ -1138,34 +1266,66 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           <div className="space-y-6">
             <div className="text-center md:text-left">
               <span className="text-[10px] font-mono text-brand-green-mid font-bold uppercase tracking-wider block mb-1">
-                Welfare Initiatives
+                {localize({ en: "Welfare Initiatives", hi: "कल्याणकारी पहल", gu: "કલ્યાણકારી પહેલ" })}
               </span>
               <h2 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 tracking-tight">
-                Government Welfare Sourcing Schemes
+                {localize({ en: "Government Welfare Sourcing Schemes", hi: "सरकारी कल्याणकारी सोर्सिंग योजनाएं", gu: "સરકારી કલ્યાણકારી સોર્સિંગ યોજનાઓ" })}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  title: "The Mid-Day Meal Programme",
-                  desc: "Supplying nutrient-verified, high-purity pulses to support national youth health programs across thousands of primary education institutions.",
-                  points: ["Nutrient-verified whole commodities", "Zero chemical polishing", "Mass primary education support"]
+                  title: localize({ en: "The Mid-Day Meal Programme", hi: "मध्याह्न भोजन कार्यक्रम (Mid-Day Meal)", gu: "મધ્યાહ્ન ભોજન યોજના" }),
+                  desc: localize({
+                    en: "Supplying nutrient-verified, high-purity pulses to support national youth health programs across thousands of primary education institutions.",
+                    hi: "हजारों प्राथमिक शिक्षा संस्थानों में राष्ट्रीय युवा स्वास्थ्य कार्यक्रमों का समर्थन करने के लिए पोषक तत्वों से भरपूर, उच्च शुद्धता वाली दालों की आपूर्ति।",
+                    gu: "હજારો શાળાઓમાં બાળકોના આરોગ્ય અને પોષણને ટેકો આપવા ઉચ્ચ શુદ્ધતાવાળી કઠોળ પૂરી પાડવી."
+                  }),
+                  points: [
+                    localize({ en: "Nutrient-verified whole commodities", hi: "पोषक तत्वों से भरपूर साबुत उत्पाद", gu: "પૌષ્ટિક અનાજ" }),
+                    localize({ en: "Zero chemical polishing", hi: "शून्य रासायनिक पॉलिश", gu: "ઝીરો કેમિકલ પોલિશિંગ" }),
+                    localize({ en: "Mass primary education support", hi: "व्यापक प्राथमिक शिक्षा समर्थन", gu: "શિક્ષણ સહાય સપ્લાય" })
+                  ]
                 },
                 {
-                  title: "Public Distribution System (PDS) & PMGKAY",
-                  desc: "Driving country-wide food security initiatives by routing uniform-grade commodities to vulnerable consumer cross-sections.",
-                  points: ["Uniform high-purity pulses", "PDS-grade compliant packaging", "Welfare safety net logistics"]
+                  title: localize({ en: "Public Distribution System (PDS) & PMGKAY", hi: "सार्वजनिक वितरण प्रणाली (PDS) और PMGKAY", gu: "જાહેર વિતરણ વ્યવસ્થા (PDS) અને PMGKAY" }),
+                  desc: localize({
+                    en: "Driving country-wide food security initiatives by routing uniform-grade commodities to vulnerable consumer cross-sections.",
+                    hi: "जरूरतमंद उपभोक्ता वर्गों को एकसमान-ग्रेड उत्पाद पहुंचाकर देशव्यापी खाद्य सुरक्षा पहलों को संचालित करना।",
+                    gu: "જરૂરિયાતમંદ પરિવારો સુધી ઉચ્ચ ગુણવત્તાવાળા કઠોળ પહોંચાડી દેશવ્યાપી અન્ન સુરક્ષા સુનિશ્ચિત કરવી."
+                  }),
+                  points: [
+                    localize({ en: "Uniform high-purity pulses", hi: "एकसमान उच्च-शुद्धता वाली दालें", gu: "એકસમાન શુદ્ધ કઠોળ" }),
+                    localize({ en: "PDS-grade compliant packaging", hi: "PDS-ग्रेड अनुरूप पैकेजिंग", gu: "PDS-ગ્રેડ પેકેજિંગ" }),
+                    localize({ en: "Welfare safety net logistics", hi: "कल्याणकारी सुरक्षा जाल लॉजिस्टिक्स", gu: "સુરક્ષિત લોજિસ્ટિક્સ" })
+                  ]
                 },
                 {
-                  title: "Integrated Child Development Services (ICDS Scheme)",
-                  desc: "Providing highly specific agricultural outputs tailored to fulfill rigorous child and maternal dietary mandates.",
-                  points: ["Custom dietary specifications", "Vitamins & mineral enrichment", "Targeted maternal-nutrition support"]
+                  title: localize({ en: "Integrated Child Development Services (ICDS Scheme)", hi: "एकीकृत बाल विकास सेवाएं (ICDS योजना)", gu: "સંકલિત બાળ વિકાસ સેવાઓ (ICDS)" }),
+                  desc: localize({
+                    en: "Providing highly specific agricultural outputs tailored to fulfill rigorous child and maternal dietary mandates.",
+                    hi: "सख्त बाल और मातृ आहार संबंधी आवश्यकताओं को पूरा करने के लिए तैयार किए गए विशिष्ट कृषि उत्पाद प्रदान करना।",
+                    gu: "બાળકો અને માતાઓના આહારના ધોરણો પૂરા કરવા માટે વિશેષ કૃષિ ઉત્પાદનો પૂરા પાડવા."
+                  }),
+                  points: [
+                    localize({ en: "Custom dietary specifications", hi: "कस्टम आहार विनिर्देश", gu: "વિશેષ આહાર વિગતો" }),
+                    localize({ en: "Vitamins & mineral enrichment", hi: "विटामिन और खनिज युक्त", gu: "વિટામિન્સ અને મિનરલથી ભરપૂર" }),
+                    localize({ en: "Targeted maternal-nutrition support", hi: "लक्षित मातृ-पोषण सहायता", gu: "માતૃ-પોષણ સહાય" })
+                  ]
                 },
                 {
-                  title: "Bharat Dal Yojana",
-                  desc: "Serving as a primary partner in the government's centralized market-stabilization and consumer-relief commodity distribution frameworks.",
-                  points: ["National brand supply partner", "Market-stabilization assistance", "Government-capped pricing programs"]
+                  title: localize({ en: "Bharat Dal Yojana", hi: "भारत दाल योजना", gu: "ભારત દાળ યોજના" }),
+                  desc: localize({
+                    en: "Serving as a primary partner in the government's centralized market-stabilization and consumer-relief commodity distribution frameworks.",
+                    hi: "सरकार के केंद्रीकृत बाजार-स्थिरीकरण और उपभोक्ता-राहत उत्पाद वितरण ढांचे में प्राथमिक भागीदार के रूप में सेवा करना।",
+                    gu: "સરકારના બજાર સ્થિરીકરણ અને ગ્રાહક રાહત વિતરણમાં મુખ્ય ભાગીદાર તરીકે સેવા આપવી."
+                  }),
+                  points: [
+                    localize({ en: "National brand supply partner", hi: "राष्ट्रीय ब्रांड आपूर्ति भागीदार", gu: "રાષ્ટ્રીય બ્રાન્ડ સપ્લાય પાર્ટનર" }),
+                    localize({ en: "Market-stabilization assistance", hi: "बाजार-स्थिरीकरण सहायता", gu: "બજાર સ્થિરતા સહાય" }),
+                    localize({ en: "Government-capped pricing programs", hi: "सरकारी निर्धारित मूल्य कार्यक्रम", gu: "સરકારી ભાવ યોજનાઓ" })
+                  ]
                 }
               ].map((item, idx) => (
                 <div 
@@ -1204,11 +1364,15 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   <ShieldCheck className="w-5 h-5 stroke-[2.5]" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-serif font-black tracking-tight text-white">
-                  Ministry of Defense Procurement
+                  {localize({ en: "Ministry of Defense Procurement", hi: "रक्षा मंत्रालय खरीद आपूर्ति", gu: "સંરક્ષણ મંત્રાલય ખરીદ પુરવઠો" })}
                 </h3>
               </div>
               <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed">
-                Our long-standing association with the <strong>Indian Department of Defense</strong> demands a zero-error logistical protocol. Punitdhan Pulses Limited ensures consistent, highly secure, and on-time delivery of premium-grade food supplies under military-grade hygiene, storage, and nutritional testing parameters.
+                {localize({
+                  en: "Our long-standing association with the Indian Department of Defense demands a zero-error logistical protocol. Punitdhan Pulses Limited ensures consistent, highly secure, and on-time delivery of premium-grade food supplies under military-grade hygiene, storage, and nutritional testing parameters.",
+                  hi: "भारतीय रक्षा विभाग के साथ हमारा दीर्घकालिक जुड़ाव शून्य-त्रुटि लॉजिस्टिक प्रोटोकॉल की मांग करता है। पुनीतधन पल्सेस लिमिटेड सैन्य-ग्रेड स्वच्छता, भंडारण और पोषण परीक्षण मापदंडों के तहत प्रीमियम-ग्रेड खाद्य आपूर्ति की सुसंगत, अत्यधिक सुरक्षित और समय पर डिलीवरी सुनिश्चित करता है।",
+                  gu: "ભારતીય સંરક્ષણ વિભાગ સાથે અમારું જોડાણ સંપૂર્ણ ક્ષતિરહિત લોજિસ્ટિક્સની માંગ કરે છે. પુનીતધન પલ્સ લિમિટેડ મિલિટરી ગ્રેડ સ્વચ્છતા અને સુરક્ષા હેઠળ પ્રીમિયમ ખાદ્ય પુરવઠો પહોંચાડે છે."
+                })}
               </p>
             </div>
           </div>
@@ -1217,31 +1381,43 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           <div className="space-y-6">
             <div className="text-center md:text-left">
               <span className="text-[10px] font-mono text-brand-green-mid font-bold uppercase tracking-wider block mb-1">
-                Logistical Competence
+                {localize({ en: "Logistical Competence", hi: "लॉजिस्टिक क्षमता", gu: "લોજિસ્ટિક ક્ષમતા" })}
               </span>
               <h2 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 tracking-tight">
-                B2B Sourcing & Logistics Infrastructure
+                {localize({ en: "B2B Sourcing & Logistics Infrastructure", hi: "B2B सोर्सिंग और लॉजिस्टिक्स बुनियादी ढांचा", gu: "B2B સોર્સિંગ અને લોજિસ્ટિક્સ ઇન્ફ્રાસ્ટ્રક્ચર" })}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-zinc-200/50 border-l-4 border-l-brand-green-mid shadow-2xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-3">
                 <span className="text-[10px] font-mono text-emerald-700 font-bold uppercase tracking-widest block">
-                  Allied Sectors
+                  {localize({ en: "Allied Sectors", hi: "संबद्ध क्षेत्र", gu: "સંબંધિત ક્ષેત્રો" })}
                 </span>
-                <h4 className="font-serif font-bold text-zinc-900 text-base sm:text-lg">Bulk Sourcing Competency</h4>
+                <h4 className="font-serif font-bold text-zinc-900 text-base sm:text-lg">
+                  {localize({ en: "Bulk Sourcing Competency", hi: "थोक खरीद क्षमता", gu: "બલ્ક સોર્સિંગ ક્ષમતા" })}
+                </h4>
                 <p className="text-xs sm:text-sm text-zinc-650 leading-relaxed">
-                  Timely, state-regulated procurement networks covering fine <strong>Food Grains, Pulses, Tea, and Spices</strong>. We work in sync with public mandis to acquire raw assets quickly.
+                  {localize({
+                    en: "Timely, state-regulated procurement networks covering fine Food Grains, Pulses, Tea, and Spices. We work in sync with public mandis to acquire raw assets quickly.",
+                    hi: "उत्कृष्ट खाद्यान्न, दालें, चाय और मसालों को कवर करने वाला समय पर, राज्य-विनियमित खरीद नेटवर्क। हम कच्चे उत्पादों को तेजी से प्राप्त करने के लिए सरकारी मंडियों के साथ तालमेल में काम करते हैं।",
+                    gu: "અનાજ, કઠોળ, ચા અને મસાલાઓનું સમયસર, સરકારી ધોરણો અનુસાર ખરીદી નેટવર્ક. મંડીઓ સાથે સંકલન સાધી ઝડપી ખરીદી કરીએ છીએ."
+                  })}
                 </p>
               </div>
 
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-zinc-200/50 border-l-4 border-l-[#f4d068] shadow-2xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-3">
                 <span className="text-[10px] font-mono text-amber-600 font-bold uppercase tracking-widest block">
-                  Transit Reach
+                  {localize({ en: "Transit Reach", hi: "परिवहन पहुंच", gu: "પરિવહન ક્ષમતા" })}
                 </span>
-                <h4 className="font-serif font-bold text-zinc-900 text-base sm:text-lg">High-Capacity Fleet Logistics</h4>
+                <h4 className="font-serif font-bold text-zinc-900 text-base sm:text-lg">
+                  {localize({ en: "High-Capacity Fleet Logistics", hi: "उच्च क्षमता वाला बेड़ा लॉजिस्टिक्स", gu: "ઉચ્ચ ક્ષમતા ફ્લીટ લોજિસ્ટિક્સ" })}
+                </h4>
                 <p className="text-xs sm:text-sm text-zinc-650 leading-relaxed">
-                  Dispatching in excess of <strong>2,000 lorries per year</strong>, backed by extensive multi-location warehousing assets that stabilize internal inventory and insulate against external market deficits.
+                  {localize({
+                    en: "Dispatching in excess of 2,000 lorries per year, backed by extensive multi-location warehousing assets that stabilize internal inventory and insulate against external market deficits.",
+                    hi: "प्रति वर्ष 2,000 से अधिक ट्रकों का प्रेषण, व्यापक बहु-स्थान वेयरहाउसिंग परिसंपत्तियों द्वारा समर्थित जो आंतरिक सूची को स्थिर करती है और बाहरी बाजार की कमी से बचाती है।",
+                    gu: "વાર્ષિક ૨,૦૦૦ થી વધુ ટ્રકોનું ડિસ્પેચ, જે મોટા વેરહાઉસિંગ નેટવર્ક દ્વારા સક્ષમ બને છે."
+                  })}
                 </p>
               </div>
             </div>
@@ -1257,135 +1433,163 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
     const REDESIGNED_PRODUCTS = [
       {
         id: "chana",
-        title: "Chana Dal & Chana Whole",
+        title: localize({ en: "Chana Dal & Chana Whole", hi: "चना दाल और साबुत चना", gu: "ચણા દાળ અને આખા ચણા" }),
         category: "pulses",
-        categoryLabel: "Primary Pulses",
-        desc: "Apex-grade Bengal Gram (Chana) sorted through advanced multi-tier optical systems. Delivers high density, dust-free whole grains, and clean split yellow dal.",
+        categoryLabel: localize({ en: "Primary Pulses", hi: "प्राथमिक दालें", gu: "મુખ્ય કઠોળ" }),
+        desc: localize({
+          en: "Apex-grade Bengal Gram (Chana) sorted through advanced multi-tier optical systems. Delivers high density, dust-free whole grains, and clean split yellow dal.",
+          hi: "अग्रणी गुणवत्ता वाला चना उन्नत मल्टी-टियर ऑप्टिकल सिस्टम से सॉर्ट किया गया। उच्च घनत्व, धूल-मुक्त साबुत अनाज और स्वच्छ चना दाल प्रदान करता है।",
+          gu: "અદ્યતન મલ્ટી-ટાયર ઓપ્ટિકલ સિસ્ટમ્સ દ્વારા સૉર્ટ કરાયેલ ઉચ્ચ ગુણવત્તાવાળા ચણા. ધૂળ મુક્ત આખા દાણા અને શુદ્ધ પીળી દાળ પૂરી પાડે છે."
+        }),
         image: "/products/chana-dal-whole.jpg",
         bullets: [
-          "FSSAI Standard Compliant",
-          "De-hulled to custom specifications",
-          "Zero artificial color or chemical polishing"
+          localize({ en: "FSSAI Standard Compliant", hi: "FSSAI मानक के अनुरूप", gu: "FSSAI સ્ટાન્ડર્ડ અનુસાર" }),
+          localize({ en: "De-hulled to custom specifications", hi: "कस्टम विनिर्देशों के अनुसार छिलका रहित", gu: "ગ્રાહકની જરૂરિયાત મુજબ ફોતરાં રહિત" }),
+          localize({ en: "Zero artificial color or chemical polishing", hi: "शून्य कृत्रिम रंग या रासायनिक पॉलिशिंग", gu: "કોઈપણ કૃત્રિમ રંગ કે રાસાયણિક પોલિશ વગર" })
         ],
         specs: [
-          { label: "Purity Grade", val: "99.7% Min", icon: <Layers className="w-4 h-4 text-emerald-700" /> },
-          { label: "Moisture Ratio", val: "11.5% Max", icon: <Droplet className="w-4 h-4 text-blue-600" /> },
-          { label: "Foreign Matter", val: "< 0.1% Max", icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
-          { label: "Packaging Size", val: "25kg / 50kg Bags", icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
+          { label: localize({ en: "Purity Grade", hi: "शुद्धता ग्रेड", gu: "શુદ્ધતા ગ્રેડ" }), val: localize({ en: "99.7% Min", hi: "99.7% न्यूनतम", gu: "૯૯.૭% ન્યૂનતમ" }), icon: <Layers className="w-4 h-4 text-emerald-700" /> },
+          { label: localize({ en: "Moisture Ratio", hi: "नमी अनुपात", gu: "ભેજનું પ્રમાણ" }), val: localize({ en: "11.5% Max", hi: "11.5% अधिकतम", gu: "૧૧.૫% મહત્તમ" }), icon: <Droplet className="w-4 h-4 text-blue-600" /> },
+          { label: localize({ en: "Foreign Matter", hi: "विदेशी पदार्थ", gu: "અન્ય કચરો" }), val: localize({ en: "< 0.1% Max", hi: "< 0.1% अधिकतम", gu: "< ૦.૧% મહત્તમ" }), icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
+          { label: localize({ en: "Packaging Size", hi: "पैकेजिंग आकार", gu: "પેકેજિંગ સાઇઝ" }), val: localize({ en: "25kg / 50kg Bags", hi: "25 किग्रा / 50 किग्रा बोरी", gu: "૨૫ કિગ્રા / ૫૦ કિગ્રા બેગ" }), icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
         ]
       },
       {
         id: "toor",
-        title: "Premium Toor Dal (Pigeon Peas)",
+        title: localize({ en: "Premium Toor Dal (Pigeon Peas)", hi: "प्रीमियम तुअर दाल (अरहर)", gu: "પ્રીમિયમ તુવેર દાળ" }),
         category: "pulses",
-        categoryLabel: "Primary Pulses",
-        desc: "Our flagship Toor Dal is milled under low-friction dry friction parameters to protect structural protein cells, native yellow gloss, and wholesome taste.",
+        categoryLabel: localize({ en: "Primary Pulses", hi: "प्राथमिक दालें", gu: "મુખ્ય કઠોળ" }),
+        desc: localize({
+          en: "Our flagship Toor Dal is milled under low-friction dry friction parameters to protect structural protein cells, native yellow gloss, and wholesome taste.",
+          hi: "हमारी प्रमुख तुअर दाल कम घर्षण वाली सूखी मिलिंग द्वारा तैयार की जाती है ताकि प्राकृतिक प्रोटीन, पीली चमक और पौष्टिक स्वाद सुरक्षित रहे।",
+          gu: "અમારી ફ્લેગશિપ તુવેર દાળ પ્રોટીન સેલ્સ, કુદરતી પીળો રંગ અને સ્વાદ જાળવી રાખવા માટે લો-ફ્રિક્શન ડ્રાય પેરામીટર્સ હેઠળ તૈયાર કરવામાં આવે છે."
+        }),
         image: "/products/toor-dal.jpg",
         bullets: [
-          "High protein cell protection",
-          "Uniform cooking and boiling duration",
-          "Processed in state-regulated plants"
+          localize({ en: "High protein cell protection", hi: "उच्च प्रोटीन कोशिकाओं का संरक्षण", gu: "ઉચ્ચ પ્રોટીન સેલ સુરક્ષા" }),
+          localize({ en: "Uniform cooking and boiling duration", hi: "समान पकाने और उबलने का समय", gu: "સમાન રસોઈ અને ઉકળવાનો સમય" }),
+          localize({ en: "Processed in state-regulated plants", hi: "राज्य-विनियमित संयंत्रों में प्रसंस्कृत", gu: "સરકાર માન્ય પ્લાન્ટ્સમાં પ્રોસેસ થયેલ" })
         ],
         specs: [
-          { label: "Purity Grade", val: "99.5% Min", icon: <Layers className="w-4 h-4 text-emerald-700" /> },
-          { label: "Moisture Ratio", val: "12.0% Max", icon: <Droplet className="w-4 h-4 text-blue-600" /> },
-          { label: "Foreign Matter", val: "< 0.2% Max", icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
-          { label: "Packaging Size", val: "50kg Jute / PP", icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
+          { label: localize({ en: "Purity Grade", hi: "शुद्धता ग्रेड", gu: "શુદ્ધતા ગ્રેડ" }), val: localize({ en: "99.5% Min", hi: "99.5% न्यूनतम", gu: "૯૯.૫% ન્યૂનતમ" }), icon: <Layers className="w-4 h-4 text-emerald-700" /> },
+          { label: localize({ en: "Moisture Ratio", hi: "नमी अनुपात", gu: "ભેજનું પ્રમાણ" }), val: localize({ en: "12.0% Max", hi: "12.0% अधिकतम", gu: "૧૨.૦% મહત્તમ" }), icon: <Droplet className="w-4 h-4 text-blue-600" /> },
+          { label: localize({ en: "Foreign Matter", hi: "विदेशी पदार्थ", gu: "અન્ય કચરો" }), val: localize({ en: "< 0.2% Max", hi: "< 0.2% अधिकतम", gu: "< ૦.૨% મહત્તમ" }), icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
+          { label: localize({ en: "Packaging Size", hi: "पैकेजिंग आकार", gu: "પેકેજિંગ સાઇઝ" }), val: localize({ en: "50kg Jute / PP", hi: "50 किग्रा जूट / पीपी", gu: "૫૦ કિગ્રા શણ / પીપી" }), icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
         ]
       },
       {
         id: "urad",
-        title: "Urad Dal & Urad Whole (Black Gram)",
+        title: localize({ en: "Urad Dal & Urad Whole (Black Gram)", hi: "उड़द दाल और साबुत उड़द", gu: "અડદ દાળ અને આખા અડદ" }),
         category: "pulses",
-        categoryLabel: "Primary Pulses",
-        desc: "Highly-conditioned Black Gram. Polished or unpolished varieties custom-matched for premium fermentation requirements in commercial batter formulation and mills.",
+        categoryLabel: localize({ en: "Primary Pulses", hi: "प्राथमिक दालें", gu: "મુખ્ય કઠોળ" }),
+        desc: localize({
+          en: "Highly-conditioned Black Gram. Polished or unpolished varieties custom-matched for premium fermentation requirements in commercial batter formulation and mills.",
+          hi: "उच्च-गुणवत्ता वाला उड़द। व्यावसायिक बैटर निर्माण और मिलों में प्रीमियम किण्वन आवश्यकताओं के लिए पॉलिश या अनपॉलिश किस्में।",
+          gu: "શ્રેષ્ઠ અડદ. કમર્શિયલ બેટર અને મિલોમાં આથો લાવવા માટે યોગ્ય પોલિશ્ડ અથવા અનપોલિશ્ડ જાતો ઉપલબ્ધ."
+        }),
         image: "/products/urad-dal-whole.jpg",
         bullets: [
-          "Calibrated particle size profiles",
-          "Superior dough volume and elasticity",
-          "Extensively de-stoned during cleaning"
+          localize({ en: "Calibrated particle size profiles", hi: "सटीक कण आकार प्रोफाइल", gu: "ચોક્કસ કદનું માપન" }),
+          localize({ en: "Superior dough volume and elasticity", hi: "बेहतर घोल मात्रा और लचीलापन", gu: "ઉત્કૃષ્ટ ખીરાનું પ્રમાણ અને મુલાયમતા" }),
+          localize({ en: "Extensively de-stoned during cleaning", hi: "सफाई के दौरान कंकड़-पत्थर पूरी तरह हटाए गए", gu: "સફાઈ દરમિયાન કાંકરી સંપૂર્ણ મુક્ત" })
         ],
         specs: [
-          { label: "Purity Grade", val: "99.6% Min", icon: <Layers className="w-4 h-4 text-emerald-700" /> },
-          { label: "Moisture Ratio", val: "11.0% Max", icon: <Droplet className="w-4 h-4 text-blue-600" /> },
-          { label: "Foreign Matter", val: "< 0.2% Max", icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
-          { label: "Packaging Size", val: "50kg Multi-layer", icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
+          { label: localize({ en: "Purity Grade", hi: "शुद्धता ग्रेड", gu: "શુદ્ધતા ગ્રેડ" }), val: localize({ en: "99.6% Min", hi: "99.6% न्यूनतम", gu: "૯૯.૬% ન્યૂનતમ" }), icon: <Layers className="w-4 h-4 text-emerald-700" /> },
+          { label: localize({ en: "Moisture Ratio", hi: "नमी अनुपात", gu: "ભેજનું પ્રમાણ" }), val: localize({ en: "11.0% Max", hi: "11.0% अधिकतम", gu: "૧૧.૦% મહત્તમ" }), icon: <Droplet className="w-4 h-4 text-blue-600" /> },
+          { label: localize({ en: "Foreign Matter", hi: "विदेशी पदार्थ", gu: "અન્ય કચરો" }), val: localize({ en: "< 0.2% Max", hi: "< 0.2% अधिकतम", gu: "< ૦.૨% મહત્તમ" }), icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
+          { label: localize({ en: "Packaging Size", hi: "पैकेजिंग आकार", gu: "પેકેજિંગ સાઇઝ" }), val: localize({ en: "50kg Multi-layer", hi: "50 किग्रा मल्टी-लेयर", gu: "૫૦ કિગ્રા મલ્ટી-લેયર" }), icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
         ]
       },
       {
         id: "masoor",
-        title: "Masoor Dal & Moong Dal",
+        title: localize({ en: "Masoor Dal & Moong Dal", hi: "मसूर दाल और मूंग दाल", gu: "મસૂર દાળ અને મગ દાળ" }),
         category: "pulses",
-        categoryLabel: "Primary Pulses",
-        desc: "Pristine Split Red Lentils (Masoor) and Green Moong Dal processed under high-velocity dry polishing units to lock in natural mineral structures.",
+        categoryLabel: localize({ en: "Primary Pulses", hi: "प्राथमिक दालें", gu: "મુખ્ય કઠોળ" }),
+        desc: localize({
+          en: "Pristine Split Red Lentils (Masoor) and Green Moong Dal processed under high-velocity dry polishing units to lock in natural mineral structures.",
+          hi: "प्राकृतिक खनिज संरचना को बनाए रखने के लिए उच्च वेग वाली ड्राई पॉलिशिंग इकाइयों के तहत प्रसंस्कृत शुद्ध लाल मसूर और हरी मूंग दाल।",
+          gu: "કુદરતી ખનિજ તત્વોને જાળવી રાખવા માટે હાઇ-વેલોસિટી ડ્રાય પોલિશિંગ યુનિટ્સ હેઠળ પ્રોસેસ કરેલ લાલ મસૂર અને લીલા મગ દાળ."
+        }),
         image: "/products/masoor-moong-dal.jpg",
         bullets: [
-          "Bright uniform size seed distribution",
-          "Zero chemical residues or toxic glazing",
-          "Exceptional protein yields per metric ton"
+          localize({ en: "Bright uniform size seed distribution", hi: "चमकदार समान आकार के दानों का वितरण", gu: "તેજસ્વી સમાન કદના દાણા" }),
+          localize({ en: "Zero chemical residues or toxic glazing", hi: "शून्य रासायनिक अवशेष या हानिकारक पॉलिश", gu: "કોઈપણ રાસાયણિક અવશેષ વગર" }),
+          localize({ en: "Exceptional protein yields per metric ton", hi: "प्रति मीट्रिक टन असाधारण प्रोटीन पैदावार", gu: "પ્રતિ મેટ્રિક ટન શ્રેષ્ઠ પ્રોટીન મૂલ્ય" })
         ],
         specs: [
-          { label: "Purity Grade", val: "99.8% Min", icon: <Layers className="w-4 h-4 text-emerald-700" /> },
-          { label: "Moisture Ratio", val: "11.5% Max", icon: <Droplet className="w-4 h-4 text-blue-600" /> },
-          { label: "Foreign Matter", val: "< 0.1% Max", icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
-          { label: "Packaging Size", val: "25kg / 50kg Bags", icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
+          { label: localize({ en: "Purity Grade", hi: "शुद्धता ग्रेड", gu: "શુદ્ધતા ગ્રેડ" }), val: localize({ en: "99.8% Min", hi: "99.8% न्यूनतम", gu: "૯૯.૮% ન્યૂનતમ" }), icon: <Layers className="w-4 h-4 text-emerald-700" /> },
+          { label: localize({ en: "Moisture Ratio", hi: "नमी अनुपात", gu: "ભેજનું પ્રમાણ" }), val: localize({ en: "11.5% Max", hi: "11.5% अधिकतम", gu: "૧૧.૫% મહત્તમ" }), icon: <Droplet className="w-4 h-4 text-blue-600" /> },
+          { label: localize({ en: "Foreign Matter", hi: "विदेशी पदार्थ", gu: "અન્ય કચરો" }), val: localize({ en: "< 0.1% Max", hi: "< 0.1% अधिकतम", gu: "< ૦.૧% મહત્તમ" }), icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
+          { label: localize({ en: "Packaging Size", hi: "पैकेजिंग आकार", gu: "પેકેજિંગ સાઇઝ" }), val: localize({ en: "25kg / 50kg Bags", hi: "25 किग्रा / 50 किग्रा बोरी", gu: "૨૫ કિગ્રા / ૫૦ કિગ્રા બેગ" }), icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
         ]
       },
       {
         id: "grains",
-        title: "Grains & Basmati Rice",
+        title: localize({ en: "Grains & Basmati Rice", hi: "अनाज और बासमती चावल", gu: "અનાજ અને બાસમતી ચોખા" }),
         category: "diversified",
-        categoryLabel: "Diversified Sourcing",
-        desc: "Supreme long-grain aged Basmati and whole grains curated to satisfy dense institutional welfare mandates and high-volume state food programs.",
+        categoryLabel: localize({ en: "Diversified Sourcing", hi: "विविध सोर्सिंग", gu: "વિવિધ સોર્સિંગ" }),
+        desc: localize({
+          en: "Supreme long-grain aged Basmati and whole grains curated to satisfy dense institutional welfare mandates and high-volume state food programs.",
+          hi: "संस्थागत कल्याणकारी योजनाओं और बड़े पैमाने के राज्य खाद्य कार्यक्रमों के लिए चयनित सर्वोत्तम लंबे दाने वाले पुराने बासमती और साबुत अनाज।",
+          gu: "સંસ્થાકીય કલ્યાણકારી યોજનાઓ અને મોટા પાયાના સરકારી ખાદ્ય કાર્યક્રમો માટે પસંદ કરાયેલ લાંબા દાણાવાળા બાસમતી અને અનાજ."
+        }),
         image: "/products/grains-basmati.jpg",
         bullets: [
-          "Average length > 7.4mm post-cooking",
-          "Aged under climate-balanced warehouses",
-          "Low broken percentage guarantees"
+          localize({ en: "Average length > 7.4mm post-cooking", hi: "पकाने के बाद औसत लंबाई > 7.4 मिमी", gu: "રાંધ્યા પછી સરેરાશ લંબાઈ > ૭.૪ મીમી" }),
+          localize({ en: "Aged under climate-balanced warehouses", hi: "जलवायु-संतुलित गोदामों में संग्रहीत", gu: "નિયંત્રિત વાતાવરણવાળા વેરહાઉસમાં સંગ્રહિત" }),
+          localize({ en: "Low broken percentage guarantees", hi: "टूट-फूट का न्यूनतम प्रतिशत गारंटीकृत", gu: "ઓછા તૂટેલા દાણાની ગેરંટી" })
         ],
         specs: [
-          { label: "Purity Grade", val: "99.0% Min", icon: <Layers className="w-4 h-4 text-emerald-700" /> },
-          { label: "Moisture Ratio", val: "12.5% Max", icon: <Droplet className="w-4 h-4 text-blue-600" /> },
-          { label: "Foreign Matter", val: "< 0.3% Max", icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
-          { label: "Packaging Size", val: "20kg / 50kg Packs", icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
+          { label: localize({ en: "Purity Grade", hi: "शुद्धता ग्रेड", gu: "શુદ્ધતા ગ્રેડ" }), val: localize({ en: "99.0% Min", hi: "99.0% न्यूनतम", gu: "૯૯.૦% ન્યૂનતમ" }), icon: <Layers className="w-4 h-4 text-emerald-700" /> },
+          { label: localize({ en: "Moisture Ratio", hi: "नमी अनुपात", gu: "ભેજનું પ્રમાણ" }), val: localize({ en: "12.5% Max", hi: "12.5% अधिकतम", gu: "૧૨.૫% મહત્તમ" }), icon: <Droplet className="w-4 h-4 text-blue-600" /> },
+          { label: localize({ en: "Foreign Matter", hi: "विदेशी पदार्थ", gu: "અન્ય કચરો" }), val: localize({ en: "< 0.3% Max", hi: "< 0.3% अधिकतम", gu: "< ૦.૩% મહત્તમ" }), icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
+          { label: localize({ en: "Packaging Size", hi: "पैकेजिंग आकार", gu: "પેકેજિંગ સાઇઝ" }), val: localize({ en: "20kg / 50kg Packs", hi: "20 किग्रा / 50 किग्रा पैक", gu: "૨૦ કિગ્રા / ૫૦ કિગ્રા પેક" }), icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
         ]
       },
       {
         id: "oils",
-        title: "FSSAI Grade Edible Oils",
+        title: localize({ en: "FSSAI Grade Edible Oils", hi: "FSSAI ग्रेड खाद्य तेल", gu: "FSSAI ગ્રેડ ખાદ્ય તેલ" }),
         category: "diversified",
-        categoryLabel: "Diversified Sourcing",
-        desc: "Refined and raw Soybean, Mustard, and Sunflower oils processed using mechanical multi-stage expellers to meet heavy institutional catering guidelines.",
+        categoryLabel: localize({ en: "Diversified Sourcing", hi: "विविध सोर्सिंग", gu: "વિવિધ સોર્સિંગ" }),
+        desc: localize({
+          en: "Refined and raw Soybean, Mustard, and Sunflower oils processed using mechanical multi-stage expellers to meet heavy institutional catering guidelines.",
+          hi: "रिफाइंड और कच्चा सोयाबीन, सरसों और सूरजमुखी का तेल, जो बड़े पैमाने के संस्थागत खानपान दिशानिर्देशों को पूरा करने के लिए तैयार किया गया है।",
+          gu: "સંસ્થાકીય કેટરિંગ માર્ગદર્શિકા મુજબ મલ્ટી-સ્ટેજ એક્સપેલર્સનો ઉપયોગ કરીને તૈયાર કરાયેલ શુદ્ધ સોયાબીન, સરસવ અને સૂર્યમુખી તેલ."
+        }),
         image: "/products/edible-oils.jpg",
         bullets: [
-          "FFA levels maintained under 0.1%",
-          "Tested against moisture contamination",
-          "Enriched with standard Vitamin A & D"
+          localize({ en: "FFA levels maintained under 0.1%", hi: "FFA स्तर 0.1% से नीचे बनाए रखा गया", gu: "FFA સ્તર ૦.૧% થી ઓછું" }),
+          localize({ en: "Tested against moisture contamination", hi: "नमी संदूषण के विरुद्ध पूरी तरह परीक्षित", gu: "ભેજ પ્રદૂષણ સામે ચકાસાયેલ" }),
+          localize({ en: "Enriched with standard Vitamin A & D", hi: "मानक विटामिन A और D से समृद्ध", gu: "વિટામિન A અને D થી ભરપૂર" })
         ],
         specs: [
-          { label: "Purity Grade", val: "100% Pure", icon: <Layers className="w-4 h-4 text-emerald-700" /> },
-          { label: "Moisture Ratio", val: "< 0.05% Max", icon: <Droplet className="w-4 h-4 text-blue-600" /> },
-          { label: "Foreign Matter", val: "Nil Detected", icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
-          { label: "Packaging Size", val: "15L Tins / Bottles", icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
+          { label: localize({ en: "Purity Grade", hi: "शुद्धता ग्रेड", gu: "શુદ્ધતા ગ્રેડ" }), val: localize({ en: "100% Pure", hi: "100% शुद्ध", gu: "૧૦૦% શુદ્ધ" }), icon: <Layers className="w-4 h-4 text-emerald-700" /> },
+          { label: localize({ en: "Moisture Ratio", hi: "नमी अनुपात", gu: "ભેજનું પ્રમાણ" }), val: localize({ en: "< 0.05% Max", hi: "< 0.05% अधिकतम", gu: "< ૦.૦૫% મહત્તમ" }), icon: <Droplet className="w-4 h-4 text-blue-600" /> },
+          { label: localize({ en: "Foreign Matter", hi: "विदेशी पदार्थ", gu: "અન્ય કચરો" }), val: localize({ en: "Nil Detected", hi: "शून्य", gu: "શૂન્ય" }), icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
+          { label: localize({ en: "Packaging Size", hi: "पैकेजिंग आकार", gu: "પેકેજિંગ સાઇઝ" }), val: localize({ en: "15L Tins / Bottles", hi: "15 ली टिन / बोतलें", gu: "૧૫ લીટર ટીન / બોટલ" }), icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
         ]
       },
       {
         id: "spices",
-        title: "Selected Tea & Ground Spices",
+        title: localize({ en: "Selected Tea & Ground Spices", hi: "चयनित चाय और पिसे मसाले", gu: "પસંદગીની ચા અને દળેલા મસાલા" }),
         category: "diversified",
-        categoryLabel: "Diversified Sourcing",
-        desc: "Custom-blended regional tea commodities and grounded raw spices including Turmeric, Chili, and Coriander powder curated for bulk logistics.",
+        categoryLabel: localize({ en: "Diversified Sourcing", hi: "विविध सोर्सिंग", gu: "વિવિધ સોર્સિંગ" }),
+        desc: localize({
+          en: "Custom-blended regional tea commodities and grounded raw spices including Turmeric, Chili, and Coriander powder curated for bulk logistics.",
+          hi: "थोक लॉजिस्टिक्स के लिए विशेष रूप से तैयार क्षेत्रीय चाय और पिसे हुए शुद्ध मसाले (हल्दी, मिर्च और धनिया पाउडर)।",
+          gu: "જથ્થાબંધ લોજિસ્ટિક્સ માટે તૈયાર કરાયેલ ચા અને શુદ્ધ મસાલા (હળદર, મરચું અને ધાણાજીરું પાવડર)."
+        }),
         image: "/products/spices-tea.jpg",
         bullets: [
-          "Preserved high volatile oil content",
-          "Hygienically packaged to prevent dampness",
-          "Free from additives and adulterants"
+          localize({ en: "Preserved high volatile oil content", hi: "प्राकृतिक सुगंधित तेल सामग्री संरक्षित", gu: "કુદરતી સુગંધ અને તેલ તત્વો જળવાયેલ" }),
+          localize({ en: "Hygienically packaged to prevent dampness", hi: "सीलन रोकने के लिए स्वच्छ रूप से पैक किया गया", gu: "ભેજ ન લાગે તે રીતે હાઇજીનિક પેકિંગ" }),
+          localize({ en: "Free from additives and adulterants", hi: "मिलावट और कृत्रिम रंगों से पूर्णतः मुक्त", gu: "કોઈપણ ભેળસેળ રહિત" })
         ],
         specs: [
-          { label: "Purity Grade", val: "99.0% Min", icon: <Layers className="w-4 h-4 text-emerald-700" /> },
-          { label: "Moisture Ratio", val: "9.0% Max", icon: <Droplet className="w-4 h-4 text-blue-600" /> },
-          { label: "Foreign Matter", val: "< 0.5% Max", icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
-          { label: "Packaging Size", val: "Bulk Jute / Boxes", icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
+          { label: localize({ en: "Purity Grade", hi: "शुद्धता ग्रेड", gu: "શુદ્ધતા ગ્રેડ" }), val: localize({ en: "99.0% Min", hi: "99.0% न्यूनतम", gu: "૯૯.૦% ન્યૂનતમ" }), icon: <Layers className="w-4 h-4 text-emerald-700" /> },
+          { label: localize({ en: "Moisture Ratio", hi: "नमी अनुपात", gu: "ભેજનું પ્રમાણ" }), val: localize({ en: "9.0% Max", hi: "9.0% अधिकतम", gu: "૯.૦% મહત્તમ" }), icon: <Droplet className="w-4 h-4 text-blue-600" /> },
+          { label: localize({ en: "Foreign Matter", hi: "विदेशी पदार्थ", gu: "અન્ય કચरो", }), val: localize({ en: "< 0.5% Max", hi: "< 0.5% अधिकतम", gu: "< ૦.૫% મહત્તમ" }), icon: <ShieldCheck className="w-4 h-4 text-emerald-600" /> },
+          { label: localize({ en: "Packaging Size", hi: "पैकेजिंग आकार", gu: "પેકેજિંગ સાઇઝ" }), val: localize({ en: "Bulk Jute / Boxes", hi: "थोक जूट बोरी / बॉक्स", gu: "જથ્થાબંધ શણ બોરી / બોક્સ" }), icon: <Briefcase className="w-4 h-4 text-amber-600" /> }
         ]
       }
     ];
@@ -1407,10 +1611,18 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           
           <div className="max-w-4xl mx-auto space-y-5 relative z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-white leading-tight">
-              Product Profiles & Technical Specs
+              {localize({
+                en: "Product Profiles & Technical Specs",
+                hi: "उत्पाद प्रोफाइल और तकनीकी विनिर्देश",
+                gu: "પ્રોડક્ટ પ્રોફાઇલ્સ અને ટેકનિકલ વિગતો"
+              })}
             </h1>
             <p className="text-gray-300 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              Precision-sorted agricultural assets supplied to military, welfare, and bulk commercial sectors under strict FSSAI parameters.
+              {localize({
+                en: "Precision-sorted agricultural assets supplied to military, welfare, and bulk commercial sectors under strict FSSAI parameters.",
+                hi: "सख्त FSSAI मापदंडों के तहत सैन्य, कल्याणकारी और थोक वाणिज्यिक क्षेत्रों को आपूर्ति की जाने वाली उच्च गुणवत्ता वाली कृषि जिंसें।",
+                gu: "કડક FSSAI માપદંડો હેઠળ સૈન્ય, સરકારી કલ્યાણકારી અને બલ્ક કોમર્શિયલ ક્ષેત્રોમાં સપ્લાય થતી કૃષિ પ્રોડક્ટ્સ."
+              })}
             </p>
           </div>
         </div>
@@ -1423,9 +1635,19 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
               <Award className="w-6 h-6 stroke-[2.5]" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-lg font-serif font-bold text-zinc-900">The Sourcing & Processing Protocol</h3>
+              <h3 className="text-lg font-serif font-bold text-zinc-900">
+                {localize({
+                  en: "The Sourcing & Processing Protocol",
+                  hi: "सोर्सिंग और प्रसंस्करण प्रोटोकॉल",
+                  gu: "સોર્સિંગ અને પ્રોસેસિંગ પ્રોટોકોલ"
+                })}
+              </h3>
               <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                Every shipment processed under Punitdhan Pulses Limited undergoes strict mechanical sorting, color sortex purification, de-stoning, and micro-moisture calibrations ensuring total conformance to <strong>FSSAI standards and ISO 9001:2015</strong> mandates.
+                {localize({
+                  en: "Every shipment processed under Punitdhan Pulses Limited undergoes strict mechanical sorting, color sortex purification, de-stoning, and micro-moisture calibrations ensuring total conformance to FSSAI standards and ISO 9001:2015 mandates.",
+                  hi: "पुनीतधन पल्सेस लिमिटेड के तहत प्रसंस्कृत प्रत्येक खेप यांत्रिक छंटाई, कलर सॉर्टेक्स शुद्धिकरण, डी-स्टोनिंग और सूक्ष्म-नमी अंशांकन से गुजरती है, जो FSSAI मानकों और ISO 9001:2015 आदेशों का पूर्ण अनुपालन सुनिश्चित करती है।",
+                  gu: "પુનીતધન પલ્સ લિમિટેડ હેઠળ પ્રોસેસ થતો દરેક જથ્થો કડક મિકેનિકલ સોર્ટિંગ, કલર સોર્ટેક્સ પ્યોરિફિકેશન, ડી-સ્ટોનિંગ અને મોઇશ્ચર કેલિબ્રેશનમાંથી પસાર થાય છે, જે FSSAI ધોરણો અને ISO 9001:2015 ની સંપૂર્ણ ખાતરી આપે છે."
+                })}
               </p>
             </div>
           </div>
@@ -1483,13 +1705,13 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                           }}
                           className="flex-1 text-center bg-zinc-100 hover:bg-zinc-200/70 text-zinc-700 transition-all py-2 rounded-xl text-xs font-bold cursor-pointer"
                         >
-                          Know More
+                          {localize({ en: "Know More", hi: "अधिक जानें", gu: "વધુ જાણો" })}
                         </button>
                         <button
                           onClick={(e) => handleScrollToContact(e, product.title)}
                           className="flex-1 text-center bg-[#f4d068] hover:bg-brand-green-dark hover:text-white text-zinc-900 transition-all py-2 rounded-xl text-xs font-bold cursor-pointer"
                         >
-                          Inquire
+                          {localize({ en: "Inquire", hi: "पूछताछ करें", gu: "પૂછપરછ કરો" })}
                         </button>
                       </div>
                     </div>
@@ -1540,13 +1762,13 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         }}
                         className="flex-1 lg:flex-none border border-zinc-250 hover:bg-zinc-50 text-zinc-700 font-sans font-bold text-xs px-4 py-2 rounded-xl transition-all whitespace-nowrap text-center cursor-pointer"
                       >
-                        Know More
+                        {localize({ en: "Know More", hi: "अधिक जानें", gu: "વધુ જાણો" })}
                       </button>
                       <button
                         onClick={(e) => handleScrollToContact(e, product.title)}
                         className="flex-1 lg:flex-none bg-[#f4d068] hover:bg-brand-green-dark hover:text-white text-zinc-950 font-sans font-extrabold text-xs px-5 py-2 rounded-xl transition-all whitespace-nowrap text-center shadow-xs cursor-pointer"
                       >
-                        Inquire
+                        {localize({ en: "Inquire", hi: "पूछताछ करें", gu: "પૂછપરછ કરો" })}
                       </button>
                     </div>
                   </motion.div>
@@ -1575,7 +1797,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                       className="inline-flex items-center gap-2 bg-white hover:bg-zinc-100 text-brand-green-dark border border-zinc-200/80 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer group"
                     >
                       <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-                      <span>Back to All Products</span>
+                      <span>{localize({ en: "Back to All Products", hi: "सभी उत्पादों पर वापस जाएं", gu: "બધી પ્રોડક્ટ્સ પર પાછા જાઓ" })}</span>
                     </button>
                   </div>
 
@@ -1583,7 +1805,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   {/* Left Column - Master Selection Panel */}
                   <div className="lg:col-span-4 space-y-2.5">
                     <span className="text-[10px] font-mono font-bold tracking-wider text-zinc-400 uppercase block pl-1">
-                      Select Commodity ({filteredProducts.length})
+                      {localize({ en: "Select Commodity", hi: "जिंस का चयन करें", gu: "પ્રોડક્ટ પસંદ કરો" })} ({filteredProducts.length})
                     </span>
                     <div className="flex flex-col gap-2">
                       {filteredProducts.map((p) => {
@@ -1660,7 +1882,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         {/* Description */}
                         <div className="space-y-3">
                           <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-bold block">
-                            Commodity Profile
+                            {localize({ en: "Commodity Profile", hi: "कमोडिटी प्रोफाइल", gu: "પ્રોડક્ટ પ્રોફાઇલ" })}
                           </span>
                           <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
                             {activeProduct.desc}
@@ -1671,7 +1893,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-zinc-100">
                           <div className="space-y-3">
                             <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-bold block">
-                              Milling Mandates
+                              {localize({ en: "Milling Mandates", hi: "मिलिंग मानक", gu: "મિલિંગ ધોરણો" })}
                             </span>
                             <div className="space-y-2.5">
                               {activeProduct.bullets.map((b, idx) => (
@@ -1688,17 +1910,25 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                           <div className="bg-emerald-50/40 border border-emerald-100 p-5 rounded-2xl flex flex-col justify-between space-y-4">
                             <div className="space-y-1.5">
                               <h4 className="text-xs font-mono uppercase tracking-wider text-brand-green-dark font-black">
-                                Verified Sourcing
+                                {localize({ en: "Verified Sourcing", hi: "सत्यापित सोर्सिंग", gu: "ચકાસાયેલ સોર્સિંગ" })}
                               </h4>
                               <p className="text-[11px] text-zinc-600 leading-relaxed font-sans font-semibold">
-                                Certified safe under standard FSSAI parameters. Batch-verified against foreign matter, internal contamination, and moisture degradation. Sourced direct from cooperative grower mandis.
+                                {localize({
+                                  en: "Certified safe under standard FSSAI parameters. Batch-verified against foreign matter, internal contamination, and moisture degradation. Sourced direct from cooperative grower mandis.",
+                                  hi: "मानक FSSAI मापदंडों के तहत प्रमाणित सुरक्षित। बाहरी पदार्थों, आंतरिक संदूषण और नमी गिरावट के खिलाफ बैच-सत्यापित। सहकारी उत्पादक मंडियों से सीधे खरीदा गया।",
+                                  gu: "પ્રમાણભૂત FSSAI માપદંડો હેઠળ પ્રમાણિત. કચરો, આંતરિક ખામી અને ભેજ સામે બેચ-ચકાસાયેલ. સહકારી ખેડૂત મંડીઓમાંથી સીધી ખરીદી."
+                                })}
                               </p>
                             </div>
                             <button
                               onClick={(e) => handleScrollToContact(e, activeProduct.title)}
                               className="w-full text-center bg-brand-green-dark text-white hover:bg-brand-green-mid hover:text-white transition-all py-2.5 px-4 rounded-xl text-xs font-bold font-sans cursor-pointer"
                             >
-                              Inquire About {activeProduct.title}
+                              {localize({
+                                en: `Inquire About ${activeProduct.title}`,
+                                hi: `${activeProduct.title} के बारे में पूछताछ करें`,
+                                gu: `${activeProduct.title} વિશે પૂછપરછ કરો`
+                              })}
                             </button>
                           </div>
                         </div>
@@ -1718,10 +1948,18 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             <div className="absolute right-0 bottom-0 w-64 h-64 bg-[#f4d068]/3 rounded-full pointer-events-none filter blur-2xl" />
             <div className="max-w-2xl mx-auto space-y-6 relative z-10">
               <h3 className="text-xl sm:text-2xl font-serif font-black tracking-tight text-[#f4d068]">
-                Custom Technical Milling & Packing Mandates
+                {localize({
+                  en: "Custom Technical Milling & Packing Mandates",
+                  hi: "कस्टम तकनीकी मिलिंग और पैकिंग आवश्यकताएं",
+                  gu: "કસ્ટમ ટેકનિકલ મિલિંગ અને પેકિંગ વ્યવસ્થા"
+                })}
               </h3>
               <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed">
-                Do you require specialized packing (e.g., 20kg consumer bags, bulk jute sacks) or customized Sortex specifications to satisfy regional tenders or state welfare contracts? Our board facilitates full tailored milling and shipping protocols.
+                {localize({
+                  en: "Do you require specialized packing (e.g., 20kg consumer bags, bulk jute sacks) or customized Sortex specifications to satisfy regional tenders or state welfare contracts? Our board facilitates full tailored milling and shipping protocols.",
+                  hi: "क्या आपको क्षेत्रीय निविदाओं या राज्य कल्याण अनुबंधों को पूरा करने के लिए विशेष पैकिंग (जैसे 20 किग्रा बैग, जूट की बोरियां) या अनुकूलित सॉर्टेक्स विनिर्देशों की आवश्यकता है? हमारा बोर्ड पूर्ण अनुकूलित मिलिंग और शिपिंग प्रोटोकॉल की सुविधा प्रदान करता है।",
+                  gu: "શું તમને સરકારી ટેન્ડર કે વિશેષ કોન્ટ્રાક્ટ માટે કસ્ટમાઇઝ્ડ પેકિંગ અથવા સોર્ટેક્સ સ્પષ્ટીકરણોની જરૂર છે? અમારું બોર્ડ સંપૂર્ણ અનુકૂળ મિલિંગ અને શિપિંગ પ્રોટોકોલ પ્રદાન કરે છે."
+                })}
               </p>
               <div className="pt-2">
                 <a
@@ -1729,7 +1967,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   onClick={handleScrollToContact}
                   className="inline-flex items-center gap-2 text-xs font-mono font-black uppercase tracking-widest text-zinc-900 bg-[#f4d068] hover:bg-white px-6 py-3 rounded-full shadow-lg transition-all"
                 >
-                  <span>Submit Sourcing Tender</span>
+                  <span>{localize({ en: "Submit Sourcing Tender", hi: "सोर्सिंग टेंडर जमा करें", gu: "સોર્સિંગ ટેન્ડર સબમિટ કરો" })}</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -1787,7 +2025,11 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
     const handleFormSubmit = (e: React.FormEvent) => {
       e.preventDefault();
       if (!resumeFile) {
-        alert("Please upload your resume (PDF/Word document) to submit your application.");
+        alert(localize({
+          en: "Please upload your resume (PDF/Word document) to submit your application.",
+          hi: "कृपया अपना आवेदन जमा करने के लिए अपना बायोडाटा (PDF/Word) अपलोड करें।",
+          gu: "કૃપા કરીને તમારી અરજી સબમિટ કરવા માટે તમારું રિઝ્યુમ (PDF/Word) અપલોડ કરો."
+        }));
         return;
       }
       setIsSubmittingCareer(true);
@@ -1838,10 +2080,14 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           
           <div className="max-w-4xl mx-auto space-y-5 relative z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-white leading-tight">
-              Careers
+              {localize({ en: "Careers", hi: "करियर", gu: "કારકિર્દી" })}
             </h1>
             <p className="text-gray-300 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              Cultivating Operational Leaders to Nourish the Nation
+              {localize({
+                en: "Cultivating Operational Leaders to Nourish the Nation",
+                hi: "राष्ट्र को पोषण देने के लिए परिचालन नेतृत्व का निर्माण",
+                gu: "રાષ્ટ્રને પોષણ આપવા ઓપરેશનલ લીડર્સનું નિર્માણ"
+              })}
             </p>
           </div>
         </div>
@@ -1852,11 +2098,15 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             <div className="flex items-center gap-3 text-brand-green-dark">
               <GraduationCap className="w-6 h-6 stroke-[2.5]" />
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                Cultivating Operational Leaders
+                {localize({ en: "Cultivating Operational Leaders", hi: "परिचालन नेतृत्व का विकास", gu: "ઓપરેશનલ લીડર્સનો વિકાસ" })}
               </h2>
             </div>
             <p className="text-zinc-650 leading-relaxed text-sm sm:text-base">
-              At Punitdhan Pulses Limited, our continuous corporate growth is powered entirely by the technical skill, operational focus, and professional drive of our workforce. We cultivate an inclusive, highly professional workplace environment that rewards creative thinking, operational ownership, and a shared dedication to national nutrition goals.
+              {localize({
+                en: "At Punitdhan Pulses Limited, our continuous corporate growth is powered entirely by the technical skill, operational focus, and professional drive of our workforce. We cultivate an inclusive, highly professional workplace environment that rewards creative thinking, operational ownership, and a shared dedication to national nutrition goals.",
+                hi: "पुनीतधन पल्सेस लिमिटेड में, हमारा निरंतर कॉर्पोरेट विकास हमारे कार्यबल के तकनीकी कौशल, परिचालन फोकस और व्यावसायिक समर्पण से संचालित होता है। हम एक समावेशी, अत्यधिक पेशेवर कार्य वातावरण प्रदान करते हैं जो रचनात्मक सोच, स्वामित्व और राष्ट्रीय पोषण लक्ष्यों के प्रति प्रतिबद्धता को प्रोत्साहित करता है।",
+                gu: "પુનીતધન પલ્સ લિમિટેડમાં, અમારો વિકાસ અમારા કર્મચારીઓની તકનીકી કુશળતા અને વ્યાવસાયિક પ્રતિબદ્ધતા દ્વારા સંચાલિત છે. અમે એક સર્વસમાવેશક અને વ્યાવસાયિક વાતાવરણ પ્રદાન કરીએ છીએ."
+              })}
             </p>
           </div>
 
@@ -1868,25 +2118,33 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
               <div className="bg-gradient-to-br from-[#0b2418] to-[#10b981]/50 text-white rounded-3xl p-8 shadow-xl space-y-6">
                 <div className="flex items-center gap-3 text-[#f4d068]">
                   <Briefcase className="w-6 h-6 stroke-[2.5]" />
-                  <h3 className="text-xl font-serif font-bold tracking-tight">We Are Sourcing</h3>
+                  <h3 className="text-xl font-serif font-bold tracking-tight">
+                    {localize({ en: "We Are Sourcing", hi: "हम प्रतिभाओं की तलाश में हैं", gu: "અમે પ્રતિભા શોધી રહ્યા છીએ" })}
+                  </h3>
                 </div>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  We constantly seek technical mill operators, quality assurance specialists, supply chain logisticians, and financial compliance professionals. Working within our corporate structure gives team members hands-on exposure to massive institutional food logistics, state-level procurement frameworks, and state-of-the-art milling systems.
+                  {localize({
+                    en: "We constantly seek technical mill operators, quality assurance specialists, supply chain logisticians, and financial compliance professionals. Working within our corporate structure gives team members hands-on exposure to massive institutional food logistics, state-level procurement frameworks, and state-of-the-art milling systems.",
+                    hi: "हम निरंतर तकनीकी मिल ऑपरेटरों, गुणवत्ता आश्वासन विशेषज्ञों, आपूर्ति श्रृंखला प्रबंधकों और वित्तीय अनुपालन पेशेवरों की तलाश करते हैं। हमारी कंपनी में कार्य करने से व्यापक संस्थागत खाद्य लॉजिस्टिक्स और आधुनिक मिलिंग प्रणालियों का अनुभव प्राप्त होता है।",
+                    gu: "અમે ટેકનિકલ મિલ ઓપરેટર્સ, ગુણવત્તા નિષ્ણાતો, સપ્લાય ચેઇન અને નાણાકીય અનુપાલન વ્યાવસાયિકોની સતત શોધ કરીએ છીએ."
+                  })}
                 </p>
                 <div className="border-t border-white/10 pt-4 space-y-4">
-                  <h4 className="text-xs font-mono uppercase text-[#f4d068] font-bold tracking-wider">Candidate Expectations</h4>
+                  <h4 className="text-xs font-mono uppercase text-[#f4d068] font-bold tracking-wider">
+                    {localize({ en: "Candidate Expectations", hi: "उम्मीदवार से अपेक्षाएं", gu: "ઉમેદવાર પાસેથી અપેક્ષાઓ" })}
+                  </h4>
                   <ul className="space-y-3 text-xs text-gray-300">
                     <li className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-[#f4d068] shrink-0 mt-0.5" />
-                      <span>Dedicated alignment with central and state compliance standards.</span>
+                      <span>{localize({ en: "Dedicated alignment with central and state compliance standards.", hi: "केंद्रीय और राज्य अनुपालन मानकों के साथ समर्पित संरेखण।", gu: "કેન્દ્રીય અને રાજ્ય નિયમોનું ચુસ્ત પાલન." })}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-[#f4d068] shrink-0 mt-0.5" />
-                      <span>Sound understanding of safety-first manufacturing workflows.</span>
+                      <span>{localize({ en: "Sound understanding of safety-first manufacturing workflows.", hi: "सुरक्षा-प्रथम विनिर्माण प्रक्रियाओं की ठोस समझ।", gu: "સુરક્ષા-પ્રથમ ઉત્પાદન પ્રક્રિયાઓની ઊંડી સમજ." })}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-[#f4d068] shrink-0 mt-0.5" />
-                      <span>Rigorous focus on high precision grain grading and processing.</span>
+                      <span>{localize({ en: "Rigorous focus on high precision grain grading and processing.", hi: "उच्च परिशुद्धता अनाज ग्रेडिंग और प्रसंस्करण पर कठोर ध्यान।", gu: "ઉચ્ચ ચોકસાઈવાળા અનાજ ગ્રેડિંગ અને પ્રોસેસિંગ પર ધ્યાન." })}</span>
                     </li>
                   </ul>
                 </div>
@@ -1895,10 +2153,14 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
               <div className="bg-amber-50/50 border border-amber-200/60 rounded-3xl p-6 text-sm text-amber-900 space-y-3">
                 <h4 className="font-bold font-serif text-base flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                  Corporate HR Office
+                  {localize({ en: "Corporate HR Office", hi: "कॉर्पोरेट मानव संसाधन कार्यालय", gu: "કોર્પોરેટ એચઆર ઓફિસ" })}
                 </h4>
                 <p className="text-xs text-zinc-600 leading-relaxed font-sans">
-                  Completed forms are routed directly to CA Dhanashree Bachhawat (Head of People Operations). Qualified profiles undergo a structural background check followed by a tech-level panel round.
+                  {localize({
+                    en: "Completed forms are routed directly to CA Dhanashree Bachhawat (Head of People Operations). Qualified profiles undergo a structural background check followed by a tech-level panel round.",
+                    hi: "भरे हुए फॉर्म सीधे सीए धनश्री बाच्छावत (मानव संसाधन प्रमुख) को भेजे जाते हैं। योग्य प्रोफाइल की पृष्ठभूमि जांच के बाद तकनीकी पैनल साक्षात्कार होता है।",
+                    gu: "ભરેલા ફોર્મ સીધા CA ધનશ્રી બચ્છાવત (એચઆર હેડ) ને મોકલવામાં આવે છે. યોગ્ય પ્રોફાઇલની ચકાસણી બાદ પેનલ ઇન્ટરવ્યુ લેવામાં આવે છે."
+                  })}
                 </p>
               </div>
             </div>
@@ -1906,8 +2168,12 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             {/* Right side: Interactively Redesigned Candidate Form */}
             <div className="lg:col-span-7 bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-[#f4d068] p-8 shadow-[0_20px_50px_rgba(15,46,30,0.02)] space-y-8 text-left hover:-translate-y-1 transition-all duration-300">
               <div>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900">Candidate Enrollment</h3>
-                <p className="text-xs text-zinc-500 font-mono mt-1">Submit your profile and resume directly into our corporate portal.</p>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900">
+                  {localize({ en: "Candidate Enrollment", hi: "उम्मीदवार नामांकन", gu: "ઉમેદવાર નોંધણી" })}
+                </h3>
+                <p className="text-xs text-zinc-500 font-mono mt-1">
+                  {localize({ en: "Submit your profile and resume directly into our corporate portal.", hi: "अपनी प्रोफ़ाइल और बायोडाटा सीधे हमारे कॉर्पोरेट पोर्टल पर जमा करें।", gu: "તમારી પ્રોફાઇલ અને રિઝ્યુમ સીધા અમારા પોર્ટલ પર સબમિટ કરો." })}
+                </p>
               </div>
 
               {careerSubmitSuccess ? (
@@ -1920,16 +2186,22 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     <CheckCircle2 className="w-10 h-10 stroke-[2]" />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-lg font-serif font-black text-zinc-900">Application Submitted!</h4>
+                    <h4 className="text-lg font-serif font-black text-zinc-900">
+                      {localize({ en: "Application Submitted!", hi: "आवेदन सफलतापूर्वक जमा हुआ!", gu: "અરજી સફળતાપૂર્વક સબમિટ થઈ!" })}
+                    </h4>
                     <p className="text-sm text-zinc-600 leading-relaxed max-w-md mx-auto">
-                      Thank you for applying. Your candidate details and uploaded resume are safely stored in our Administrative CMS database. Our HR panel will reach out if your credentials align.
+                      {localize({
+                        en: "Thank you for applying. Your candidate details and uploaded resume are safely stored in our Administrative CMS database. Our HR panel will reach out if your credentials align.",
+                        hi: "आवेदन करने के लिए धन्यवाद। आपका विवरण और बायोडाटा सुरक्षित रूप से संग्रहीत हैं। यदि आपकी योग्यता मेल खाती है तो हमारा पैनल संपर्क करेगा।",
+                        gu: "અરજી કરવા બદલ આભાર. તમારો ડેટા સુરક્ષિત સંગ્રહિત છે. અમારી HR ટીમ ટૂંક સમયમાં સંપર્ક કરશે."
+                      })}
                     </p>
                   </div>
                   <button 
                     onClick={() => setCareerSubmitSuccess(false)}
                     className="bg-zinc-900 hover:bg-zinc-800 text-white font-mono text-xs uppercase tracking-widest font-extrabold px-6 py-3 rounded-xl transition-all cursor-pointer shadow"
                   >
-                    Submit Another Application
+                    {localize({ en: "Submit Another Application", hi: "दूसरा आवेदन जमा करें", gu: "બીજી અરજી સબમિટ કરો" })}
                   </button>
                 </motion.div>
               ) : (
@@ -1937,19 +2209,23 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   {/* Basic Info Rows */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
-                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Candidate Name *</label>
+                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">
+                        {localize({ en: "Candidate Name *", hi: "उम्मीदवार का नाम *", gu: "ઉમેદવારનું નામ *" })}
+                      </label>
                       <input 
                         type="text"
                         required
                         value={careerForm.name}
                         onChange={(e) => setCareerForm(prev => ({ ...prev, name: e.target.value }))}
-                        placeholder="e.g. Rahul Sharma"
+                        placeholder={localize({ en: "e.g. Rahul Sharma", hi: "उदा. राहुल शर्मा", gu: "દા.ત. રાહુલ શર્મા" })}
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-green-dark focus:bg-white transition-all text-zinc-800"
                       />
                     </div>
                     
                     <div className="space-y-2">
-                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Email Address *</label>
+                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">
+                        {localize({ en: "Email Address *", hi: "ईमेल पता *", gu: "ઈમેલ સરનામું *" })}
+                      </label>
                       <input 
                         type="email"
                         required
@@ -1963,7 +2239,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
-                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Contact Phone *</label>
+                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">
+                        {localize({ en: "Contact Phone *", hi: "संपर्क फोन *", gu: "સંપર્ક ફોન *" })}
+                      </label>
                       <input 
                         type="tel"
                         required
@@ -1975,53 +2253,83 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Position Applied For *</label>
+                      <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">
+                        {localize({ en: "Position Applied For *", hi: "पद जिसके लिए आवेदन किया है *", gu: "કયા પદ માટે અરજી કરી છે *" })}
+                      </label>
                       <select
                         value={careerForm.position}
                         onChange={(e) => setCareerForm(prev => ({ ...prev, position: e.target.value }))}
                         className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-green-dark focus:bg-white transition-all text-zinc-800 cursor-pointer"
                       >
-                        <option>Senior Mill Operator / Milling Tech</option>
-                        <option>Quality Assurance Analyst / Lab Executive</option>
-                        <option>Procurement & Sourcing Manager</option>
-                        <option>Logistics & Supply Chain Lead</option>
-                        <option>Financial Compliance Specialist</option>
-                        <option>Human Resources Executive</option>
-                        <option>Other / General Application</option>
+                        <option value="Senior Mill Operator / Milling Tech">
+                          {localize({ en: "Senior Mill Operator / Milling Tech", hi: "वरिष्ठ मिल ऑपरेटर / मिलिंग तकनीशियन", gu: "સિનિયર મિલ ઓપરેટર / મિલિંગ ટેક" })}
+                        </option>
+                        <option value="Quality Assurance Analyst / Lab Executive">
+                          {localize({ en: "Quality Assurance Analyst / Lab Executive", hi: "गुणवत्ता आश्वासन विश्लेषक / लैब कार्यकारी", gu: "ગુણવત્તા વિશ્લેષક / લેબ એક્ઝિક્યુટિવ" })}
+                        </option>
+                        <option value="Procurement & Sourcing Manager">
+                          {localize({ en: "Procurement & Sourcing Manager", hi: "खरीद और सोर्सिंग प्रबंधक", gu: "ખરીદી અને સોર્સિંગ મેનેજર" })}
+                        </option>
+                        <option value="Logistics & Supply Chain Lead">
+                          {localize({ en: "Logistics & Supply Chain Lead", hi: "लॉजिस्टिक्स और आपूर्ति श्रृंखला प्रमुख", gu: "લોજિસ્ટિક્સ અને સપ્લાય ચેઈન લીડ" })}
+                        </option>
+                        <option value="Financial Compliance Specialist">
+                          {localize({ en: "Financial Compliance Specialist", hi: "वित्तीय अनुपालन विशेषज्ञ", gu: "નાણાકીય અનુપાલન નિષ્ણાત" })}
+                        </option>
+                        <option value="Human Resources Executive">
+                          {localize({ en: "Human Resources Executive", hi: "मानव संसाधन कार्यकारी", gu: "માનવ સંસાધન એક્ઝિક્યુટિવ" })}
+                        </option>
+                        <option value="Other / General Application">
+                          {localize({ en: "Other / General Application", hi: "अन्य / सामान्य आवेदन", gu: "અન્ય / સામાન્ય અરજી" })}
+                        </option>
                       </select>
                     </div>
                   </div>
 
                   {/* Experience Selector */}
                   <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Relevant Experience *</label>
+                    <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">
+                      {localize({ en: "Relevant Experience *", hi: "प्रासंगिक अनुभव *", gu: "સંબંધિત અનુભવ *" })}
+                    </label>
                     <select
                       value={careerForm.experience}
                       onChange={(e) => setCareerForm(prev => ({ ...prev, experience: e.target.value }))}
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-green-dark focus:bg-white transition-all text-zinc-800 cursor-pointer"
                     >
-                      <option>Entry Level / Graduate / Fresher</option>
-                      <option>1-3 Years Professional Experience</option>
-                      <option>3-5 Years Professional Experience</option>
-                      <option>5+ Years Senior Specialist</option>
+                      <option value="Entry Level / Graduate / Fresher">
+                        {localize({ en: "Entry Level / Graduate / Fresher", hi: "प्रारंभिक स्तर / स्नातक / फ्रेशर", gu: "એન્ટ્રી લેવલ / ગ્રેજ્યુએટ / ફ્રેશર" })}
+                      </option>
+                      <option value="1-3 Years Professional Experience">
+                        {localize({ en: "1-3 Years Professional Experience", hi: "1-3 वर्ष का पेशेवर अनुभव", gu: "૧-૩ વર્ષનો વ્યાવસાયિક અનુભવ" })}
+                      </option>
+                      <option value="3-5 Years Professional Experience">
+                        {localize({ en: "3-5 Years Professional Experience", hi: "3-5 वर्ष का पेशेवर अनुभव", gu: "૩-૫ વર્ષનો વ્યાવસાયિક અનુભવ" })}
+                      </option>
+                      <option value="5+ Years Senior Specialist">
+                        {localize({ en: "5+ Years Senior Specialist", hi: "5+ वर्ष वरिष्ठ विशेषज्ञ", gu: "૫+ વર્ષ સિનિયર નિષ્ણાત" })}
+                      </option>
                     </select>
                   </div>
 
                   {/* Message Note */}
                   <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Statement / Cover Note (Optional)</label>
+                    <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">
+                      {localize({ en: "Statement / Cover Note (Optional)", hi: "कवर नोट / संक्षिप्त विवरण (वैकल्पिक)", gu: "કવર નોટ / વિગત (વૈકલ્પિક)" })}
+                    </label>
                     <textarea 
                       rows={3}
                       value={careerForm.message}
                       onChange={(e) => setCareerForm(prev => ({ ...prev, message: e.target.value }))}
-                      placeholder="Tell us about your background or why you are applying to Punitdhan..."
+                      placeholder={localize({ en: "Tell us about your background or why you are applying to Punitdhan...", hi: "अपनी पृष्ठभूमि या पुनीतधन में आवेदन करने के कारण के बारे में बताएं...", gu: "તમારી પૃષ્ઠભૂમિ અથવા પુનીતધનમાં અરજી કરવાના કારણ વિશે જણાવો..." })}
                       className="w-full bg-zinc-50 border border-zinc-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-green-dark focus:bg-white transition-all text-zinc-800 resize-none"
                     />
                   </div>
 
                   {/* Redesigned Drag & Drop Resume Upload Box */}
                   <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">Upload Resume (PDF, DOC, DOCX) *</label>
+                    <label className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold block">
+                      {localize({ en: "Upload Resume (PDF, DOC, DOCX) *", hi: "बायोडाटा अपलोड करें (PDF, DOC, DOCX) *", gu: "રિઝ્યુમ અપલોડ કરો (PDF, DOC, DOCX) *" })}
+                    </label>
                     
                     {resumeFile ? (
                       /* Connected File Present */
@@ -2070,8 +2378,15 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                             <UploadCloud className="w-6 h-6 text-[#10b981]" />
                           </span>
                           <div>
-                            <p className="text-xs font-bold text-zinc-800">Drag & Drop Resume, or <span className="text-[#10b981] font-black hover:underline">Browse</span></p>
-                            <p className="text-[10px] text-zinc-400 mt-1 font-mono">Accepts PDF, DOC, DOCX up to 5MB</p>
+                            <p className="text-xs font-bold text-zinc-800">
+                              {localize({ en: "Drag & Drop Resume, or ", hi: "बायोडाटा खींचें और छोड़ें, या ", gu: "રિઝ્યુમ અહીં ડ્રેગ કરો, અથવા " })}
+                              <span className="text-[#10b981] font-black hover:underline">
+                                {localize({ en: "Browse", hi: "ब्राउज़ करें", gu: "બ્રાઉઝ કરો" })}
+                              </span>
+                            </p>
+                            <p className="text-[10px] text-zinc-400 mt-1 font-mono">
+                              {localize({ en: "Accepts PDF, DOC, DOCX up to 5MB", hi: "PDF, DOC, DOCX स्वीकार्य (5MB तक)", gu: "PDF, DOC, DOCX સ્વીકાર્ય (૫MB સુધી)" })}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -2093,11 +2408,11 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     {isSubmittingCareer ? (
                       <>
                         <span className="w-4 h-4 border-2 border-zinc-950/30 border-t-zinc-950 rounded-full animate-spin"></span>
-                        <span>Filing Profile...</span>
+                        <span>{localize({ en: "Filing Profile...", hi: "प्रोफ़ाइल दर्ज की जा रही है...", gu: "પ્રોફાઇલ સબમિટ થઈ રહી છે..." })}</span>
                       </>
                     ) : (
                       <>
-                        <span>Verify & Submit Application</span>
+                        <span>{localize({ en: "Verify & Submit Application", hi: "सत्यापित करें और आवेदन जमा करें", gu: "ચકાસો અને અરજી સબમિટ કરો" })}</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
@@ -2207,22 +2522,46 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                 <div className="flex items-center gap-3 text-brand-green-dark">
                   <MapPin className="w-6 h-6 stroke-[2.5]" />
                   <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                    Addresses & Registered Offices
+                    {localize({ en: "Addresses & Registered Offices", hi: "पते और पंजीकृत कार्यालय", gu: "સરનામાં અને રજિસ્ટર્ડ ઓફિસ" })}
                   </h2>
                 </div>
 
                 <div className="space-y-6 text-xs sm:text-sm text-zinc-650">
                   <div className="space-y-1.5 border-l-2 border-brand-accent pl-4">
-                    <strong className="text-zinc-900 block font-sans">Corporate Headquarters:</strong>
-                    <span className="block text-zinc-500 font-medium">406 Neelgagan Plaza, Opposite Police Commissioner Office, Shahibaug, Ahmedabad, Gujarat, India – 380004.</span>
+                    <strong className="text-zinc-900 block font-sans">
+                      {localize({ en: "Corporate Headquarters:", hi: "कॉर्पोरेट मुख्यालय:", gu: "કોર્પોરેટ હેડક્વાર્ટર:" })}
+                    </strong>
+                    <span className="block text-zinc-500 font-medium">
+                      {localize({
+                        en: "406 Neelgagan Plaza, Opposite Police Commissioner Office, Shahibaug, Ahmedabad, Gujarat, India – 380004.",
+                        hi: "406 नीलगगन प्लाजा, पुलिस कमिश्नर कार्यालय के सामने, शाहीबाग, अहमदाबाद, गुजरात, भारत – 380004।",
+                        gu: "૪૦૬ નીલગગન પ્લાઝા, પોલીસ કમિશનર ઓફિસ સામે, શાહીબાગ, અમદાવાદ, ગુજરાત, ભારત – ૩૮૦૦૦૪."
+                      })}
+                    </span>
                   </div>
                   <div className="space-y-1.5 border-l-2 border-[#f4d068] pl-4">
-                    <strong className="text-zinc-900 block font-sans">Milling & Manufacturing Hub I:</strong>
-                    <span className="block text-zinc-500 font-medium">Near Omkar Textile Mill, Behind Narnarayan Weigh Bridge, Memco Char Rasta, Naroda Road, Ahmedabad, Gujarat, India – 382345.</span>
+                    <strong className="text-zinc-900 block font-sans">
+                      {localize({ en: "Milling & Manufacturing Hub I:", hi: "मिलिंग एवं विनिर्माण केंद्र I:", gu: "મિલિંગ અને ઉત્પાદન કેન્દ્ર ૧:" })}
+                    </strong>
+                    <span className="block text-zinc-500 font-medium">
+                      {localize({
+                        en: "Near Omkar Textile Mill, Behind Narnarayan Weigh Bridge, Memco Char Rasta, Naroda Road, Ahmedabad, Gujarat, India – 382345.",
+                        hi: "ओमकार टेक्सटाइल मिल के पास, नरनारायण वे ब्रिज के पीछे, मेमको चार रास्ता, नरोडा रोड, अहमदाबाद, गुजरात, भारत – 382345।",
+                        gu: "ઓમકાર ટેક્સટાઇલ મિલ પાસે, નરનારાયણ વે બ્રિજ પાછળ, મેમકો ચાર રસ્તા, નરોડા રોડ, અમદાવાદ, ગુજરાત, ભારત – ૩૮૨૩૪૫."
+                      })}
+                    </span>
                   </div>
                   <div className="space-y-1.5 border-l-2 border-emerald-600 pl-4">
-                    <strong className="text-zinc-900 block font-sans">Milling & Manufacturing Hub II:</strong>
-                    <span className="block text-zinc-500 font-medium">Krishna Rice Mills Compound, Behind Baba Ramdevpir Mandir, Near Patel Kanta, Daran Road, Ahmedabad, Gujarat, India – 382220.</span>
+                    <strong className="text-zinc-900 block font-sans">
+                      {localize({ en: "Milling & Manufacturing Hub II:", hi: "मिलिंग एवं विनिर्माण केंद्र II:", gu: "મિલિંગ અને ઉત્પાદન કેન્દ્ર ૨:" })}
+                    </strong>
+                    <span className="block text-zinc-500 font-medium">
+                      {localize({
+                        en: "Krishna Rice Mills Compound, Behind Baba Ramdevpir Mandir, Near Patel Kanta, Daran Road, Ahmedabad, Gujarat, India – 382220.",
+                        hi: "कृष्णा राइस मिल्स कंपाउंड, बाबा रामदेवपीर मंदिर के पीछे, पटेल कांटा के पास, डारन रोड, अहमदाबाद, गुजरात, भारत – 382220।",
+                        gu: "ક્રિષ્ના રાઇસ મિલ્સ કમ્પાઉન્ડ, બાબા રામદેવપીર મંદિર પાછળ, પટેલ કાંટા પાસે, દારણ રોડ, અમદાવાદ, ગુજરાત, ભારત – ૩૮૨૨૨૦."
+                      })}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -2232,20 +2571,24 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                 <div className="flex items-center gap-3 text-brand-green-dark">
                   <Phone className="w-6 h-6 stroke-[2.5]" />
                   <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                    Institutional Communication
+                    {localize({ en: "Institutional Communication", hi: "संस्थागत संचार", gu: "સંસ્થાકીય સંચાર" })}
                   </h2>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs sm:text-sm">
                   <div className="space-y-2">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block font-bold">Direct Lines</span>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block font-bold">
+                      {localize({ en: "Direct Lines", hi: "सीधी दूरभाष लाइनें", gu: "ડાયરેક્ટ ફોન લાઇન" })}
+                    </span>
                     <div className="space-y-1 font-mono text-zinc-700">
                       <a href="tel:+917069888113" className="block hover:text-brand-green-mid transition-colors font-bold">+91 70698 88113</a>
                       <a href="tel:+917069888112" className="block hover:text-brand-green-mid transition-colors font-bold">+91 70698 88112</a>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block font-bold">Electronic Mail</span>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block font-bold">
+                      {localize({ en: "Electronic Mail", hi: "ईमेल संपर्क", gu: "ઈમેલ સંપર્ક" })}
+                    </span>
                     <div className="space-y-1 font-mono text-brand-green-mid">
                       <a href="mailto:punitdhan_pulses@yahoo.com" className="block hover:underline truncate font-bold">punitdhan_pulses@yahoo.com</a>
                       <a href="mailto:punitdhan_pulses2025@yahoo.com" className="block hover:underline truncate font-bold">punitdhan_pulses2025@yahoo.com</a>
@@ -2260,17 +2603,21 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             <div className="lg:col-span-5 bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-brand-green-mid p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,46,30,0.02)] space-y-6 hover:-translate-y-1 transition-all duration-300">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                  Send Us an Inquiry
+                  {localize({ en: "Send Us an Inquiry", hi: "हमें पूछताछ भेजें", gu: "અમને પૂછપરછ મોકલો" })}
                 </h2>
                 <p className="text-xs sm:text-sm text-zinc-550 leading-relaxed mt-1">
-                  Submit your sourcing mandate or commercial query.
+                  {localize({
+                    en: "Submit your sourcing mandate or commercial query.",
+                    hi: "अपना सोर्सिंग विवरण या वाणिज्यिक प्रश्न दर्ज करें।",
+                    gu: "તમારી સોર્સિંગ વિગત અથવા પ્રશ્ન સબમિટ કરો."
+                  })}
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4 text-left">
                 <div className="space-y-1">
                   <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-500 block">
-                    Full Name
+                    {localize({ en: "Full Name", hi: "पूरा नाम", gu: "પૂરું નામ" })}
                   </label>
                   <input
                     type="text"
@@ -2279,13 +2626,13 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full bg-zinc-50 border border-zinc-200 text-zinc-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent/25 focus:border-brand-green-mid transition-all font-sans font-semibold"
-                    placeholder="Enter your name"
+                    placeholder={localize({ en: "Enter your name", hi: "अपना नाम दर्ज करें", gu: "તમારું નામ દાખલ કરો" })}
                   />
                 </div>
 
                 <div className="space-y-1">
                   <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-500 block">
-                    Email Address
+                    {localize({ en: "Email Address", hi: "ईमेल पता", gu: "ઈમેલ સરનામું" })}
                   </label>
                   <input
                     type="email"
@@ -2300,7 +2647,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
 
                 <div className="space-y-1">
                   <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-500 block">
-                    Phone Number
+                    {localize({ en: "Phone Number", hi: "फोन नंबर", gu: "ફોન નંબર" })}
                   </label>
                   <input
                     type="tel"
@@ -2315,7 +2662,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
 
                 <div className="space-y-1">
                   <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-500 block">
-                    Subject
+                    {localize({ en: "Subject", hi: "विषय", gu: "વિષય" })}
                   </label>
                   <input
                     type="text"
@@ -2324,13 +2671,13 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     value={formData.subject}
                     onChange={handleInputChange}
                     className="w-full bg-zinc-50 border border-zinc-200 text-zinc-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent/25 focus:border-brand-green-mid transition-all font-sans font-semibold"
-                    placeholder="Corporate supply / General Query"
+                    placeholder={localize({ en: "Corporate supply / General Query", hi: "कॉर्पोरेट आपूर्ति / सामान्य प्रश्न", gu: "કોર્પોરેટ સપ્લાય / સામાન્ય પૂછપરછ" })}
                   />
                 </div>
 
                 <div className="space-y-1">
                   <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-500 block">
-                    Message
+                    {localize({ en: "Message", hi: "संदेश", gu: "સંદેશ" })}
                   </label>
                   <textarea
                     name="message"
@@ -2339,21 +2686,21 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full bg-zinc-50 border border-zinc-200 text-zinc-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent/25 focus:border-brand-green-mid transition-all font-sans font-semibold resize-none"
-                    placeholder="Detail your requirements..."
+                    placeholder={localize({ en: "Detail your requirements...", hi: "अपनी आवश्यकताएं विस्तार से बताएं...", gu: "તમારી જરૂરિયાતો વિગતવાર જણાવો..." })}
                   />
                 </div>
 
                 {submitStatus === "success" && (
                   <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold flex items-center gap-2.5 animate-fadeIn">
                     <span>✓</span>
-                    <span>Your enquiry has been received successfully.</span>
+                    <span>{localize({ en: "Your enquiry has been received successfully.", hi: "आपकी पूछताछ सफलतापूर्वक प्राप्त हो गई है।", gu: "તમારી પૂછપરછ સફળતાપૂર્વક મળી ગઈ છે." })}</span>
                   </div>
                 )}
 
                 {submitStatus === "error" && (
                   <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm font-bold flex items-center gap-2.5 animate-fadeIn">
                     <span>✕</span>
-                    <span>An unexpected error occurred. Please try again.</span>
+                    <span>{localize({ en: "An unexpected error occurred. Please try again.", hi: "एक अप्रत्याशित त्रुटि हुई। कृपया पुन: प्रयास करें।", gu: "કોઈ ક્ષતિ આવી. કૃપા કરીને ફરી પ્રયાસ કરો." })}</span>
                   </div>
                 )}
 
@@ -2363,10 +2710,10 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-[#f4d068] hover:bg-brand-green-dark hover:text-white text-brand-green-dark text-xs sm:text-sm font-extrabold uppercase tracking-widest transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
                 >
                   {isSubmitting ? (
-                    <span>Sending...</span>
+                    <span>{localize({ en: "Sending...", hi: "भेजा जा रहा है...", gu: "મોકલી રહ્યું છે..." })}</span>
                   ) : (
                     <>
-                      <span>Send Enquiry</span>
+                      <span>{localize({ en: "Send Enquiry", hi: "पूछताछ भेजें", gu: "પૂછપરછ મોકલો" })}</span>
                       <ArrowRight className="w-4 h-4" />
                     </>
                   )}
