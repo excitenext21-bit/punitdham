@@ -2132,9 +2132,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             </h1>
             <p className="text-gray-300 font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
               {localize({ 
-                en: "Official Registry Codes, Central Government Approved Food Safety Licenses & Corporate Standards", 
-                hi: "आधिकारिक पंजीकरण कोड, केंद्र सरकार द्वारा अनुमोदित खाद्य सुरक्षा लाइसेंस और कॉर्पोरेट मानक", 
-                gu: "સત્તાવાર નોંધણી કોડ્સ, કેન્દ્ર સરકાર માન્ય ફૂડ સેફ્ટી લાઇસન્સ અને ગુણવત્તા ધોરણો" 
+                en: "Official Corporate Legal Registry & Governance Framework under the Ministry of Corporate Affairs", 
+                hi: "कॉर्पोरेट कार्य मंत्रालय के तहत आधिकारिक कॉर्पोरेट विधिक रजिस्ट्री और शासन ढांचा", 
+                gu: "કોર્પોરેટ બાબતોના મંત્રાલય હેઠળ સત્તાવાર કોર્પોરેટ લીગલ રજિસ્ટ્રી અને ગવર્નન્સ" 
               })}
             </p>
           </div>
