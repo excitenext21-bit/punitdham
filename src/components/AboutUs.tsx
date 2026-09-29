@@ -139,7 +139,11 @@ export default function AboutUs() {
                 {localize({ en: "Our Corporate Core Pillars", hi: "हमारे कॉर्पोरेट मुख्य आधार स्तंभ", gu: "અમારા કોર્પોરેટ મુખ્ય આધારસ્તંભો" })}
               </h3>
               <p className="text-zinc-650 font-sans text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
-                Punitdhan Pulses stands firm on the principles of technological innovation, robust community partnerships, national developmental impact, and global market outreach.
+                {localize({
+                  en: "Punitdhan Pulses stands firm on the principles of technological innovation, robust community partnerships, national developmental impact, and global market outreach.",
+                  hi: "पुनीतधन पल्सेस तकनीकी नवाचार, मजबूत सामुदायिक साझेदारी, राष्ट्रीय विकासात्मक प्रभाव और वैश्विक बाजार पहुंच के सिद्धांतों पर दृढ़ता से खड़ा है।",
+                  gu: "પુનીતધન પલ્સ ટેકનોલોજીકલ ઇનોવેશન, મજબૂત સમુદાય ભાગીદારી, રાષ્ટ્રીય વિકાસલક્ષી પ્રભાવ અને વૈશ્વિક બજાર પહોંચના સિદ્ધાંતો પર અડગ છે."
+                })}
               </p>
 
               {/* Enhanced Facets Under 1st Paragraph */}

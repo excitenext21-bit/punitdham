@@ -351,7 +351,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
       {/* RE-IMAGINED COMMODITY INQUIRY FORM MODAL */}
       <AnimatePresence>
         {isBulkModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
             
             {/* Dark glass curtain backdrop */}
             <motion.div 
@@ -359,14 +359,14 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => { setIsBulkModalOpen(false); clearSelectedProduct(); }}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm"
             />
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-[#0b1f15] border border-brand-green-light/40 rounded-[2rem] p-5 sm:p-6 md:p-7 max-w-3xl lg:max-w-4xl w-full relative shadow-2xl z-10 text-white overflow-hidden max-h-[98vh] flex flex-col"
+              className="bg-[#0b1f15] border border-brand-green-light/40 rounded-2xl sm:rounded-[2rem] p-5 sm:p-6 md:p-7 max-w-2xl lg:max-w-3xl w-full relative shadow-2xl z-10 text-white overflow-hidden max-h-[90vh] my-auto flex flex-col"
             >
               <button 
                 onClick={() => { setIsBulkModalOpen(false); clearSelectedProduct(); }}
@@ -376,30 +376,20 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
                 <X size={16} />
               </button>
 
-              <div className="space-y-0.5">
-                <span className="text-[9px] text-[#f4d068] font-mono tracking-widest font-bold uppercase bg-[#f4d068]/10 px-2 py-0.5 rounded-md inline-block">
-                  {localize({ en: "COMMERCIAL BULK INQUIRY", hi: "व्यावसायिक थोक पूछताछ", gu: "જથ્ઝાબંધ ખરીદી પુછપરછ" })}
-                </span>
-                <h3 className="text-lg sm:text-xl font-serif text-white tracking-tight pt-0.5">
+              <div className="space-y-1 pr-8 shrink-0">
+                <h3 className="text-xl sm:text-2xl font-serif text-white tracking-tight">
                   {localize({ en: "Submit Commodity Inquiry", hi: "वस्तु/जिंस थोक पूछताछ सबमिट करें", gu: "બલ્ક ખરીદી પુછપરછ પત્રક" })}
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed max-w-2xl pt-0.5">
+                <p className="text-xs text-zinc-400 leading-relaxed max-w-2xl">
                   {localize({
-                    en: "Punitdhan Sales operates direct high-volume channels for cooperatives, industrial buyers, and wholesale bulk trade. ",
-                    hi: "पुनीतधन सेल्स बड़े औद्योगिक खरीदारों और सामूहिक थोक आपूर्ति के लिए सीधे चैनल संचालित करता है। ",
-                    gu: "ઔદ્યોગિક ખરીદદારો અને જથ્ઝાબંધ વેપારીઓ માટે પુનીતધન સીધો પુરવઠો મોકલે છે। "
+                    en: "Punitdhan Sales operates direct high-volume channels for cooperatives, industrial buyers, and wholesale bulk trade.",
+                    hi: "पुनीतधन सेल्स बड़े औद्योगिक खरीदारों और सामूहिक थोक आपूर्ति के लिए सीधे चैनल संचालित करता है।",
+                    gu: "ઔદ્યોગિક ખરીદદારો અને જથ્ઝાબંધ વેપારીઓ માટે પુનીતધન સીધો પુરવઠો મોકલે છે।"
                   })}
-                  <span className="text-[#f4d068]">
-                    {localize({
-                      en: "Get verified quotes response inside 12 hours.",
-                      hi: "12 व्यावसायिक घंटों में मूल्य उद्धरण प्राप्त करें।",
-                      gu: "૧૨ કલાકમાં ભાવપત્રક મેળવવા વિગત ભરો।"
-                    })}
-                  </span>
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-3 font-sans text-xs sm:text-sm mt-3.5 flex-1 overflow-y-auto pr-1">
+              <form onSubmit={handleSubmit} className="space-y-3 font-sans text-xs sm:text-sm mt-3 flex-1 overflow-y-auto pr-1">
                 
                 {selectedProductName && (
                   <div className="p-2.5 bg-[#f4d068]/10 border border-[#f4d068]/30 rounded-xl text-brand-accent text-xs flex items-center justify-between leading-none font-bold">
@@ -477,7 +467,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
 
                 <div>
                   <label className="block text-[10px] font-mono uppercase text-zinc-400 mb-1 font-bold">
-                    {localize({ en: "Message Details & Vol *", hi: "पूछताछ विवरण और मात्रा *", gu: "જથ્થો અને વિશિષ્ટ વિગતો *" })}
+                    {localize({ en: "Message Details", hi: "पूछताछ विवरण", gu: "વિગતવાર સંદેશ" })}
                   </label>
                   <textarea
                     required
@@ -493,17 +483,17 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
                   <button
                     disabled={isSubmitting}
                     type="submit"
-                    className="w-full bg-[#f4d068] hover:bg-white text-brand-green-dark font-black px-5 py-2.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer text-xs uppercase"
+                    className="w-full bg-[#f4d068] hover:bg-white text-brand-green-dark font-black px-5 py-2.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer text-xs uppercase tracking-wider"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-3.5 h-3.5 animate-spin text-brand-green-dark" />
-                        {localize({ en: "Routing Secure Request...", hi: "सुरक्षित डेटा प्रेषण किया जा रहा है...", gu: "માહિતી મોકલી રહી છે..." })}
+                        {localize({ en: "Submitting...", hi: "सबमिट किया जा रहा है...", gu: "સબમિટ કરી રહ્યું છે..." })}
                       </>
                     ) : (
                       <>
                         <Send size={12} className="stroke-[2.5]" />
-                        {localize({ en: "Transmit Commercial Desk", hi: "व्यावसायिक डेस्क को प्रेषित करें", gu: "વ્યાપારી ડેસ્ક પર મોકલો" })}
+                        <span>{localize({ en: "Submit", hi: "सबमिट करें", gu: "સબમિટ કરો" })}</span>
                       </>
                     )}
                   </button>

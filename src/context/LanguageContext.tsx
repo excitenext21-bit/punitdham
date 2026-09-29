@@ -125,7 +125,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // Inline localization helper
   const localize = (translations: { en: string; hi?: string; gu?: string }): string => {
-    return translations[language] || translations["hi"] || translations["gu"] || translations["en"];
+    return translations[language] || translations["en"] || "";
   };
 
   return (

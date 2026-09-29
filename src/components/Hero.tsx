@@ -22,11 +22,6 @@ export default function Hero({ sectionId }: HeroProps) {
     hi: "सटीक सोर्सिंग सत्यनिष्ठा। स्केलिंग नवाचार।",
     gu: "વિશ્વસનીય સોર્સિંગ. અદ્યતન ઇનોવેશન."
   });
-  const subtitle = localize({
-    en: "Over 38 Years of Industrial Legacy (Est. 1988)",
-    hi: "38+ वर्षों की औद्योगिक विरासत (स्थापना 1988)",
-    gu: "૩૮+ વર્ષનો ઔદ્યોગિક વારસો (સ્થાપના ૧૯૮૮)"
-  });
   const content = localize({
     en: "Punitdhan Pulses Limited has stood at the apex of the agricultural supply chain—transitioning from a trusted partnership into a Public Limited company processing over 400 MT daily.",
     hi: "पुनीतधन पल्सेस लिमिटेड कृषि आपूर्ति श्रृंखला के शीर्ष पर खड़ा है—एक विश्वसनीय साझेदारी से 400 मीट्रिक टन से अधिक दैनिक प्रसंस्करण वाली पब्लिक लिमिटेड कंपनी में परिवर्तित।",
@@ -70,18 +65,15 @@ export default function Hero({ sectionId }: HeroProps) {
         
         {/* Left main text elements */}
         <div className="flex-1 text-left space-y-6 max-w-3xl font-sans">
-          {/* Main Display Heading - Font size reduced by 20%, gap between headers reduced by 10% */}
-          <h1 className="text-[20.16px] sm:text-[26.88px] lg:text-[33.6px] font-serif tracking-tight font-black flex flex-col gap-3.5">
-            <div className="flex flex-col gap-[7.2px] sm:gap-[9px] leading-[1.12]">
-              <span className="text-white">{headingLine1}</span>
-              <span className="text-[#f4d068]">{headingLine2}</span>
-            </div>
-
-            {/* Accent Ribbon */}
-            <div className="self-start pt-1">
-              <div className="inline-flex items-center gap-2 bg-brand-accent/15 border border-brand-accent/45 text-brand-accent px-3 py-1.5 rounded-full text-xs font-mono tracking-widest uppercase font-semibold">
-                <Wheat size={14} className="stroke-[2.5]" />
-                <span>{subtitle}</span>
+          {/* Main Display Heading with Grain Icon in front */}
+          <h1 className="text-[20.16px] sm:text-[26.88px] lg:text-[33.6px] font-serif tracking-tight font-black">
+            <div className="flex items-start gap-3 sm:gap-4 leading-[1.15]">
+              <div className="p-2 sm:p-2.5 rounded-2xl bg-brand-accent/15 border border-brand-accent/40 text-[#f4d068] shrink-0 mt-0.5 shadow-sm">
+                <Wheat className="w-5 h-5 sm:w-7 sm:h-7 stroke-[2.5]" />
+              </div>
+              <div className="flex flex-col gap-[7.2px] sm:gap-[9px]">
+                <span className="text-white">{headingLine1}</span>
+                <span className="text-[#f4d068]">{headingLine2}</span>
               </div>
             </div>
           </h1>

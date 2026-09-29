@@ -1259,8 +1259,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
         id: "chana",
         title: "Chana Dal & Chana Whole",
         category: "pulses",
+        categoryLabel: "Primary Pulses",
         desc: "Apex-grade Bengal Gram (Chana) sorted through advanced multi-tier optical systems. Delivers high density, dust-free whole grains, and clean split yellow dal.",
-        image: "https://images.unsplash.com/photo-1545110134-75c15e518466?auto=format&fit=crop&q=80&w=800",
+        image: "/products/chana-dal-whole.jpg",
         bullets: [
           "FSSAI Standard Compliant",
           "De-hulled to custom specifications",
@@ -1277,8 +1278,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
         id: "toor",
         title: "Premium Toor Dal (Pigeon Peas)",
         category: "pulses",
+        categoryLabel: "Primary Pulses",
         desc: "Our flagship Toor Dal is milled under low-friction dry friction parameters to protect structural protein cells, native yellow gloss, and wholesome taste.",
-        image: "https://images.unsplash.com/photo-1618411640018-972400a40df8?auto=format&fit=crop&q=80&w=800",
+        image: "/products/toor-dal.jpg",
         bullets: [
           "High protein cell protection",
           "Uniform cooking and boiling duration",
@@ -1295,8 +1297,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
         id: "urad",
         title: "Urad Dal & Urad Whole (Black Gram)",
         category: "pulses",
+        categoryLabel: "Primary Pulses",
         desc: "Highly-conditioned Black Gram. Polished or unpolished varieties custom-matched for premium fermentation requirements in commercial batter formulation and mills.",
-        image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&q=80&w=800",
+        image: "/products/urad-dal-whole.jpg",
         bullets: [
           "Calibrated particle size profiles",
           "Superior dough volume and elasticity",
@@ -1313,8 +1316,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
         id: "masoor",
         title: "Masoor Dal & Moong Dal",
         category: "pulses",
+        categoryLabel: "Primary Pulses",
         desc: "Pristine Split Red Lentils (Masoor) and Green Moong Dal processed under high-velocity dry polishing units to lock in natural mineral structures.",
-        image: "https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&q=80&w=800",
+        image: "/products/masoor-moong-dal.jpg",
         bullets: [
           "Bright uniform size seed distribution",
           "Zero chemical residues or toxic glazing",
@@ -1331,8 +1335,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
         id: "grains",
         title: "Grains & Basmati Rice",
         category: "diversified",
+        categoryLabel: "Diversified Sourcing",
         desc: "Supreme long-grain aged Basmati and whole grains curated to satisfy dense institutional welfare mandates and high-volume state food programs.",
-        image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800",
+        image: "/products/grains-basmati.jpg",
         bullets: [
           "Average length > 7.4mm post-cooking",
           "Aged under climate-balanced warehouses",
@@ -1349,8 +1354,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
         id: "oils",
         title: "FSSAI Grade Edible Oils",
         category: "diversified",
+        categoryLabel: "Diversified Sourcing",
         desc: "Refined and raw Soybean, Mustard, and Sunflower oils processed using mechanical multi-stage expellers to meet heavy institutional catering guidelines.",
-        image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=800",
+        image: "/products/edible-oils.jpg",
         bullets: [
           "FFA levels maintained under 0.1%",
           "Tested against moisture contamination",
@@ -1367,8 +1373,9 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
         id: "spices",
         title: "Selected Tea & Ground Spices",
         category: "diversified",
+        categoryLabel: "Diversified Sourcing",
         desc: "Custom-blended regional tea commodities and grounded raw spices including Turmeric, Chili, and Coriander powder curated for bulk logistics.",
-        image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=800",
+        image: "/products/spices-tea.jpg",
         bullets: [
           "Preserved high volatile oil content",
           "Hygienically packaged to prevent dampness",
@@ -1521,10 +1528,13 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         alt={product.title} 
                         className="w-full h-full object-cover filter brightness-95 group-hover:brightness-100 group-hover:scale-[1.03] transition-all duration-500"
                         referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = '/products/chana-dal-whole.jpg';
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                       <div className="absolute top-4 left-4 bg-brand-green-dark text-white text-[9px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">
-                        {product.category}
+                        {product.categoryLabel || product.category}
                       </div>
                     </div>
 
@@ -1578,11 +1588,19 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     {/* Identity row block */}
                     <div className="flex items-center gap-5 w-full lg:w-auto flex-1">
                       <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-zinc-150">
-                        <img src={product.image} alt={product.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        <img 
+                          src={product.image} 
+                          alt={product.title} 
+                          className="w-full h-full object-cover" 
+                          referrerPolicy="no-referrer" 
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = '/products/chana-dal-whole.jpg';
+                          }}
+                        />
                       </div>
                       <div>
                         <span className="text-[8px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded uppercase tracking-wider">
-                          {product.category}
+                          {product.categoryLabel || product.category}
                         </span>
                         <h4 className="text-base font-serif font-black text-zinc-900 mt-1 leading-tight">
                           {product.title}
@@ -1642,14 +1660,22 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                           >
                             <div className="flex items-center gap-3">
                               <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0 bg-zinc-100">
-                                <img src={p.image} alt={p.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                                <img 
+                                  src={p.image} 
+                                  alt={p.title} 
+                                  className="w-full h-full object-cover" 
+                                  referrerPolicy="no-referrer" 
+                                  onError={(e) => {
+                                    (e.currentTarget as HTMLImageElement).src = '/products/chana-dal-whole.jpg';
+                                  }}
+                                />
                               </div>
                               <div className="space-y-0.5">
                                 <p className={`text-xs font-serif font-black ${isSelected ? "text-brand-green-dark" : "text-zinc-800"}`}>
                                   {p.title}
                                 </p>
                                 <p className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest font-bold">
-                                  {p.category}
+                                  {p.categoryLabel || p.category}
                                 </p>
                               </div>
                             </div>
@@ -1670,12 +1696,20 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     >
                       {/* Image header banner */}
                       <div className="h-64 sm:h-72 w-full relative">
-                        <img src={activeProduct.image} alt={activeProduct.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        <img 
+                          src={activeProduct.image} 
+                          alt={activeProduct.title} 
+                          className="w-full h-full object-cover" 
+                          referrerPolicy="no-referrer" 
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = '/products/chana-dal-whole.jpg';
+                          }}
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                         <div className="absolute bottom-6 left-6 right-6 flex flex-wrap justify-between items-end gap-4">
                           <div className="space-y-1 text-white">
                             <span className="text-[9px] font-mono uppercase tracking-widest text-[#f4d068] font-bold bg-[#f4d068]/20 border border-[#f4d068]/30 px-2.5 py-1 rounded-full">
-                              {activeProduct.category} Profile
+                              {activeProduct.categoryLabel || activeProduct.category} Profile
                             </span>
                             <h2 className="text-2xl sm:text-3xl font-serif font-black tracking-tight drop-shadow-sm">
                               {activeProduct.title}

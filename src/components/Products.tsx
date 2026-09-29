@@ -145,21 +145,21 @@ const PRODUCT_SPECS: Record<string, {
 const getProductImage = (id: string) => {
   switch (id) {
     case "chana-dal":
-      return "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&q=80&w=800";
+      return "/products/chana-dal-whole.jpg";
     case "toor-dal":
-      return "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=800";
+      return "/products/toor-dal.jpg";
     case "urad-whole":
-      return "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&q=80&w=800";
+      return "/products/urad-dal-whole.jpg";
     case "urad-dal":
-      return "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800";
+      return "/products/urad-dal-whole.jpg";
     case "masoor-dal":
-      return "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?auto=format&fit=crop&q=80&w=800";
+      return "/products/masoor-moong-dal.jpg";
     case "chana-whole":
-      return "https://images.unsplash.com/photo-1551754626-7ed702cd4b29?auto=format&fit=crop&q=80&w=800";
+      return "/products/kala-chana.jpg";
     case "moong-dal":
-      return "https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?auto=format&fit=crop&q=80&w=800";
+      return "/products/moong-dal.jpg";
     default:
-      return "https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?auto=format&fit=crop&q=80&w=800";
+      return "/products/chana-dal-whole.jpg";
   }
 };
 
@@ -529,6 +529,9 @@ export default function Products({ onInquireProduct }: ProductsProps) {
                               alt={activeProduct.name}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                               referrerPolicy="no-referrer"
+                              onError={(e) => {
+                                (e.currentTarget as HTMLImageElement).src = '/products/chana-dal-whole.jpg';
+                              }}
                             />
                           </div>
                         </div>
@@ -697,6 +700,9 @@ export default function Products({ onInquireProduct }: ProductsProps) {
                             alt={prod.name} 
                             className="w-full h-full object-cover"
                             referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).src = '/products/chana-dal-whole.jpg';
+                            }}
                           />
                         </div>
                         <div>

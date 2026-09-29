@@ -17,8 +17,8 @@ import { useCMS } from "../context/CMSContext";
 
 // Mapping of high-fidelity premium professional corporate portraits
 const LEADER_IMAGES: Record<string, string> = {
-  prakashchand: "/prakashchand.jpg",
-  punit: "/punit.jpg",
+  prakashchand: "/prakashchand.jpg?v=2",
+  punit: "/punit.jpg?v=2",
   dhanashree: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
   chika: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
 };
@@ -63,9 +63,27 @@ export default function Leaders() {
   const activePage = pages.find(p => p.slug === activePageSlug) || pages[0];
   const section = activePage.sections.find(s => s.type === "leaders");
 
-  const sectionTitle = section?.title || "Board of Directors";
-  const sectionSubtitle = section?.subtitle || "TRUSTED STEWARDSHIP & STRATEGIC BOARD";
-  const sectionContent = section?.content || "Governed by certified Chartered Accountants and human capital strategists who merge stringent physical audit systems with unmatched agrarian marketing intelligence.";
+  const sectionTitle = language === "en"
+    ? (section?.title || "Board of Directors")
+    : localize({
+        en: "Board of Directors",
+        hi: "निदेशक मंडल",
+        gu: "બોર્ડ ઓફ ડિરેક્ટર્સ"
+      });
+  const sectionSubtitle = language === "en"
+    ? (section?.subtitle || "TRUSTED STEWARDSHIP & STRATEGIC BOARD")
+    : localize({
+        en: "TRUSTED STEWARDSHIP & STRATEGIC BOARD",
+        hi: "विश्वसनीय नेतृत्व और रणनीतिक बोर्ड",
+        gu: "વિશ્વસનીય નેતૃત્વ અને વ્યૂહાત્મક બોર્ડ"
+      });
+  const sectionContent = language === "en"
+    ? (section?.content || "Governed by certified Chartered Accountants and human capital strategists who merge stringent physical audit systems with unmatched agrarian marketing intelligence.")
+    : localize({
+        en: "Governed by certified Chartered Accountants and human capital strategists who merge stringent physical audit systems with unmatched agrarian marketing intelligence.",
+        hi: "प्रमाणित चार्टर्ड अकाउंटेंट्स और मानव पूंजी रणनीतिकारों द्वारा निर्देशित, जो बेजोड़ कृषि विपणन खुफिया जानकारी के साथ सख्त भौतिक ऑडिट प्रणालियों को जोड़ते हैं।",
+        gu: "સરકારી કાયદાઓને આધીન લાયકાત ધરાવતા સીએ નાણાકીય નિષ્ણાતો અને અનુભવી સંચાલકો દ્વારા સંચાલિત શુદ્ધ વ્યવસ્થા જે અતુટ વિશ્વાસ જાળવી રાખે છે."
+      });
 
   const leadersList = section?.items || LEADERS;
 
