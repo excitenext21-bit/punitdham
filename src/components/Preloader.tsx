@@ -73,7 +73,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             PUNITDHAN
           </h1>
           <p className="font-sans text-[10px] sm:text-xs tracking-[0.4em] text-[#f4d068] uppercase font-bold">
-            {localize({ en: "Pulses & Grains Limited", hi: "दालें एवं खाद्यान्न लिमिटेड", gu: "દાળ અને અનાજ લિમિટેડ" })}
+            {localize({ en: "Pulses Ltd", hi: "पल्सेस लिमिटेड", gu: "પલ્સ લિમિટેડ" })}
           </p>
         </div>
 
