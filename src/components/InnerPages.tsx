@@ -429,18 +429,11 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                 </p>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-400">
-                <span>{localize({ en: "ESTD. 1988", hi: "स्थापना 1988", gu: "સ્થાપના ૧૯૮૮" })}</span>
-                <span>{localize({ en: "STATE-OF-THE-ART MILLING", hi: "अत्याधुनिक मिलिंग", gu: "અત્યાધુનિક મિલિંગ" })}</span>
-              </div>
             </div>
 
             {/* Right Column: Premium Interactive Timeline */}
             <div className="lg:col-span-7 bg-white rounded-3xl border border-zinc-200/80 border-l-4 border-l-[#f4d068] p-8 md:p-10 shadow-[0_20px_50px_rgba(15,46,30,0.02)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-center">
               <div className="space-y-3 mb-8">
-                <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase font-bold bg-[#f4d068]/10 px-3 py-1 rounded-full border border-[#f4d068]/20">
-                  {localize({ en: "Milestones", hi: "प्रमुख पड़ाव", gu: "માઈલસ્ટોન્સ" })}
-                </span>
                 <h3 className="text-lg sm:text-xl font-serif font-bold text-zinc-900">
                   {localize({ en: "Our Evolutionary Timeline", hi: "हमारी विकास यात्रा", gu: "અમારી વિકાસ યાત્રા" })}
                 </h3>
@@ -520,9 +513,6 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           {/* Section 2: Vision, Mission & Values Bento Box */}
           <div className="space-y-8">
             <div className="text-center space-y-2">
-              <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase font-bold bg-[#f4d068]/10 px-3 py-1 rounded-full border border-[#f4d068]/20">
-                {localize({ en: "Corporate Intent", hi: "कॉर्पोरेट दृष्टिकोण", gu: "કોર્પોરેટ હેતુ" })}
-              </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
                 {localize({ en: "Our Purpose Frameworks", hi: "हमारे उद्देश्य का ढांचा", gu: "અમારા હેતુનું માળખું" })}
               </h2>
@@ -642,14 +632,11 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             </div>
           </div>
 
-          {/* Section 3: Core Institutional Pillars & Strengths */}
+          {/* Section 3: Core Institutional Strengths */}
           <div className="space-y-8">
             <div className="text-center space-y-2">
-              <span className="text-[10px] font-mono tracking-widest text-[#f4d068] uppercase font-bold bg-[#f4d068]/10 px-3 py-1 rounded-full border border-[#f4d068]/20">
-                {localize({ en: "Pillars", hi: "आधार स्तंभ", gu: "આધારસ્તંભો" })}
-              </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                {localize({ en: "Core Institutional Pillars & Strengths", hi: "मुख्य संस्थागत स्तंभ और ताकत", gu: "મુખ્ય સંસ્થાકીય સ્તંભો અને શક્તિઓ" })}
+                {localize({ en: "Core Institutional Strengths", hi: "मुख्य संस्थागत ताकत", gu: "મુખ્ય સંસ્થાકીય શક્તિઓ" })}
               </h2>
               <p className="text-zinc-500 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
                 {localize({
