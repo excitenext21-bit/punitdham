@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Wheat } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useCMS } from "../context/CMSContext";
 
@@ -62,18 +62,13 @@ export default function Hero({ sectionId }: HeroProps) {
       {/* Hero Content Area */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
         
-        {/* Left main text elements */}
-        <div className="flex-1 text-left space-y-6 max-w-3xl font-sans">
-          {/* Main Display Heading with Grain Icon in front */}
-          <h1 className="text-[20.16px] sm:text-[26.88px] lg:text-[33.6px] font-serif tracking-tight font-black">
-            <div className="flex items-start gap-3 sm:gap-4 leading-[1.15]">
-              <div className="p-2 sm:p-2.5 rounded-2xl bg-brand-accent/15 border border-brand-accent/40 text-[#f4d068] shrink-0 mt-0.5 shadow-sm">
-                <Wheat className="w-5 h-5 sm:w-7 sm:h-7 stroke-[2.5]" />
-              </div>
-              <div className="flex flex-col gap-[7.2px] sm:gap-[9px]">
-                <span className="text-white">{headingLine1}</span>
-                <span className="text-[#f4d068]">{headingLine2}</span>
-              </div>
+        {/* Left main text elements - shifted 10% above bottom line */}
+        <div className="flex-1 text-left space-y-6 max-w-3xl font-sans -translate-y-[6vh] sm:-translate-y-[8vh] lg:-translate-y-[10vh]">
+          {/* Main Display Heading */}
+          <h1 className="text-[20.16px] sm:text-[26.88px] lg:text-[33.6px] font-serif tracking-tight font-black leading-[1.15]">
+            <div className="flex flex-col gap-[7.2px] sm:gap-[9px]">
+              <span className="text-white">{headingLine1}</span>
+              <span className="text-[#f4d068]">{headingLine2}</span>
             </div>
           </h1>
 
