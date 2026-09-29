@@ -1585,7 +1585,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                     <span className="text-[10px] font-mono font-bold tracking-wider text-zinc-400 uppercase block pl-1">
                       Select Commodity ({filteredProducts.length})
                     </span>
-                    <div className="flex flex-col gap-2 max-h-[500px] overflow-y-auto pr-1">
+                    <div className="flex flex-col gap-2">
                       {filteredProducts.map((p) => {
                         const isSelected = p.id === activeProduct.id;
                         return (
@@ -1647,10 +1647,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                         <div className="absolute bottom-6 left-6 right-6 flex flex-wrap justify-between items-end gap-4">
-                          <div className="space-y-1 text-white">
-                            <span className="text-[9px] font-mono uppercase tracking-widest text-[#f4d068] font-bold bg-[#f4d068]/20 border border-[#f4d068]/30 px-2.5 py-1 rounded-full">
-                              {activeProduct.categoryLabel || activeProduct.category} Profile
-                            </span>
+                          <div className="text-white">
                             <h2 className="text-2xl sm:text-3xl font-serif font-black tracking-tight drop-shadow-sm">
                               {activeProduct.title}
                             </h2>
