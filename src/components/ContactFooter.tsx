@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Phone, MapPin, Send, Check, Loader2, ChevronDown, ChevronUp, Building, ShieldCheck, Landmark, Globe, X, Award, Sparkles, Navigation, SendHorizontal } from "lucide-react";
-import { COMPANY_PROFILE } from "../data";
+import { Mail, Phone, MapPin, Send, Check, Loader2, Landmark, Globe, X, Award, Sparkles, Navigation, SendHorizontal } from "lucide-react";
 import { ContactMessage } from "../types";
 import { useLanguage } from "../context/LanguageContext";
 import { useCMS } from "../context/CMSContext";
@@ -39,8 +38,6 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
   const [subscribeEmail, setSubscribeEmail] = useState("");
   const [subscribeSuccess, setSubscribeSuccess] = useState(false);
 
-  // Expanded office details
-  const [isAddressesExpanded, setIsAddressesExpanded] = useState(false);
 
   // Synchronise selected crop details with the Modal
   useEffect(() => {
@@ -141,10 +138,22 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
           
           {/* Section 1: Editorial Brand & Mission (Col span 5) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="space-y-3">
-              <h3 className="text-2xl sm:text-3xl font-serif text-white font-extrabold tracking-tight">
-                {COMPANY_PROFILE.name}
-              </h3>
+            <div className="space-y-4">
+              <a
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("home");
+                }}
+                className="inline-block group"
+              >
+                <img
+                  src="https://excitetemplate.com/client-logo/logo-light.png"
+                  alt="Punitdhan Pulses Limited"
+                  className="h-11 sm:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+              </a>
               <p className="text-zinc-400 text-sm leading-relaxed max-w-md">
                 {localize({
                   en: "Leading processor and corporate supplier of premium pulses and foodgrains across India. Partnered with federal defense supplies, cooperatives, and high-volume merchant channels built on rigorous standards.",
@@ -219,69 +228,22 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
 
         </div>
 
-        {/* Accordion Trigger for Corporate address mapping */}
-        <div className="mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 font-mono text-xs border-b border-white/5 pb-8">
-          <div className="text-zinc-500 font-bold uppercase tracking-wider text-[10px]">
+        {/* Bottom Copyright and Attribution Row */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 font-mono text-xs">
+          <div className="text-zinc-500 font-medium tracking-wider text-[11px]">
             © 2025 Punitdhan. {localize({ en: "All Rights Reserved.", hi: "सर्वाधिकार सुरक्षित।", gu: "સર્વાધિકાર સુરક્ષિત." })}
           </div>
-          
-          <button 
-            onClick={() => setIsAddressesExpanded(!isAddressesExpanded)}
-            className="flex items-center gap-1.5 text-zinc-300 hover:text-[#f4d068] transition-colors font-bold uppercase text-[10px] bg-white/[0.03] px-4 py-2 rounded-xl border border-white/5 cursor-pointer hover:border-white/10"
-          >
-            <span>{isAddressesExpanded ? localize({ en: "Minimize Details", hi: "विवरण छिपाएं", gu: "વિગત છુપાવો" }) : localize({ en: "Corporate Headquarters & Registry", hi: "कॉर्पोरेट मुख्यालय और वैधानिक विवरण", gu: "કોર્પોરેટ હેડક્વાર્ટર અને વિગતો" })}</span>
-            {isAddressesExpanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
-          </button>
-        </div>
 
-        {/* Collapsible Corporate Details Panel */}
-        <AnimatePresence>
-          {isAddressesExpanded && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="bg-black/30 border border-white/5 rounded-2xl p-6 my-8 space-y-6 overflow-hidden"
-              style={{ contentVisibility: "auto" }}
+          <div className="text-zinc-500 font-medium tracking-wider text-[11px]">
+            <span>Website developed - </span>
+            <a 
+              href="https://excitetemplate.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-zinc-400 hover:text-[#f4d068] transition-colors underline underline-offset-2 hover:no-underline font-semibold"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans text-xs">
-
-                {/* Corporate headquarters */}
-                <div className="space-y-2 border-l border-[#f4d068]/50 pl-4">
-                  <p className="font-mono text-[9px] uppercase tracking-widest text-[#f4d068] font-bold flex items-center gap-1">
-                    <Building size={11} className="shrink-0" />
-                    {localize({ en: "Administrative Board Office", hi: "प्रशासनिक बोर्ड कार्यालय", gu: "વહીવટી બોર્ડ ઓફિસ" })}
-                  </p>
-                  <p className="font-bold text-white text-[13px]">Administrative Plaza</p>
-                  <p className="text-zinc-400 leading-relaxed text-[11px]">
-                    {COMPANY_PROFILE.corporateOffice.line1}<br />
-                    {COMPANY_PROFILE.corporateOffice.line2}<br />
-                    {COMPANY_PROFILE.corporateOffice.line3}
-                  </p>
-                </div>
-
-                {/* Licensed Registry references */}
-                <div className="space-y-2 border-l border-[#f4d068]/50 pl-4">
-                  <p className="font-mono text-[9px] uppercase tracking-widest text-[#f4d068] font-bold flex items-center gap-1">
-                    <ShieldCheck size={11} className="shrink-0" />
-                    {localize({ en: "Statutory Registry Codes", hi: "सांविधिक पंजीकरण विवरण", gu: "વૈધાનિક વિગત પત્રક" })}
-                  </p>
-                  <div className="text-[11px] text-zinc-400 space-y-1.5 leading-snug">
-                    <div className="flex justify-between border-b border-white/5 pb-1"><span>{localize({ en: "GST Number:", hi: "जीएसटी नंबर:", gu: "જીએસટી નંબર:" })}</span> <span className="font-mono text-white font-bold">{COMPANY_PROFILE.gstNumber}</span></div>
-                    <div className="flex justify-between border-b border-white/5 pb-1"><span>{localize({ en: "PAN Card:", hi: "पैन नंबर:", gu: "પાન નંબર:" })}</span> <span className="font-mono text-white font-bold">{COMPANY_PROFILE.panNumber}</span></div>
-                    <div className="flex justify-between"><span>{localize({ en: "ISO Standard:", hi: "आईएसओ मानक:", gu: "આઇએસઓ સ્ટાન્ડર્ડ:" })}</span> <span className="text-white font-bold">{COMPANY_PROFILE.isoCertificate.split(" ")[0]}</span></div>
-                  </div>
-                </div>
-
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Small Bottom Copyright Strip */}
-        <div className="flex flex-col sm:flex-row items-center justify-between font-mono text-[9px] text-zinc-650 pt-4 border-t border-white/5 gap-2">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4 justify-center sm:justify-start">
-            <span>{localize({ en: "*Standard Trade Mark & Certified Safe Food Partner", hi: "*सत्यापित कृषि ट्रेडमार्क मूल्य श्रृंखला साझीदार", gu: "*સત્તાવાર કૃષિ ટ્રેડમાર્ક અને ગુણવત્તા નિયંત્રણ સાથી" })}</span>
+              Excite Template
+            </a>
           </div>
         </div>
 

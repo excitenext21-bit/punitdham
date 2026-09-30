@@ -4,7 +4,7 @@ import fs from "fs";
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3001;
 
   // Basic API health route
   app.get("/api/health", (req, res) => {

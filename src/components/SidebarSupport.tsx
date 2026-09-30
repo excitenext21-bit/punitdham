@@ -22,15 +22,6 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const primaryPhone = COMPANY_PROFILE.phoneNumbers[0];
-  const cleanWhatsAppNumber = primaryPhone.replace(/[^0-9]/g, ""); // e.g. "917069888112"
-  const whatsappUrl = `https://wa.me/${cleanWhatsAppNumber}?text=${encodeURIComponent(
-    localize({
-      en: "Hello Punitdhan Pulses! I would like to inquire about your products/services.",
-      hi: "नमस्ते पुनीतधन पल्सेस! मैं आपके उत्पादों/सेवाओं के बारे में पूछताछ करना चाहता हूँ।",
-      gu: "નમસ્તે પુનીતધન પલ્સ! હું તમારા ઉત્પાદનો/સેવાઓ વિશે પૂછપરછ કરવા માંગુ છું."
-    })
-  )}`;
 
   return (
     <div className="fixed right-4 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center select-none pointer-events-none">
@@ -173,35 +164,8 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
                 </div>
               </div>
 
-              {/* WhatsApp direct launch */}
-              <div className="relative group flex items-center justify-center w-full">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  referrerPolicy="no-referrer"
-                  className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-green-mid/65 border border-brand-gold/15 text-brand-sage hover:text-emerald-400 hover:border-emerald-400/50 hover:scale-105 hover:shadow-[0_0_12px_rgba(16,185,129,0.2)] transition-all duration-300 cursor-pointer"
-                >
-                  <svg className="w-[14px] h-[14px]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.739-1.446L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.632-1.023-5.105-2.883-6.97C16.536 1.916 14.062.89 11.432.889 5.998.889 1.574 5.311 1.572 10.746c0 1.706.451 3.375 1.303 4.851l-.991 3.616 3.763-.987zm13.109-10.37c-.12-.2-.435-.32-.916-.56-.48-.24-2.84-1.4-3.279-1.56-.44-.16-.76-.24-1.08.24-.32.48-1.24 1.56-1.52 1.88-.28.32-.56.36-1.04.12-.48-.24-2.03-.747-3.863-2.38-1.424-1.27-2.384-2.839-2.664-3.32-.28-.48-.03-.74.21-.979.215-.215.48-.56.72-.84.24-.28.32-.48.48-.8.16-.32.08-.6-.04-.84-.12-.24-1.08-2.6-1.48-3.56-.39-.947-.79-.817-1.08-.817-.28-.003-.6-.003-.92-.003-.32 0-.84.12-1.28.6-.44.48-1.68 1.64-1.68 4.0 0 2.36 1.72 4.64 1.96 4.96.24.32 3.385 5.169 8.2 7.25 1.144.496 2.038.791 2.735.912 1.15.183 2.196.157 3.024.033.918-.137 2.84-1.16 3.24-2.28.4-1.12.4-2.08.28-2.28z"/>
-                  </svg>
-                </a>
-                <div className="absolute right-14 scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 pointer-events-none bg-brand-green-dark text-brand-gold text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-1 rounded-md border border-brand-gold/20 shadow-xl whitespace-nowrap z-50">
-                  {localize({ en: "WhatsApp", hi: "व्हाट्सएप चैट", gu: "વોટ્સએપ ગપશપ" })}
-                </div>
-              </div>
-
             </div>
 
-            {/* Quick copyright trigger */}
-            <div className="relative group flex items-center justify-center w-full z-10 mt-1 shrink-0">
-              <div className="text-brand-sage hover:text-brand-accent transition-colors cursor-help p-1">
-                <HelpCircle size={14} />
-              </div>
-              <div className="absolute right-14 scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 pointer-events-none bg-brand-green-dark text-brand-gold text-[8px] font-mono tracking-wide uppercase px-2 py-1 rounded-md border border-brand-gold/20 shadow-xl whitespace-nowrap">
-                &copy; 2025 PUNITDHAN
-              </div>
-            </div>
 
           </motion.div>
         ) : (
