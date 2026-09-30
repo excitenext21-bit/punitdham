@@ -229,7 +229,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
             onClick={() => setIsAddressesExpanded(!isAddressesExpanded)}
             className="flex items-center gap-1.5 text-zinc-300 hover:text-[#f4d068] transition-colors font-bold uppercase text-[10px] bg-white/[0.03] px-4 py-2 rounded-xl border border-white/5 cursor-pointer hover:border-white/10"
           >
-            <span>{isAddressesExpanded ? localize({ en: "Minimize Offices", hi: "कार्यालय सूची छिपाएं", gu: "સરનામાં વિગત છુપાવો" }) : localize({ en: "Registered Offices & Sites", hi: "कार्यालय और मिलिंग स्थल विवरण", gu: "રજિસ્ટર્ડ ઓફિસ અને સરનામાં" })}</span>
+            <span>{isAddressesExpanded ? localize({ en: "Minimize Details", hi: "विवरण छिपाएं", gu: "વિગત છુપાવો" }) : localize({ en: "Corporate Headquarters & Registry", hi: "कॉर्पोरेट मुख्यालय और वैधानिक विवरण", gu: "કોર્પોરેટ હેડક્વાર્ટર અને વિગતો" })}</span>
             {isAddressesExpanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
           </button>
         </div>
@@ -244,21 +244,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
               className="bg-black/30 border border-white/5 rounded-2xl p-6 my-8 space-y-6 overflow-hidden"
               style={{ contentVisibility: "auto" }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-sans text-xs">
-                
-                {/* Registered Corporate office */}
-                <div className="space-y-2 border-l border-[#f4d068]/50 pl-4">
-                  <p className="font-mono text-[9px] uppercase tracking-widest text-[#f4d068] font-bold flex items-center gap-1">
-                    <Building size={11} className="shrink-0" />
-                    {localize({ en: "Registered Corporate Office", hi: "पंजीकृत कॉर्पोरेट कार्यालय", gu: "રજિસ્ટર્ડ કોર્પોરેટ ઓફિસ" })}
-                  </p>
-                  <p className="font-bold text-white text-[13px]">Punitdhan Pulses Ltd</p>
-                  <p className="text-zinc-400 leading-relaxed text-[11px]">
-                    {COMPANY_PROFILE.registeredOffice.line1}<br />
-                    {COMPANY_PROFILE.registeredOffice.line2}<br />
-                    {COMPANY_PROFILE.registeredOffice.line3}
-                  </p>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-sans text-xs">
 
                 {/* Corporate headquarters */}
                 <div className="space-y-2 border-l border-[#f4d068]/50 pl-4">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Phone, Mail, ChevronLeft, ChevronRight, Copy, Check, ExternalLink, ShieldCheck, HelpCircle } from "lucide-react";
+import { Mail, ChevronLeft, ChevronRight, Copy, Check, ExternalLink, HelpCircle } from "lucide-react";
 import { COMPANY_PROFILE } from "../data";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -14,7 +14,7 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
   const [copiedId, setCopiedId] = useState<string | null>(null);
   
   // State to track which detailed popover is open on the left
-  const [activeTab, setActiveTab] = useState<"phone" | "email" | null>(null);
+  const [activeTab, setActiveTab] = useState<"email" | null>(null);
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -48,157 +48,80 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
             {/* Background glowing gradient decoration */}
             <div className="absolute -top-12 -right-12 w-40 h-40 bg-brand-gold/15 rounded-full blur-2xl pointer-events-none" />
             
-            {activeTab === "phone" ? (
-              <div className="h-full flex flex-col justify-between">
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between border-b border-brand-gold/10 pb-3.5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
-                        <Phone size={16} />
-                      </div>
-                      <h4 className="font-serif font-bold text-sm tracking-wide text-zinc-100">
-                        {localize({ en: "Direct Sourcing Lines", hi: "सक्रिय सहायता नंबर", gu: "સીધા ફોન લાઈનો" })}
-                      </h4>
+            <div className="h-full flex flex-col justify-between">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between border-b border-brand-gold/10 pb-3.5">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                      <Mail size={16} />
                     </div>
-                    <button 
-                      onClick={() => setActiveTab(null)} 
-                      className="text-xs font-mono text-brand-sage hover:text-brand-accent transition-colors cursor-pointer"
-                    >
-                      ESC
-                    </button>
+                    <h4 className="font-serif font-bold text-sm tracking-wide text-zinc-100">
+                      {localize({ en: "Corporate Email Desks", hi: "आधिकारिक ईमेल पता", gu: "કોર્પોરેટ ઇમેઇલ ડેસ્ક" })}
+                    </h4>
                   </div>
-
-                  <p className="text-xs text-brand-sage font-sans leading-relaxed">
-                    {localize({
-                      en: "Connect instantly with our executive trade partners for commercial bids and high-weight supplies.",
-                      hi: "थोक आपूर्ति और वाणिज्यिक अनुबंधों के लिए हमारे व्यापार प्रतिनिधियों से सीधे संपर्क करें।",
-                      gu: "બલ્ક ઓર્ડર અને કિંમતો જાણવા અમારા સત્તાવાર ભાગીદારો સાથે સીધો ફોન પર વાત કરો."
-                    })}
-                  </p>
-
-                  <div className="space-y-2.5 pt-1">
-                    {COMPANY_PROFILE.phoneNumbers.map((phone, idx) => (
-                      <div 
-                        key={phone}
-                        className="bg-brand-green-mid/40 border border-brand-gold/10 rounded-2xl p-3.5 hover:border-brand-gold/35 hover:bg-brand-green-mid/60 transition-all flex items-center justify-between group"
-                      >
-                        <div className="flex flex-col gap-0.5">
-                          <span className="text-[9px] font-mono font-bold text-brand-sage uppercase tracking-widest">
-                            {localize({ en: "Support Line", hi: "सपोर्ट लाइन", gu: "સપોર્ટ લાઈન" })} 0{idx + 1}
-                          </span>
-                          <span className="text-xs font-mono font-bold text-brand-accent">
-                            {phone}
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-1.5">
-                          <a 
-                            href={`tel:${phone.replace(/\s+/g, "")}`}
-                            className="p-1.5 rounded-lg border border-brand-green-light bg-brand-green-mid hover:bg-brand-green-light hover:border-brand-gold/50 transition-colors text-brand-sage hover:text-brand-accent"
-                            title={localize({ en: "Call Now", hi: "अभी कॉल करें", gu: "હમણાં કૉલ કરો" })}
-                          >
-                            <ExternalLink size={13} />
-                          </a>
-                          <button
-                            onClick={() => copyToClipboard(phone, `phone-${idx}`)}
-                            className="p-1.5 rounded-lg border border-brand-green-light bg-brand-green-mid hover:bg-brand-green-light hover:border-brand-gold/50 transition-colors text-brand-sage hover:text-white cursor-pointer"
-                            title={localize({ en: "Copy number", hi: "नंबर कॉपी करें", gu: "નંબર કૉપિ કરો" })}
-                          >
-                            {copiedId === `phone-${idx}` ? (
-                              <Check size={13} className="text-emerald-500" />
-                            ) : (
-                              <Copy size={13} />
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <button 
+                    onClick={() => setActiveTab(null)} 
+                    className="text-xs font-mono text-brand-sage hover:text-brand-accent transition-colors cursor-pointer"
+                  >
+                    ESC
+                  </button>
                 </div>
 
-                <div className="border-t border-brand-gold/10 pt-4 mt-4 flex items-center gap-2">
-                  <ShieldCheck size={14} className="text-brand-gold shrink-0" />
-                  <span className="text-[10px] font-mono text-brand-sage uppercase tracking-wider">
-                    {localize({ en: "Ministry of Corporate Affairs Compliant", hi: "कॉर्पोरेट मामलों के मंत्रालय द्वारा प्रमाणित", gu: "કોર્પોરેટ બાબતોના મંત્રાલય દ્વારા પ્રમાણિત" })}
-                  </span>
+                <p className="text-xs text-brand-sage font-sans leading-relaxed">
+                  {localize({
+                    en: "Submit request sheets, laboratory dry-weight criteria, and audit proposals to our registered inboxes.",
+                    hi: "गुणवत्ता विनिर्देश पत्रक, प्रयोगशाला विश्लेषण ऑडिट और थोक प्रस्ताव प्रेषित करें।",
+                    gu: "નમૂના તપાસણી અહેવાલ, ઓડિટ દરખાસ્ત અને કસ્ટમ ખરીદ પત્રક ઇમેઇલ પર મોકલો."
+                  })}
+                </p>
+
+                <div className="space-y-2.5 pt-1">
+                  {COMPANY_PROFILE.emails.map((email, idx) => (
+                    <div 
+                      key={email}
+                      className="bg-brand-green-mid/40 border border-brand-gold/10 rounded-2xl p-3.5 hover:border-brand-gold/35 hover:bg-brand-green-mid/60 transition-all flex items-center justify-between group"
+                    >
+                      <div className="flex flex-col gap-0.5 overflow-hidden">
+                        <span className="text-[9px] font-mono font-bold text-brand-sage uppercase tracking-widest">
+                          {localize({ en: "Official Inbox", hi: "आधिकारिक इनबॉक्स", gu: "સત્તાવાર ઇનબૉક્સ" })} 0{idx + 1}
+                        </span>
+                        <span className="text-xs font-mono font-semibold text-brand-accent truncate max-w-[150px]">
+                          {email}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <a 
+                          href={`mailto:${email}`}
+                          className="p-1.5 rounded-lg border border-brand-green-light bg-brand-green-mid hover:bg-brand-green-light hover:border-brand-gold/50 transition-colors text-brand-sage hover:text-emerald-400"
+                          title={localize({ en: "Compose Email", hi: "ईमेल भेजें", gu: "ઇમેઇલ મોકલો" })}
+                        >
+                          <ExternalLink size={13} />
+                        </a>
+                        <button
+                          onClick={() => copyToClipboard(email, `email-${idx}`)}
+                          className="p-1.5 rounded-lg border border-brand-green-light bg-brand-green-mid hover:bg-brand-green-light hover:border-brand-gold/50 transition-colors text-brand-sage hover:text-white cursor-pointer"
+                          title={localize({ en: "Copy address", hi: "पता कॉपी करें", gu: "સરનામું કૉપિ કરો" })}
+                        >
+                          {copiedId === `email-${idx}` ? (
+                            <Check size={13} className="text-emerald-500" />
+                          ) : (
+                            <Copy size={13} />
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ) : (
-              <div className="h-full flex flex-col justify-between">
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between border-b border-brand-gold/10 pb-3.5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
-                        <Mail size={16} />
-                      </div>
-                      <h4 className="font-serif font-bold text-sm tracking-wide text-zinc-100">
-                        {localize({ en: "Corporate Email Desks", hi: "आधिकारिक ईमेल पता", gu: "કોર્પોરેટ ઇમેઇલ ડેસ્ક" })}
-                      </h4>
-                    </div>
-                    <button 
-                      onClick={() => setActiveTab(null)} 
-                      className="text-xs font-mono text-brand-sage hover:text-brand-accent transition-colors cursor-pointer"
-                    >
-                      ESC
-                    </button>
-                  </div>
 
-                  <p className="text-xs text-brand-sage font-sans leading-relaxed">
-                    {localize({
-                      en: "Submit request sheets, laboratory dry-weight criteria, and audit proposals to our registered inboxes.",
-                      hi: "गुणवत्ता विनिर्देश पत्रक, प्रयोगशाला विश्लेषण ऑडिट और थोक प्रस्ताव प्रेषित करें।",
-                      gu: "નમૂના તપાસણી અહેવાલ, ઓડિટ દરખાસ્ત અને કસ્ટમ ખરીદ પત્રક ઇમેઇલ પર મોકલો."
-                    })}
-                  </p>
-
-                  <div className="space-y-2.5 pt-1">
-                    {COMPANY_PROFILE.emails.map((email, idx) => (
-                      <div 
-                        key={email}
-                        className="bg-brand-green-mid/40 border border-brand-gold/10 rounded-2xl p-3.5 hover:border-brand-gold/35 hover:bg-brand-green-mid/60 transition-all flex items-center justify-between group"
-                      >
-                        <div className="flex flex-col gap-0.5 overflow-hidden">
-                          <span className="text-[9px] font-mono font-bold text-brand-sage uppercase tracking-widest">
-                            {localize({ en: "Official Inbox", hi: "आधिकारिक इनबॉक्स", gu: "સત્તાવાર ઇનબૉક્સ" })} 0{idx + 1}
-                          </span>
-                          <span className="text-xs font-mono font-semibold text-brand-accent truncate max-w-[150px]">
-                            {email}
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-1.5 shrink-0">
-                          <a 
-                            href={`mailto:${email}`}
-                            className="p-1.5 rounded-lg border border-brand-green-light bg-brand-green-mid hover:bg-brand-green-light hover:border-brand-gold/50 transition-colors text-brand-sage hover:text-emerald-400"
-                            title={localize({ en: "Compose Email", hi: "ईमेल भेजें", gu: "ઇમેઇલ મોકલો" })}
-                          >
-                            <ExternalLink size={13} />
-                          </a>
-                          <button
-                            onClick={() => copyToClipboard(email, `email-${idx}`)}
-                            className="p-1.5 rounded-lg border border-brand-green-light bg-brand-green-mid hover:bg-brand-green-light hover:border-brand-gold/50 transition-colors text-brand-sage hover:text-white cursor-pointer"
-                            title={localize({ en: "Copy address", hi: "पता कॉपी करें", gu: "સરનામું કૉપિ કરો" })}
-                          >
-                            {copiedId === `email-${idx}` ? (
-                              <Check size={13} className="text-emerald-500" />
-                            ) : (
-                              <Copy size={13} />
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="border-t border-brand-gold/10 pt-4 mt-4 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold inline-block animate-pulse" />
-                  <span className="text-[10px] font-mono text-brand-sage uppercase tracking-wider">
-                    {localize({ en: "Active Desk Responses", hi: "सक्रिय सहायता डेस्क", gu: "સક્રિય સહાયતા ડેસ્ક" })}
-                  </span>
-                </div>
+              <div className="border-t border-brand-gold/10 pt-4 mt-4 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold inline-block animate-pulse" />
+                <span className="text-[10px] font-mono text-brand-sage uppercase tracking-wider">
+                  {localize({ en: "Active Desk Responses", hi: "सक्रिय सहायता डेस्क", gu: "સક્રિય સહાયતા ડેસ્ક" })}
+                </span>
               </div>
-            )}
+            </div>
 
           </motion.div>
         )}
@@ -232,23 +155,6 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
 
             {/* Actions List */}
             <div className="flex flex-col items-center gap-4 w-full z-10 shrink-0">
-              
-              {/* Phone item trigger */}
-              <div className="relative group flex items-center justify-center w-full">
-                <button
-                  onClick={() => setActiveTab(activeTab === "phone" ? null : "phone")}
-                  className={`flex items-center justify-center w-10 h-10 rounded-xl border transition-all duration-300 cursor-pointer ${
-                    activeTab === "phone"
-                      ? "bg-brand-gold/20 border-brand-gold text-brand-accent shadow-[0_0_12px_rgba(212,175,55,0.3)] scale-105"
-                      : "bg-brand-green-mid/65 border-brand-gold/15 text-brand-sage hover:text-brand-accent hover:border-brand-accent/50 hover:scale-105"
-                  }`}
-                >
-                  <Phone size={15} />
-                </button>
-                <div className="absolute right-14 scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 pointer-events-none bg-brand-green-dark text-brand-accent text-[9px] font-mono font-bold tracking-wider uppercase px-2 py-1 rounded-md border border-brand-gold/20 shadow-xl whitespace-nowrap z-50">
-                  {localize({ en: "Direct Lines", hi: "फ़ोन सहायता", gu: "ફોન કનેક્ટ" })}
-                </div>
-              </div>
 
               {/* Email item trigger */}
               <div className="relative group flex items-center justify-center w-full">

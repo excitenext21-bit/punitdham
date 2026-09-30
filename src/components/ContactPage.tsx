@@ -137,24 +137,10 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
 
               <h2 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-tight flex items-center gap-2">
                 <span className="w-1.5 h-5 bg-[#f4d068] rounded-full inline-block" />
-                {localize({ en: "Registered & Administrative Offices", hi: "पंजीकृत और प्रशासनिक कार्यालय", gu: "રજિસ્ટર્ડ અને સંચાલન ઓફિસો" })}
+                {localize({ en: "Corporate Headquarters", hi: "कॉर्पोरेट मुख्यालय", gu: "કોર્પોરેટ હેડક્વાર્ટર" })}
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-                
-                {/* Registered Office */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-[#f4d068] font-bold">
-                    <Building2 size={13} />
-                    <span>{localize({ en: "Registered Office", hi: "पंजीकृत कार्यालय", gu: "રજિસ્ટર્ડ ઓફિસ" })}</span>
-                  </div>
-                  <p className="text-sm font-bold text-white">{COMPANY_PROFILE.name}</p>
-                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
-                    {COMPANY_PROFILE.registeredOffice.line1}<br />
-                    {COMPANY_PROFILE.registeredOffice.line2}<br />
-                    {COMPANY_PROFILE.registeredOffice.line3}
-                  </p>
-                </div>
+              <div className="pt-2">
 
                 {/* Corporate Office */}
                 <div className="space-y-3">
@@ -173,28 +159,8 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
               </div>
             </div>
 
-            {/* Direct Digital Hotlines Desk */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              
-              {/* Phone Contacts card */}
-              <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#f4d068] font-bold">
-                  <Phone size={14} className="text-[#f4d068]" />
-                  <span>{localize({ en: "Direct Lines", hi: "सीधे संपर्क मार्ग", gu: "ટેલિફોન લાઈન" })}</span>
-                </div>
-                <div className="space-y-2">
-                  {COMPANY_PROFILE.phoneNumbers.map((phone, i) => (
-                    <a
-                      key={phone}
-                      href={`tel:${phone.replace(/\s+/g, "")}`}
-                      className="flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
-                    >
-                      <span className="text-sm font-bold text-zinc-200 group-hover:text-emerald-400 transition-colors">{phone}</span>
-                      <span className="text-[9px] font-mono uppercase tracking-widest text-zinc-500">{localize({ en: "Line", hi: "लाइन", gu: "લાઇન" })} 0{i+1}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
+            {/* Direct Digital Desk */}
+            <div>
 
               {/* Email Contacts card */}
               <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 space-y-4">

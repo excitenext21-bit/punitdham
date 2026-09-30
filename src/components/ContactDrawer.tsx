@@ -174,29 +174,6 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                 </div>
               </motion.div>
 
-              {/* Direct Phone Lines */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-mono uppercase tracking-widest text-[#f4d068] font-bold flex items-center gap-2">
-                  <Phone size={12} />
-                  {tLocal("phoneNumbers")}
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {COMPANY_PROFILE.phoneNumbers.map((phone, idx) => (
-                    <a
-                      key={phone}
-                      href={`tel:${phone.replace(/\s+/g, "")}`}
-                      className="p-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-900 hover:border-zinc-800 transition-all duration-200 flex flex-col gap-1 group"
-                    >
-                      <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase tracking-wider">
-                        {localize({ en: "Support Line", hi: "सपोर्ट लाइन", gu: "સપોર્ટ લાઈન" })} 0{idx + 1}
-                      </span>
-                      <span className="text-sm font-bold text-zinc-200 group-hover:text-amber-400 transition-colors">
-                        {phone}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
 
               {/* Corporate Email Desk */}
               <div className="space-y-3">
@@ -228,22 +205,6 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
               {/* Addresses Block (Registered and Corporate) */}
               <div className="space-y-4 pt-2 border-t border-zinc-800/60">
                 
-                {/* Registered Office */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-zinc-100">
-                    <div className="w-6 h-6 rounded bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-450 shrink-0">
-                      <MapPin size={12} />
-                    </div>
-                    <h4 className="text-sm font-bold tracking-tight">
-                      {tLocal("registeredOffice")}
-                    </h4>
-                  </div>
-                  <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/50 text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans space-y-1">
-                    <p>{COMPANY_PROFILE.registeredOffice.line1}</p>
-                    <p>{COMPANY_PROFILE.registeredOffice.line2}</p>
-                    <p>{COMPANY_PROFILE.registeredOffice.line3}</p>
-                  </div>
-                </div>
 
                 {/* Corporate Office */}
                 <div className="space-y-2">

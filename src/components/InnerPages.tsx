@@ -2504,7 +2504,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             {/* Left Column: Registered Offices & Central Communication (6 columns) */}
             <div className="lg:col-span-6 space-y-6">
               
-              {/* Addresses & Registered Offices Card */}
+              {/* Corporate Headquarters Card */}
               <div className="bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-brand-green-mid p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,46,30,0.02)] space-y-6 hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-center gap-3 text-brand-green-dark">
                   <div className="w-10 h-10 rounded-xl bg-brand-green-dark/5 border border-brand-green-dark/10 flex items-center justify-center shrink-0">
@@ -2512,10 +2512,10 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   </div>
                   <div>
                     <h2 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 tracking-tight">
-                      {localize({ en: "Addresses & Registered Offices", hi: "पते और पंजीकृत कार्यालय", gu: "સરનામાં અને રજિસ્ટર્ડ ઓફિસ" })}
+                      {localize({ en: "Corporate Headquarters", hi: "कॉर्पोरेट मुख्यालय", gu: "કોર્પોરેટ હેડક્વાર્ટર" })}
                     </h2>
                     <p className="text-xs text-zinc-400 font-mono uppercase tracking-wider mt-0.5">
-                      {localize({ en: "Statutory & Administrative Desks", hi: "सांविधिक एवं प्रशासनिक डेस्क", gu: "વૈધાનિક અને વહીવટી ડેસ્ક" })}
+                      {localize({ en: "Central Administrative Desk", hi: "केंद्रीय प्रशासनिक डेस्क", gu: "સેન્ટ્રલ વહીવટી ડેસ્ક" })}
                     </p>
                   </div>
                 </div>
@@ -2536,25 +2536,6 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         en: "406 Neelgagan Plaza, Opposite Police Commissioner Office, Shahibaug, Ahmedabad, Gujarat, India – 380004.",
                         hi: "406 नीलगगन प्लाजा, पुलिस कमिश्नर कार्यालय के सामने, शाहीबाग, अहमदाबाद, गुजरात, भारत – 380004।",
                         gu: "૪૦૬ નીલગગન પ્લાઝા, પોલીસ કમિશનર ઓફિસ સામે, શાહીબાગ, અમદાવાદ, ગુજરાત, ભારત – ૩૮૦૦૦૪."
-                      })}
-                    </span>
-                  </div>
-
-                  {/* Registered Corporate Office */}
-                  <div className="space-y-1.5 border-l-2 border-brand-green-mid pl-4 bg-emerald-50/30 p-3 rounded-r-2xl border-y border-r border-emerald-100/50">
-                    <div className="flex items-center justify-between gap-2">
-                      <strong className="text-zinc-900 block font-sans font-bold text-sm">
-                        {localize({ en: "Registered Office:", hi: "पंजीकृत कार्यालय:", gu: "રજિસ્ટર્ડ ઓફિસ:" })}
-                      </strong>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full font-bold">
-                        {localize({ en: "Registered Desk", hi: "पंजीकृत डेस्क", gu: "રજિસ્ટર્ડ ડેસ્ક" })}
-                      </span>
-                    </div>
-                    <span className="block text-zinc-600 font-medium leading-relaxed">
-                      {localize({
-                        en: "Dal Mill Compound, Near Old Octroi Naka, Naroda Road, Memco, Ahmedabad, Gujarat, India – 382345.",
-                        hi: "दाल मिल कंपाउंड, पुराने चुंगी नाके के पास, नरोडा रोड, मेमको, अहमदाबाद, गुजरात, भारत – 382345।",
-                        gu: "દાળ મિલ કમ્પાઉન્ડ, જૂના ઓક્ટ્રોય નાકા પાસે, નરોડા રોડ, મેમકો, અમદાવાદ, ગુજરાત, ભારત – ૩૮૨૩૪૫."
                       })}
                     </span>
                   </div>
