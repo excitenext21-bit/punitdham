@@ -2577,7 +2577,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   </div>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm">
+                <div className="text-xs sm:text-sm">
                   {/* Official Electronic Mail */}
                   <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/70 space-y-2">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block font-bold">
@@ -2592,30 +2592,6 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         punitdhan_pulses2025@yahoo.com
                       </span>
                     </a>
-                  </div>
-
-                  {/* Business Hours & Desk Availability */}
-                  <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/70 space-y-1.5">
-                    <div className="flex items-center gap-2 text-zinc-700 font-bold">
-                      <Clock className="w-4 h-4 text-amber-600 shrink-0" />
-                      <span className="text-xs sm:text-sm">
-                        {localize({ en: "Operating Hours: Mon – Sat (9:30 AM – 6:30 PM IST)", hi: "कार्य समय: सोम – शनि (सुबह 9:30 – शाम 6:30 IST)", gu: "કામકાજનો સમય: સોમ – શનિ (સવારે 9:30 – સાંજે 6:30 IST)" })}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-zinc-500 leading-relaxed font-sans pl-6">
-                      {localize({
-                        en: "Official sourcing mandates and merchant inquiries are processed within 24 business hours.",
-                        hi: "आधिकारिक सोर्सिंग और व्यापारी पूछताछ 24 व्यावसायिक घंटों के भीतर संसाधित की जाती हैं।",
-                        gu: "સત્તાવાર સોર્સિંગ અને વેપારી પૂછપરછ 24 કલાકમાં પ્રક્રિયા કરવામાં આવે છે."
-                      })}
-                    </p>
-                  </div>
-
-                  {/* Statutory Codes Mini Banner */}
-                  <div className="pt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-zinc-500 border-t border-zinc-100">
-                    <span>GST: <strong className="text-zinc-800">24AAPCP6070K1ZZ</strong></span>
-                    <span>PAN: <strong className="text-zinc-800">AAPCP6070K</strong></span>
-                    <span className="text-emerald-700 font-bold">{localize({ en: "Public Limited Entity", hi: "पब्लिक लिमिटेड इकाई", gu: "પબ્લિક લિમિટેડ એન્ટિટી" })}</span>
                   </div>
                 </div>
               </div>
