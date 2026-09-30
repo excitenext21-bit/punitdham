@@ -125,35 +125,6 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
     }
   };
 
-  const getLocalizedMillingUnit = (id: string, defName: string, defDesc: string) => {
-    if (language === "hi") {
-      switch(id) {
-        case "unit-1": return {
-          name: "प्रसंस्करण मिलिंग इकाई १",
-          desc: "ओमकार टेक्सटाइल मिल के पास, नरनारायण वे ब्रिज के पीछे, मेमको चार रास्ता, नरोडा रोड, अहमदाबाद - ३८२३४५"
-        };
-        case "unit-2": return {
-          name: "प्रसंस्करण मिलिंग इकाई २ और कृष्णा राइस मिल",
-          desc: "कृष्णा राइस मिल कंपाउंड, बाबा रामदेवपीर मंदिर के पीछे, डारण रोड, अहमदाबाद - ३८२२२०"
-        };
-        default: return { name: defName, desc: defDesc };
-      }
-    } else if (language === "gu") {
-      switch(id) {
-        case "unit-1": return {
-          name: "મિલિંગ યુનિટ ૧",
-          desc: "ઓમકાર ટેક્સટાઈલ મિલ પાસે, નરનારાયણ વે બ્રિજ પાછળ, મેમકો ચાર રસ્તા, નરોડા રોડ, અમદાવાદ - ૩૮૨૩૪૫"
-        };
-        case "unit-2": return {
-          name: "મિલિંગ યુનિટ ૨ અને કૃષ્ણા રાઈસ મિલ્સ",
-          desc: "કૃષ્ણા રાઈસ મિલ્સ કમ્પાઉન્ડ, બાબ રામદેવપીર મંદિર પાછળ, પટેલ કાંટા પાસે, દારણ રોડ, અમદાવાદ - ૧૫૪૧૫૫"
-        };
-        default: return { name: defName, desc: defDesc };
-      }
-    }
-    return { name: defName, desc: defDesc };
-  };
-
   return (
     <footer 
       id="contact" 
@@ -316,24 +287,6 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
                   </div>
                 </div>
 
-              </div>
-
-              {/* Plants list */}
-              <div className="pt-5 border-t border-white/5 space-y-3 font-sans">
-                <p className="font-mono text-[9px] uppercase tracking-widest text-[#f4d068] font-bold">
-                  {localize({ en: "Operational Milling Facilities", hi: "सक्रिय प्रसंस्करण मिलें", gu: "સક્રિય મોડર્ન મિલિંગ પ્લાન્ટ્સ" })}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                  {COMPANY_PROFILE.millingUnits.map((u) => {
-                    const locUnit = getLocalizedMillingUnit(u.id, u.name, u.description);
-                    return (
-                      <div key={u.id} className="p-4 bg-white/[0.01] rounded-xl border border-white/5">
-                        <p className="font-bold text-white text-[11px]">{locUnit.name}</p>
-                        <p className="text-zinc-400 text-[10.5px] leading-relaxed mt-1">{locUnit.desc}</p>
-                      </div>
-                    );
-                  })}
-                </div>
               </div>
             </motion.div>
           )}
