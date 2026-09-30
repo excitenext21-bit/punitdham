@@ -214,15 +214,6 @@ export default function Operations() {
                         {localizedS.desc}
                       </p>
                     </div>
-
-                    <div className="mt-5 pt-3 border-t border-zinc-100 flex items-center gap-1.5 text-[11px] font-mono text-brand-green-mid font-semibold">
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-green-mid" />
-                      {localize({
-                        en: "Active Federal Partner",
-                        hi: "सक्रिय केंद्रीय भागीदार",
-                        gu: "સક્રિય સરકારી ભાગીદાર"
-                      })}
-                    </div>
                   </div>
                 );
               })}
