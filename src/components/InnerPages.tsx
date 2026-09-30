@@ -14,8 +14,8 @@ import { LEADERS } from "../data";
 
 // Mapping of high-fidelity premium professional corporate portraits
 const LEADER_IMAGES: Record<string, string> = {
-  prakashchand: "/prakashchand.jpg",
-  punit: "/punit.jpg",
+  prakashchand: "/board_prakashchand.jpg?v=3",
+  punit: "/board_punit.jpg?v=3",
   dhanashree: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
   chika: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
 };
@@ -786,7 +786,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                         onClick={() => setSelectedLeaderId(leader.id)}
                       >
                         {/* Image Wrap - Full size photo matching attached images */}
-                        <div className="relative aspect-[4/4.6] w-full overflow-hidden bg-white flex items-center justify-center border-b border-zinc-100 p-2 sm:p-3">
+                        <div className="relative aspect-[4/4.6] w-full overflow-hidden bg-white flex items-center justify-center border-b border-zinc-100 pt-1 sm:pt-1.5 px-2 sm:px-3 pb-2 sm:pb-3">
                           <img
                             src={leaderImg}
                             alt={leader.name}

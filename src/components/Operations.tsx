@@ -115,7 +115,7 @@ export default function Operations() {
         </div>
 
         {/* Dual Layout: Sourcing & Institutional Affiliates + 2x2 Welfare Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* Left panel: Sourcing Logic & Strategic Institutional Affiliations */}
           <div className="lg:col-span-4 flex flex-col justify-between bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] space-y-6">
@@ -181,7 +181,7 @@ export default function Operations() {
 
           {/* Right panel: Balanced 2x2 Welfare Schemes Grid */}
           <div className="lg:col-span-8 flex flex-col justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
               {WELFARE_SCHEMES.map((scheme) => {
                 const localizedS = getLocalizedScheme(scheme.id, scheme.title, scheme.desc);
                 const meta = SCHEME_DETAILS[scheme.id];
