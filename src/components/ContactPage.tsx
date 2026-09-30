@@ -218,24 +218,6 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
 
             </div>
 
-            {/* Milling Units details */}
-            <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-6 sm:p-8 space-y-4">
-              <h3 className="text-base font-serif font-bold text-white tracking-tight flex items-center gap-2">
-                <span className="w-1.5 h-4 bg-emerald-500 rounded-full inline-block" />
-                {localize({ en: "Licensed Milling Sites", hi: "प्रमाणित मिलिंग स्थल", gu: "પ્રમાણિત મિલિંગ સરનામું" })}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {COMPANY_PROFILE.millingUnits.map((u) => {
-                  const items = getLocalizedMillingUnit(u.id, u.name, u.description);
-                  return (
-                    <div key={u.id} className="p-4 bg-white/5 rounded-xl border border-white/5 space-y-1">
-                      <p className="font-bold text-zinc-100 text-xs sm:text-sm">{items.name}</p>
-                      <p className="text-zinc-400 text-xs leading-relaxed font-sans mt-1">{items.desc}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
 
             {/* Statutory details certifications list */}
             <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">

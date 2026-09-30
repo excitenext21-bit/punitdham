@@ -16,7 +16,7 @@ export const COMPANY_PROFILE = {
   isoCertificate: "IN/76122035/5941 (ISO 9001:2015)",
   haccpCertificate: "IN/48722036/1658 (HACCP Certified)",
   phoneNumbers: ["+91 70698 88113", "+91 70698 88112"],
-  emails: ["punitdhan_pulses@yahoo.com", "punitdhan_pulses2025@yahoo.com"],
+  emails: ["punitdhan_pulses2025@yahoo.com"],
   
   registeredOffice: {
     line1: "Dal Mill Compound, Nr. Old Octroi Naka",

@@ -2498,27 +2498,40 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 space-y-12 font-sans">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 space-y-10 font-sans">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left Column: Address Details (7 columns) */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* Left Column: Registered Offices & Central Communication (6 columns) */}
+            <div className="lg:col-span-6 space-y-6">
               
-              {/* Addresses Card */}
+              {/* Addresses & Registered Offices Card */}
               <div className="bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-brand-green-mid p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,46,30,0.02)] space-y-6 hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-center gap-3 text-brand-green-dark">
-                  <MapPin className="w-6 h-6 stroke-[2.5]" />
-                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                    {localize({ en: "Addresses & Registered Offices", hi: "पते और पंजीकृत कार्यालय", gu: "સરનામાં અને રજિસ્ટર્ડ ઓફિસ" })}
-                  </h2>
+                  <div className="w-10 h-10 rounded-xl bg-brand-green-dark/5 border border-brand-green-dark/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-brand-green-mid stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 tracking-tight">
+                      {localize({ en: "Addresses & Registered Offices", hi: "पते और पंजीकृत कार्यालय", gu: "સરનામાં અને રજિસ્ટર્ડ ઓફિસ" })}
+                    </h2>
+                    <p className="text-xs text-zinc-400 font-mono uppercase tracking-wider mt-0.5">
+                      {localize({ en: "Statutory & Administrative Desks", hi: "सांविधिक एवं प्रशासनिक डेस्क", gu: "વૈધાનિક અને વહીવટી ડેસ્ક" })}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="space-y-6 text-xs sm:text-sm text-zinc-650">
-                  <div className="space-y-1.5 border-l-2 border-brand-accent pl-4">
-                    <strong className="text-zinc-900 block font-sans">
-                      {localize({ en: "Corporate Headquarters:", hi: "कॉर्पोरेट मुख्यालय:", gu: "કોર્પોરેટ હેડક્વાર્ટર:" })}
-                    </strong>
-                    <span className="block text-zinc-500 font-medium">
+                <div className="space-y-5 text-xs sm:text-sm text-zinc-650">
+                  {/* Corporate Headquarters */}
+                  <div className="space-y-1.5 border-l-2 border-brand-accent pl-4 bg-amber-50/30 p-3 rounded-r-2xl border-y border-r border-amber-100/50">
+                    <div className="flex items-center justify-between gap-2">
+                      <strong className="text-zinc-900 block font-sans font-bold text-sm">
+                        {localize({ en: "Corporate Headquarters:", hi: "कॉर्पोरेट मुख्यालय:", gu: "કોર્પોરેટ હેડક્વાર્ટર:" })}
+                      </strong>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full font-bold">
+                        {localize({ en: "Administrative", hi: "प्रशासनिक", gu: "વહીવટી" })}
+                      </span>
+                    </div>
+                    <span className="block text-zinc-600 font-medium leading-relaxed">
                       {localize({
                         en: "406 Neelgagan Plaza, Opposite Police Commissioner Office, Shahibaug, Ahmedabad, Gujarat, India – 380004.",
                         hi: "406 नीलगगन प्लाजा, पुलिस कमिश्नर कार्यालय के सामने, शाहीबाग, अहमदाबाद, गुजरात, भारत – 380004।",
@@ -2526,73 +2539,96 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                       })}
                     </span>
                   </div>
-                  <div className="space-y-1.5 border-l-2 border-[#f4d068] pl-4">
-                    <strong className="text-zinc-900 block font-sans">
-                      {localize({ en: "Milling & Manufacturing Hub I:", hi: "मिलिंग एवं विनिर्माण केंद्र I:", gu: "મિલિંગ અને ઉત્પાદન કેન્દ્ર ૧:" })}
-                    </strong>
-                    <span className="block text-zinc-500 font-medium">
+
+                  {/* Registered Corporate Office */}
+                  <div className="space-y-1.5 border-l-2 border-brand-green-mid pl-4 bg-emerald-50/30 p-3 rounded-r-2xl border-y border-r border-emerald-100/50">
+                    <div className="flex items-center justify-between gap-2">
+                      <strong className="text-zinc-900 block font-sans font-bold text-sm">
+                        {localize({ en: "Registered Office:", hi: "पंजीकृत कार्यालय:", gu: "રજિસ્ટર્ડ ઓફિસ:" })}
+                      </strong>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full font-bold">
+                        {localize({ en: "Registered Desk", hi: "पंजीकृत डेस्क", gu: "રજિસ્ટર્ડ ડેસ્ક" })}
+                      </span>
+                    </div>
+                    <span className="block text-zinc-600 font-medium leading-relaxed">
                       {localize({
-                        en: "Near Omkar Textile Mill, Behind Narnarayan Weigh Bridge, Memco Char Rasta, Naroda Road, Ahmedabad, Gujarat, India – 382345.",
-                        hi: "ओमकार टेक्सटाइल मिल के पास, नरनारायण वे ब्रिज के पीछे, मेमको चार रास्ता, नरोडा रोड, अहमदाबाद, गुजरात, भारत – 382345।",
-                        gu: "ઓમકાર ટેક્સટાઇલ મિલ પાસે, નરનારાયણ વે બ્રિજ પાછળ, મેમકો ચાર રસ્તા, નરોડા રોડ, અમદાવાદ, ગુજરાત, ભારત – ૩૮૨૩૪૫."
-                      })}
-                    </span>
-                  </div>
-                  <div className="space-y-1.5 border-l-2 border-emerald-600 pl-4">
-                    <strong className="text-zinc-900 block font-sans">
-                      {localize({ en: "Milling & Manufacturing Hub II:", hi: "मिलिंग एवं विनिर्माण केंद्र II:", gu: "મિલિંગ અને ઉત્પાદન કેન્દ્ર ૨:" })}
-                    </strong>
-                    <span className="block text-zinc-500 font-medium">
-                      {localize({
-                        en: "Krishna Rice Mills Compound, Behind Baba Ramdevpir Mandir, Near Patel Kanta, Daran Road, Ahmedabad, Gujarat, India – 382220.",
-                        hi: "कृष्णा राइस मिल्स कंपाउंड, बाबा रामदेवपीर मंदिर के पीछे, पटेल कांटा के पास, डारन रोड, अहमदाबाद, गुजरात, भारत – 382220।",
-                        gu: "ક્રિષ્ના રાઇસ મિલ્સ કમ્પાઉન્ડ, બાબા રામદેવપીર મંદિર પાછળ, પટેલ કાંટા પાસે, દારણ રોડ, અમદાવાદ, ગુજરાત, ભારત – ૩૮૨૨૨૦."
+                        en: "Dal Mill Compound, Near Old Octroi Naka, Naroda Road, Memco, Ahmedabad, Gujarat, India – 382345.",
+                        hi: "दाल मिल कंपाउंड, पुराने चुंगी नाके के पास, नरोडा रोड, मेमको, अहमदाबाद, गुजरात, भारत – 382345।",
+                        gu: "દાળ મિલ કમ્પાઉન્ડ, જૂના ઓક્ટ્રોય નાકા પાસે, નરોડા રોડ, મેમકો, અમદાવાદ, ગુજરાત, ભારત – ૩૮૨૩૪૫."
                       })}
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Communication Desks Card */}
+              {/* Institutional Communication Card */}
               <div className="bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-[#f4d068] p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,46,30,0.02)] space-y-6 hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-center gap-3 text-brand-green-dark">
-                  <Phone className="w-6 h-6 stroke-[2.5]" />
-                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
-                    {localize({ en: "Institutional Communication", hi: "संस्थागत संचार", gu: "સંસ્થાકીય સંચાર" })}
-                  </h2>
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5 text-amber-700 stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 tracking-tight">
+                      {localize({ en: "Institutional Communication", hi: "संस्थागत संचार", gu: "સંસ્થાકીય સંચાર" })}
+                    </h2>
+                    <p className="text-xs text-zinc-400 font-mono uppercase tracking-wider mt-0.5">
+                      {localize({ en: "Corporate Electronic Desk", hi: "कॉर्पोरेट इलेक्ट्रॉनिक डेस्क", gu: "કોર્પોરેટ ઇલેક્ટ્રોનિક ડેસ્ક" })}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs sm:text-sm">
-                  <div className="space-y-2">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block font-bold">
-                      {localize({ en: "Direct Lines", hi: "सीधी दूरभाष लाइनें", gu: "ડાયરેક્ટ ફોન લાઇન" })}
+                <div className="space-y-4 text-xs sm:text-sm">
+                  {/* Official Electronic Mail */}
+                  <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/70 space-y-2">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block font-bold">
+                      {localize({ en: "Electronic Mail (Corporate Desk)", hi: "ईमेल संपर्क (कॉर्पोरेट डेस्क)", gu: "ઈમેલ સંપર્ક (કોર્પોરેટ ડેસ્ક)" })}
                     </span>
-                    <div className="space-y-1 font-mono text-zinc-700">
-                      <a href="tel:+917069888113" className="block hover:text-brand-green-mid transition-colors font-bold">+91 70698 88113</a>
-                      <a href="tel:+917069888112" className="block hover:text-brand-green-mid transition-colors font-bold">+91 70698 88112</a>
-                    </div>
+                    <a 
+                      href="mailto:punitdhan_pulses2025@yahoo.com" 
+                      className="inline-flex items-center gap-2 font-mono text-brand-green-dark hover:text-emerald-700 font-bold text-sm sm:text-base break-all transition-colors group"
+                    >
+                      <Mail className="w-4 h-4 text-brand-green-mid shrink-0 group-hover:scale-110 transition-transform" />
+                      <span className="underline underline-offset-4 decoration-brand-green-mid/40 group-hover:decoration-brand-green-mid">
+                        punitdhan_pulses2025@yahoo.com
+                      </span>
+                    </a>
                   </div>
-                  <div className="space-y-2">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block font-bold">
-                      {localize({ en: "Electronic Mail", hi: "ईमेल संपर्क", gu: "ઈમેલ સંપર્ક" })}
-                    </span>
-                    <div className="space-y-1 font-mono text-brand-green-mid">
-                      <a href="mailto:punitdhan_pulses@yahoo.com" className="block hover:underline truncate font-bold">punitdhan_pulses@yahoo.com</a>
-                      <a href="mailto:punitdhan_pulses2025@yahoo.com" className="block hover:underline truncate font-bold">punitdhan_pulses2025@yahoo.com</a>
+
+                  {/* Business Hours & Desk Availability */}
+                  <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200/70 space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-700 font-bold">
+                      <Clock className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span className="text-xs sm:text-sm">
+                        {localize({ en: "Operating Hours: Mon – Sat (9:30 AM – 6:30 PM IST)", hi: "कार्य समय: सोम – शनि (सुबह 9:30 – शाम 6:30 IST)", gu: "કામકાજનો સમય: સોમ – શનિ (સવારે 9:30 – સાંજે 6:30 IST)" })}
+                      </span>
                     </div>
+                    <p className="text-[11px] text-zinc-500 leading-relaxed font-sans pl-6">
+                      {localize({
+                        en: "Official sourcing mandates and merchant inquiries are processed within 24 business hours.",
+                        hi: "आधिकारिक सोर्सिंग और व्यापारी पूछताछ 24 व्यावसायिक घंटों के भीतर संसाधित की जाती हैं।",
+                        gu: "સત્તાવાર સોર્સિંગ અને વેપારી પૂછપરછ 24 કલાકમાં પ્રક્રિયા કરવામાં આવે છે."
+                      })}
+                    </p>
+                  </div>
+
+                  {/* Statutory Codes Mini Banner */}
+                  <div className="pt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-zinc-500 border-t border-zinc-100">
+                    <span>GST: <strong className="text-zinc-800">24AAPCP6070K1ZZ</strong></span>
+                    <span>PAN: <strong className="text-zinc-800">AAPCP6070K</strong></span>
+                    <span className="text-emerald-700 font-bold">{localize({ en: "Public Limited Entity", hi: "पब्लिक लिमिटेड इकाई", gu: "પબ્લિક લિમિટેડ એન્ટિટી" })}</span>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            {/* Right Column: Connect Form (5 columns) */}
-            <div className="lg:col-span-5 bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-brand-green-mid p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,46,30,0.02)] space-y-6 hover:-translate-y-1 transition-all duration-300">
+            {/* Right Column: Connect Form (6 columns) */}
+            <div className="lg:col-span-6 bg-white rounded-3xl border border-zinc-200/60 border-l-4 border-l-brand-green-mid p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,46,30,0.02)] space-y-6 hover:-translate-y-1 transition-all duration-300">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-zinc-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-zinc-900 tracking-tight">
                   {localize({ en: "Send Us an Inquiry", hi: "हमें पूछताछ भेजें", gu: "અમને પૂછપરછ મોકલો" })}
                 </h2>
-                <p className="text-xs sm:text-sm text-zinc-550 leading-relaxed mt-1">
+                <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed mt-1">
                   {localize({
                     en: "Submit your sourcing mandate or commercial query.",
                     hi: "अपना सोर्सिंग विवरण या वाणिज्यिक प्रश्न दर्ज करें।",
@@ -2708,6 +2744,57 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
               </form>
             </div>
 
+          </div>
+
+          {/* Institutional Trust & Service Commitments Strip */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            <div className="bg-white rounded-2xl border border-zinc-200/70 p-5 shadow-sm space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-brand-green-mid flex items-center justify-center font-bold">
+                <Clock className="w-4 h-4" />
+              </div>
+              <h3 className="font-bold text-zinc-900 text-sm">
+                {localize({ en: "24-Hour Desk Turnaround", hi: "24-घंटे प्रतिक्रिया समय", gu: "24-કલાક પ્રતિસાદ સમય" })}
+              </h3>
+              <p className="text-xs text-zinc-500 leading-relaxed font-sans">
+                {localize({
+                  en: "Dedicated commercial account managers review and respond to institutional sourcing mandates within one business day.",
+                  hi: "समर्पित वाणिज्यिक प्रबंधक एक कार्य दिवस के भीतर संस्थागत सोर्सिंग पूछताछ की समीक्षा और जवाब देते हैं।",
+                  gu: "વાણિજ્યિક એકાઉન્ટ મેનેજર્સ એક વ્યવસાય દિવસમાં સંસ્થાકીય સોર્સિંગ પૂછપરછનો જવાબ આપે છે."
+                })}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-zinc-200/70 p-5 shadow-sm space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
+                <Building2 className="w-4 h-4" />
+              </div>
+              <h3 className="font-bold text-zinc-900 text-sm">
+                {localize({ en: "PAN-India Procurement", hi: "अखिल भारतीय खरीद एवं वितरण", gu: "સમગ્ર ભારતમાં વિતરણ ચેનલ" })}
+              </h3>
+              <p className="text-xs text-zinc-500 leading-relaxed font-sans">
+                {localize({
+                  en: "Integrated logistics corridors serving federal procurement, wholesale distributors, and public cooperative channels.",
+                  hi: "राष्ट्रीय खरीद, थोक वितरकों और सार्वजनिक सहकारी चैनलों की सेवा करने वाले एकीकृत आपूर्ति गलियारे।",
+                  gu: "સરકારી ખરીદી, હોલસેલ ડિસ્ટ્રીબ્યુટર અને સહકારી ચેનલો માટે સંકલિત સપ્લાય નેટવર્ક."
+                })}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-zinc-200/70 p-5 shadow-sm space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <h3 className="font-bold text-zinc-900 text-sm">
+                {localize({ en: "ISO & HACCP Certified", hi: "आईएसओ और एचएसीसीपी प्रमाणित", gu: "આઇએસઓ અને એચએસીસીપી પ્રમાણિત" })}
+              </h3>
+              <p className="text-xs text-zinc-500 leading-relaxed font-sans">
+                {localize({
+                  en: "Full laboratory batch testing, moisture certification, and standardized pulse grading protocols.",
+                  hi: "पूर्ण प्रयोगशाला परीक्षण, नमी प्रमाणीकरण और मानकीकृत दाल ग्रेडिंग प्रोटोकॉल।",
+                  gu: "સંપૂર્ણ લેબોરેટરી ટેસ્ટિંગ, મોઈશ્ચર સર્ટિફિકેશન અને ગુણવત્તા નિયંત્રણ ધોરણો."
+                })}
+              </p>
+            </div>
           </div>
         </div>
       </motion.div>
