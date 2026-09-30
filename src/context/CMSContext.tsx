@@ -236,7 +236,7 @@ const INITIAL_PAGES: CMSPage[] = [
     seo: {
       metaTitle: "Punitdhan Pulses Limited | Premium Pulses & Food Grains processing",
       metaDescription: "Providing high-quality agricultural commodities, pulses, grains, and oil across India. Estd 1988, ISO 9001:2015 and HACCP certified processing mills.",
-      keywords: "Punitdhan, pulses, grains, Chana Dal, Toor Dal, Naroda, Ahmedabad, Prakash Agro Mills, grain milling, NAFED, Bharat Dal"
+      keywords: "Punitdhan, pulses, grains, Chana Dal, Toor Dal, Naroda, Ahmedabad, Prakash Agro Mills, grain milling, NAFED"
     },
     sections: DEFAULT_SECTIONS.home
   },
@@ -269,7 +269,7 @@ const INITIAL_PAGES: CMSPage[] = [
     seo: {
       metaTitle: "Institutional Mandates & Services | Punitdhan Pulses Limited",
       metaDescription: "Sovereign supply chains, national welfare schemes, Mid-day meal program, and military procurement contracts.",
-      keywords: "ICDS, Mid-Day Meal, PDS, PMGKAY, Bharat Dal, Defense procurement"
+      keywords: "ICDS, Mid-Day Meal, PDS, PMGKAY, Defense procurement"
     },
     sections: []
   },

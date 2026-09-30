@@ -1276,7 +1276,7 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   ]
                 },
                 {
-                  title: localize({ en: "Public Distribution System (PDS) & PMGKAY", hi: "सार्वजनिक वितरण प्रणाली (PDS) और PMGKAY", gu: "જાહેર વિતરણ વ્યવસ્થા (PDS) અને PMGKAY" }),
+                  title: localize({ en: "Public Distribution System (PDS)", hi: "सार्वजनिक वितरण प्रणाली (PDS)", gu: "જાહેર વિતરણ વ્યવસ્થા (PDS)" }),
                   desc: localize({
                     en: "Driving country-wide food security initiatives by routing uniform-grade commodities to vulnerable consumer cross-sections.",
                     hi: "जरूरतमंद उपभोक्ता वर्गों को एकसमान-ग्रेड उत्पाद पहुंचाकर देशव्यापी खाद्य सुरक्षा पहलों को संचालित करना।",
@@ -1302,16 +1302,16 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
                   ]
                 },
                 {
-                  title: localize({ en: "Bharat Dal Yojana", hi: "भारत दाल योजना", gu: "ભારત દાળ યોજના" }),
+                  title: localize({ en: "Pradhan Mantri Garib Kalyan Anna Yojana (PMGKAY)", hi: "प्रधानमंत्री गरीब कल्याण अन्न योजना (PMGKAY)", gu: "પ્રધાનમંત્રી ગરીબ કલ્યાણ અન્ન યોજના (PMGKAY)" }),
                   desc: localize({
-                    en: "Serving as a primary partner in the government's centralized market-stabilization and consumer-relief commodity distribution frameworks.",
-                    hi: "सरकार के केंद्रीकृत बाजार-स्थिरीकरण और उपभोक्ता-राहत उत्पाद वितरण ढांचे में प्राथमिक भागीदार के रूप में सेवा करना।",
-                    gu: "સરકારના બજાર સ્થિરીકરણ અને ગ્રાહક રાહત વિતરણમાં મુખ્ય ભાગીદાર તરીકે સેવા આપવી."
+                    en: "Proud participants in supplying staple grains and pulses during national supply chain disruptions and emergency food security operations.",
+                    hi: "राष्ट्रीय आपूर्ति बाधाओं और आपातकालीन खाद्य सुरक्षा अभियानों के दौरान आवश्यक अनाज और दालों की आपूर्ति में गर्वित भागीदार।",
+                    gu: "અનાજ પુરવઠા સમસ્યાઓ દરમિયાન દેશભરના લાખો પરિવારોની દૈનિક અન્ન સુરક્ષા અવિરત જાળવી રાખવામાં સક્ષમ સહયોગી."
                   }),
                   points: [
-                    localize({ en: "National brand supply partner", hi: "राष्ट्रीय ब्रांड आपूर्ति भागीदार", gu: "રાષ્ટ્રીય બ્રાન્ડ સપ્લાય પાર્ટનર" }),
-                    localize({ en: "Market-stabilization assistance", hi: "बाजार-स्थिरीकरण सहायता", gu: "બજાર સ્થિરતા સહાય" }),
-                    localize({ en: "Government-capped pricing programs", hi: "सरकारी निर्धारित मूल्य कार्यक्रम", gu: "સરકારી ભાવ યોજનાઓ" })
+                    localize({ en: "National emergency food relief", hi: "राष्ट्रीय आपातकालीन खाद्य राहत", gu: "રાષ્ટ્રીય અન્ન રાહત" }),
+                    localize({ en: "Bulk processing readiness", hi: "थोक प्रसंस्करण तत्परता", gu: "મોટા પાયે પ્રોસેસિંગ ક્ષમતા" }),
+                    localize({ en: "Direct federal welfare supply", hi: "प्रत्यक्ष केंद्रीय कल्याण आपूर्ति", gu: "સીધો સરકારી સપ્લાય" })
                   ]
                 }
               ].map((item, idx) => (

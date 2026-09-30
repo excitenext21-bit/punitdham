@@ -1,9 +1,37 @@
 import React from "react";
-import { WELFARE_SCHEMES } from "../data";
+import { WELFARE_SCHEMES, WELFARE_PARTNERS } from "../data";
 import { useLanguage } from "../context/LanguageContext";
+import { GraduationCap, Store, HeartHandshake, ShieldCheck, CheckCircle2 } from "lucide-react";
 
 export default function Operations() {
   const { localize, language } = useLanguage();
+
+  const SCHEME_DETAILS: Record<string, {
+    icon: React.ComponentType<{ className?: string }>;
+    tag: { en: string; hi: string; gu: string };
+    accentColor: string;
+  }> = {
+    "mid-day": {
+      icon: GraduationCap,
+      tag: { en: "Youth Nutrition", hi: "बाल पोषण", gu: "બાળ પોષણ" },
+      accentColor: "border-l-brand-green-mid"
+    },
+    "pds": {
+      icon: Store,
+      tag: { en: "Subsidized PDS", hi: "सब्सिडी दाल", gu: "સબ્સિડી દાળ" },
+      accentColor: "border-l-[#f4d068]"
+    },
+    "icds": {
+      icon: HeartHandshake,
+      tag: { en: "Maternal Health", hi: "मातृ स्वास्थ्य", gu: "માતૃ આરોગ્ય" },
+      accentColor: "border-l-brand-green-mid"
+    },
+    "pmgkay": {
+      icon: ShieldCheck,
+      tag: { en: "National Relief", hi: "राष्ट्रीय राहत", gu: "રાષ્ટ્રીય રાહત" },
+      accentColor: "border-l-[#f4d068]"
+    }
+  };
 
   const getLocalizedScheme = (id: string, defTitle: string, defDesc: string) => {
     if (language === "hi") {
@@ -27,11 +55,6 @@ export default function Operations() {
           return {
             title: "प्रधानमंत्री गरीब कल्याण अन्न योजना (PMGKAY)",
             desc: "राष्ट्रीय संकट या वैश्विक आपूर्ति बाधाओं के दौरान लाखों परिवारों की दैनिक खाद्य सुरक्षा सुरक्षित रखने में भागीदार।"
-          };
-        case "bharat-dal":
-          return {
-            title: "भारत दाल योजना (Bharat Dal)",
-            desc: "सस्ती और सर्वोत्तम गुणवत्ता वाली चना दाल प्रदान करने की भारत सरकार की अत्यधिक प्रशंसित पहल के सक्रिय प्रसंस्करण भागीदार।"
           };
         default:
           return { title: defTitle, desc: defDesc };
@@ -59,11 +82,6 @@ export default function Operations() {
             title: "પ્રધાનમંત્રી ગરીબ કલ્યાણ અન્ન યોજના (PMGKAY)",
             desc: "અનાજ પુરવઠા ચેનલમાં સમસ્યાઓ દરમિયાન દેશભરના લાખો પરિવારોની દૈનિક અન્ન સુરક્ષા અવિરત જાળવી રાખવી."
           };
-        case "bharat-dal":
-          return {
-            title: "ભારત દાળ યોજના (Bharat Dal)",
-            desc: "સસ્તી અને શ્રેષ્ઠ ચણા દાળ પૂરી પાડવાની ભારત સરકારની વિશેષ યોજના અંતર્ગત અગ્રણી પ્રોસેસિંગ સહયોગી."
-          };
         default:
           return { title: defTitle, desc: defDesc };
       }
@@ -79,7 +97,7 @@ export default function Operations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Title area */}
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 space-y-3">
           <h2 className="text-3xl sm:text-4xl font-serif text-zinc-950 tracking-tight font-extrabold">
             {localize({
               en: "Present Operations & Welfare Integrations",
@@ -96,17 +114,17 @@ export default function Operations() {
           </p>
         </div>
 
-        {/* Dual Layout: Welfare Schemes & Government Associations */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch mb-20">
+        {/* Dual Layout: Sourcing & Institutional Affiliates + 2x2 Welfare Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
-          {/* Left panel: Sourcing Logic & Affiliations */}
-          <div className="lg:col-span-4 flex flex-col justify-between bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
-            <div className="space-y-6">
-              <div className="flex items-center gap-2">
+          {/* Left panel: Sourcing Logic & Strategic Institutional Affiliations */}
+          <div className="lg:col-span-4 flex flex-col justify-between bg-white border border-zinc-200/80 rounded-3xl p-6 sm:p-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)] space-y-6">
+            <div className="space-y-5">
+              <div className="flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 bg-brand-green-mid rounded-full animate-ping" />
-                <h3 className="font-serif font-bold text-lg text-zinc-950">
+                <h3 className="font-serif font-bold text-lg sm:text-xl text-zinc-950">
                   {localize({
-                    en: "Sourcing & Affiliates",
+                    en: "Sourcing & Institutional Affiliates",
                     hi: "स्रोत संग्रहण एवं संबद्ध संस्थाएं",
                     gu: "અનાજ સોર્સિંગ અને સંસ્થાઓ"
                   })}
@@ -120,10 +138,39 @@ export default function Operations() {
                   gu: "પુનીતધન સીધા જ સ્થાનિક બજારો, મંડીઓ અને માન્ય સરકારી કેન્દ્રોમાંથી સોર્સિંગ કરી અદ્યતન પ્રોસેસિંગ કરે છે અને દેશભરમાં અગ્રણી એજન્સીઓ દ્વારા વિતરણ કરે છે."
                 })}
               </p>
+
+              {/* Strategic Supply Network Badges */}
+              <div className="pt-3 space-y-2.5">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400 block">
+                  {localize({
+                    en: "Key Strategic Partners",
+                    hi: "प्रमुख रणनीतिक भागीदार",
+                    gu: "મુખ્ય વ્યૂહાત્મક ભાગીદારો"
+                  })}
+                </span>
+                <div className="space-y-2">
+                  {WELFARE_PARTNERS.map((affil, idx) => (
+                    <div 
+                      key={idx}
+                      className="flex items-start gap-2.5 p-2.5 rounded-xl bg-zinc-50 border border-zinc-200/60 hover:border-brand-green-mid/40 transition-colors"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-brand-green-mid shrink-0 mt-0.5" />
+                      <div>
+                        <div className="text-xs font-semibold text-zinc-900 leading-tight">
+                          {affil.name}
+                        </div>
+                        <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wide mt-0.5">
+                          {affil.category}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            {/* Defense Seal info */}
-            <div className="mt-8 pt-4 border-t border-zinc-200/80 text-xs text-zinc-500 font-sans leading-relaxed">
+            {/* Defense Seal compliance footer */}
+            <div className="pt-4 border-t border-zinc-200/80 text-xs text-zinc-500 font-sans leading-relaxed">
               {localize({
                 en: "*Our verified procurement system with the Department of Defense (India) requires compliance with strict moisture, protein, and size profiles.",
                 hi: "*रक्षा विभाग (भारत) के साथ हमारी सत्यापित खरीद प्रणाली के तहत नमी, प्रोटीन और आकार के कड़े मापदंडों का पूर्ण अनुपालन आवश्यक है।",
@@ -132,22 +179,50 @@ export default function Operations() {
             </div>
           </div>
 
-          {/* Right panel: Welfare schemes Grid */}
-          <div className="lg:col-span-8 space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Right panel: Balanced 2x2 Welfare Schemes Grid */}
+          <div className="lg:col-span-8 flex flex-col justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
               {WELFARE_SCHEMES.map((scheme) => {
                 const localizedS = getLocalizedScheme(scheme.id, scheme.title, scheme.desc);
+                const meta = SCHEME_DETAILS[scheme.id];
+                const IconComponent = meta?.icon || ShieldCheck;
+                const accentBorder = meta?.accentColor || "border-l-brand-green-mid";
+                const categoryTag = meta ? localize(meta.tag) : "";
+
                 return (
                   <div 
                     key={scheme.id}
-                    className="bg-white border border-zinc-200/80 border-l-4 border-l-brand-green-mid rounded-2xl p-6 hover:border-brand-green-mid/40 hover:-translate-y-1.5 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-lg"
+                    className={`bg-white border border-zinc-200/80 border-l-4 ${accentBorder} rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-brand-green-mid/40 hover:-translate-y-1.5 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl group`}
                   >
-                    <h4 className="font-serif text-[15px] sm:text-base font-bold text-zinc-950 mb-2">
-                      {localizedS.title}
-                    </h4>
-                    <p className="text-xs text-zinc-600 font-sans leading-relaxed">
-                      {localizedS.desc}
-                    </p>
+                    <div>
+                      {/* Top icon and category tag */}
+                      <div className="flex items-center justify-between gap-2 mb-4">
+                        <div className="p-2.5 rounded-xl bg-brand-green-dark/5 text-brand-green-dark group-hover:bg-brand-green-dark group-hover:text-white transition-colors duration-300">
+                          <IconComponent className="w-5 h-5" />
+                        </div>
+                        {categoryTag && (
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-full border border-zinc-200/60">
+                            {categoryTag}
+                          </span>
+                        )}
+                      </div>
+
+                      <h4 className="font-serif text-base sm:text-lg font-bold text-zinc-950 mb-2 leading-snug group-hover:text-brand-green-dark transition-colors">
+                        {localizedS.title}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-zinc-600 font-sans leading-relaxed">
+                        {localizedS.desc}
+                      </p>
+                    </div>
+
+                    <div className="mt-5 pt-3 border-t border-zinc-100 flex items-center gap-1.5 text-[11px] font-mono text-brand-green-mid font-semibold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-green-mid" />
+                      {localize({
+                        en: "Active Federal Partner",
+                        hi: "सक्रिय केंद्रीय भागीदार",
+                        gu: "સક્રિય સરકારી ભાગીદાર"
+                      })}
+                    </div>
                   </div>
                 );
               })}

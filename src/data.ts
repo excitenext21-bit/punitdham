@@ -243,11 +243,6 @@ export const WELFARE_SCHEMES = [
     id: "pmgkay",
     title: "PMGKAY (Pradhan Mantri Garib Kalyan Anna Yojana)",
     desc: "Proud participants in supplying staple grains and pulses during national supply chain disruptions."
-  },
-  {
-    id: "bharat-dal",
-    title: "Bharat Dal Yojana",
-    desc: "Active processing partner of the Government of India's highly praised initiative to supply affordable, top-quality chana dal."
   }
 ];
 
