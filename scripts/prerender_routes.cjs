@@ -40,6 +40,7 @@ const routes = [
     description: 'Explore the legacy of Punitdhan Pulses Limited (formerly Prakash Agro Mills, estd. 1988). Modern Sortex milling, clean grain processing, and sustainable farmer partnerships across India.',
     canonical: 'https://punitdhan.com/about-us',
     schemaType: 'AboutPage',
+    pageName: 'About Corporate Profile',
     htmlContent: `
       <main class="max-w-6xl mx-auto px-4 py-16">
         <header class="mb-12 text-center">
@@ -76,6 +77,7 @@ const routes = [
     description: 'Meet the executive leadership of Punitdhan Pulses Limited: Founder CA Prakashchand Bachhawat, Director & CFO CA Punit Bachhawat, Mrs. Chika Bachhawat, and CA Dhanashree Bachhawat.',
     canonical: 'https://punitdhan.com/board-of-directors',
     schemaType: 'ProfilePage',
+    pageName: 'Board of Directors',
     htmlContent: `
       <main class="max-w-6xl mx-auto px-4 py-16">
         <header class="mb-12 text-center">
@@ -119,6 +121,7 @@ const routes = [
     description: 'Sovereign supply chain partner for Government of India welfare programs (PMGKAY, ICDS, Mid-Day Meal schemes), military procurement, and national grain distribution.',
     canonical: 'https://punitdhan.com/services',
     schemaType: 'Service',
+    pageName: 'Institutional Services',
     htmlContent: `
       <main class="max-w-6xl mx-auto px-4 py-16">
         <header class="mb-12 text-center">
@@ -154,6 +157,7 @@ const routes = [
     description: 'Technical specs & nutritional profiles for Punitdhan premium pulses: Chana Dal, Toor Dal, Urad Whole, Urad Dal, Masoor Dal, and Moong Dal. Zero chemical polish, lab-certified.',
     canonical: 'https://punitdhan.com/products-specs',
     schemaType: 'CollectionPage',
+    pageName: 'Products & Specifications',
     htmlContent: `
       <main class="max-w-6xl mx-auto px-4 py-16">
         <header class="mb-12 text-center">
@@ -207,6 +211,7 @@ const routes = [
     description: 'Verified regulatory credentials of Punitdhan Pulses Limited: GSTIN 24AAPCP6070K1ZZ, PAN AAPCP6070K, Central FSSAI Licenses 10725026000839 & 10724001000022, ISO 9001:2015 & HACCP.',
     canonical: 'https://punitdhan.com/alliances',
     schemaType: 'WebPage',
+    pageName: 'Statutory Compliance & Certifications',
     htmlContent: `
       <main class="max-w-6xl mx-auto px-4 py-16">
         <header class="mb-12 text-center">
@@ -276,6 +281,7 @@ const routes = [
     description: 'Get in touch with Punitdhan Pulses Limited. Registered Office at Naroda Road, Corporate Office at Shahibaug, Ahmedabad. Call +91 70698 88113 or email punitdhan_pulses2025@yahoo.com.',
     canonical: 'https://punitdhan.com/connect',
     schemaType: 'ContactPage',
+    pageName: 'Connect Us & Desks',
     htmlContent: `
       <main class="max-w-6xl mx-auto px-4 py-16">
         <header class="mb-12 text-center">
@@ -330,6 +336,7 @@ const routes = [
     description: 'Explore career opportunities at Punitdhan Pulses Limited in Ahmedabad. Opportunities in milling plant management, food technology, quality assurance, logistics, and accounts.',
     canonical: 'https://punitdhan.com/careers',
     schemaType: 'WebPage',
+    pageName: 'Careers & Opportunities',
     htmlContent: `
       <main class="max-w-6xl mx-auto px-4 py-16">
         <header class="mb-12 text-center">
@@ -405,17 +412,38 @@ routes.forEach((route) => {
     `<meta name="twitter:description" content="${route.description}" />`
   );
 
-  // Inject route-specific structured data
+  // Inject route-specific structured data & breadcrumbs
   const routeSchema = `
     <!-- ── Route Specific Schema ── -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "${route.schemaType}",
-      "name": "${route.title}",
-      "description": "${route.description}",
-      "url": "${route.canonical}",
-      "isPartOf": { "@id": "https://punitdhan.com/#website" }
+      "@graph": [
+        {
+          "@type": "${route.schemaType}",
+          "name": "${route.title}",
+          "description": "${route.description}",
+          "url": "${route.canonical}",
+          "isPartOf": { "@id": "https://punitdhan.com/#website" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://punitdhan.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "${route.pageName}",
+              "item": "${route.canonical}"
+            }
+          ]
+        }
+      ]
     }
     </script>
   `;
