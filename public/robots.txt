@@ -1,0 +1,19 @@
+﻿# Robots.txt for Punitdhan Pulses Limited
+# https://punitdhan.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# XML Sitemap Location
+Sitemap: https://punitdhan.com/sitemap.xml
+Host: https://punitdhan.com
