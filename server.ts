@@ -28,7 +28,7 @@ async function startServer() {
   // Handle Form to Email submission via Authenticated SMTP
   app.post(["/api/send-inquiry", "/api/inquiry", "/send-inquiry.php"], async (req, res) => {
     const { name, email, phone, subject, message, type, position, experience } = req.body;
-    const recipient = process.env.TARGET_EMAIL || "manish@excitesys.com";
+    const recipient = process.env.TARGET_EMAIL || "punitdhan_pulses2025@yahoo.com";
 
     console.log("==========================================");
     console.log(`[INQUIRY RECEIVED] Forwarding to: ${recipient}`);

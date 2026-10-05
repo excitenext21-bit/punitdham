@@ -2,7 +2,7 @@
 /**
  * Punitdhan Pulses Limited - SMTP Form Email Handler
  * POST endpoint: /send-inquiry.php
- * Target Recipient: manish@excitesys.com
+ * Target Recipient: punitdhan_pulses2025@yahoo.com
  * Powered by PHPMailer via Authenticated SMTP
  */
 
@@ -53,7 +53,7 @@ $formType   = cleanInput($data['type'] ?? $data['formType'] ?? 'General Inquiry'
 $position   = cleanInput($data['position'] ?? '');
 $experience = cleanInput($data['experience'] ?? '');
 
-$toEmail = 'manish@excitesys.com';
+$toEmail = 'punitdhan_pulses2025@yahoo.com';
 
 if (empty($name) && empty($email) && empty($phone)) {
     http_response_code(400);
@@ -118,7 +118,7 @@ $bodyHtml .= "
       <div class='message-box'>" . nl2br($message ? $message : 'No additional message text.') . "</div>
     </div>
     <div class='footer'>
-      Official Inquiry Dispatch &bull; Recipient: <strong>manish@excitesys.com</strong>
+      Official Inquiry Dispatch &bull; Recipient: <strong>punitdhan_pulses2025@yahoo.com</strong>
     </div>
   </div>
 </body>
@@ -232,7 +232,7 @@ if (!$sent) {
 ob_clean();
 echo json_encode([
     'success' => true,
-    'message' => 'Inquiry successfully delivered to manish@excitesys.com.',
+    'message' => 'Inquiry successfully delivered to punitdhan_pulses2025@yahoo.com.',
     'inquiryId' => $inquiryId,
     'delivered' => $sent
 ]);

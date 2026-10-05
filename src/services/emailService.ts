@@ -1,9 +1,9 @@
 ﻿/**
  * Punitdhan Pulses Limited - Client Email Dispatcher
- * Directly forwards all website form submissions to manish@excitesys.com
+ * Directly forwards all website form submissions to punitdhan_pulses2025@yahoo.com
  */
 
-export const RECIPIENT_EMAIL = "manish@excitesys.com";
+export const RECIPIENT_EMAIL = "punitdhan_pulses2025@yahoo.com";
 
 export interface FormSubmissionPayload {
   name: string;
