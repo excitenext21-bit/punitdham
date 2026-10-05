@@ -20,69 +20,45 @@ export interface FormSubmissionPayload {
 export async function submitInquiry(payload: FormSubmissionPayload): Promise<{ success: boolean; message: string }> {
   const formattedSubject = `[Punitdhan ${payload.type || "Inquiry"}] ${payload.subject || "Website Submission"} from ${payload.name || payload.email}`;
 
-  let backendDelivered = false;
+  const bodyData = {
+    ...payload,
+    recipient: RECIPIENT_EMAIL,
+    formattedSubject,
+    submittedAt: new Date().toISOString(),
+  };
 
-  // 1. Attempt delivery via local backend or PHP Hostinger endpoint
+  // 1. Try /api/send-inquiry (Node dev server or Apache rewrite)
   try {
     const res = await fetch("/api/send-inquiry", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        ...payload,
-        recipient: RECIPIENT_EMAIL,
-        formattedSubject,
-        submittedAt: new Date().toISOString(),
-      }),
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(bodyData),
     });
-
     if (res.ok) {
       const data = await res.json();
       if (data.success) {
-        backendDelivered = true;
+        return { success: true, message: `Inquiry successfully delivered to ${RECIPIENT_EMAIL}.` };
       }
     }
   } catch (err) {
-    // If local/PHP endpoint not reachable, fallback to FormSubmit cloud delivery
-    console.warn("[EmailService] Direct API endpoint failed, engaging fallback relay:", err);
+    console.warn("[EmailService] /api/send-inquiry endpoint error:", err);
   }
 
-  // 2. High-reliability fallback relay directly to manish@excitesys.com
-  if (!backendDelivered) {
-    try {
-      const relayRes = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(RECIPIENT_EMAIL)}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: payload.name || "Anonymous",
-          email: payload.email || "no-email@punitdhan.com",
-          phone: payload.phone || "Not provided",
-          subject: payload.subject || "Website Inquiry",
-          form_type: payload.type || "General Inquiry",
-          position: payload.position || "N/A",
-          experience: payload.experience || "N/A",
-          message: payload.message || "No detailed message provided",
-          _subject: formattedSubject,
-          _replyto: payload.email,
-          _captcha: "false",
-          _template: "table",
-        }),
-      });
-
-      if (relayRes.ok) {
-        return {
-          success: true,
-          message: `Inquiry successfully forwarded to ${RECIPIENT_EMAIL}.`,
-        };
+  // 2. Try direct /send-inquiry.php (Hostinger direct PHP endpoint)
+  try {
+    const res = await fetch("/send-inquiry.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(bodyData),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success) {
+        return { success: true, message: `Inquiry successfully delivered to ${RECIPIENT_EMAIL}.` };
       }
-    } catch (relayErr) {
-      console.error("[EmailService] Fallback relay failed:", relayErr);
     }
+  } catch (err) {
+    console.warn("[EmailService] /send-inquiry.php endpoint error:", err);
   }
 
   return {
