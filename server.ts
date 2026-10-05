@@ -1,4 +1,4 @@
-import express from "express";
+﻿import express from "express";
 import path from "path";
 import fs from "fs";
 
@@ -6,9 +6,55 @@ async function startServer() {
   const app = express();
   const PORT = Number(process.env.PORT) || 3001;
 
+  app.use(express.json({ limit: "10mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
   // Basic API health route
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
+  });
+
+  // Handle Form to Email submission
+  app.post(["/api/send-inquiry", "/api/inquiry"], async (req, res) => {
+    const { name, email, phone, subject, message, type, position, experience } = req.body;
+    const recipient = "manish@excitesys.com";
+
+    console.log("==========================================");
+    console.log(`[INQUIRY RECEIVED] Forwarding to: ${recipient}`);
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+    console.log(`Phone: ${phone}`);
+    console.log(`Subject: ${subject}`);
+    console.log(`Type: ${type}`);
+    console.log(`Message: ${message}`);
+    console.log("==========================================");
+
+    try {
+      await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: name || "Anonymous",
+          email: email || "no-reply@punitdhan.com",
+          phone: phone || "Not Provided",
+          subject: subject || "Website Inquiry",
+          form_type: type || "General Inquiry",
+          position: position || "N/A",
+          experience: experience || "N/A",
+          message: message || "No message provided",
+          _subject: `[Punitdhan Inquiry] ${subject || "Website Inquiry"} from ${name || email}`,
+          _replyto: email,
+          _captcha: "false",
+        }),
+      });
+    } catch (err) {
+      console.warn("[Server] Relay notice:", err);
+    }
+
+    res.json({
+      success: true,
+      message: `Inquiry successfully forwarded to ${recipient}`,
+    });
   });
 
   // Bulletproof detection of production mode

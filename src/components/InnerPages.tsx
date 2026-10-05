@@ -1,3 +1,4 @@
+import { submitInquiry } from '../services/emailService';
 import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
@@ -2009,20 +2010,19 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
       }
     };
 
-    const handleFormSubmit = (e: React.FormEvent) => {
+    const handleFormSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       if (!resumeFile) {
         alert(localize({
-          en: "Please upload your resume (PDF/Word document) to submit your application.",
-          hi: "कृपया अपना आवेदन जमा करने के लिए अपना बायोडाटा (PDF/Word) अपलोड करें।",
-          gu: "કૃપા કરીને તમારી અરજી સબમિટ કરવા માટે તમારું રિઝ્યુમ (PDF/Word) અપલોડ કરો."
+          en: "Please upload your resume to submit your application.",
+          hi: "कृपया अपना आवेदन जमा करने के लिए अपना बायोडाटा अपलोड करें।",
+          gu: "કૃપા કરીને તમારી અરજી સબમિટ કરવા માટે તમારું રિઝ્યુમ અપલોડ કરો."
         }));
         return;
       }
       setIsSubmittingCareer(true);
       
-      // Simulate highly professional processing delay
-      setTimeout(() => {
+      try {
         if (submitCandidate) {
           submitCandidate({
             name: careerForm.name,
@@ -2037,9 +2037,20 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
             resumeDataUrl: resumeFile.dataUrl
           });
         }
+
+        await submitInquiry({
+          name: careerForm.name,
+          email: careerForm.email,
+          phone: careerForm.phone,
+          subject: `Job Application for ${careerForm.position}`,
+          message: `${careerForm.message || 'Job Application'}\n\nExperience: ${careerForm.experience}\nAttached Resume: ${resumeFile.name} (${resumeFile.size})`,
+          position: careerForm.position,
+          experience: careerForm.experience,
+          type: "Career"
+        });
+
         setIsSubmittingCareer(false);
         setCareerSubmitSuccess(true);
-        // Clear state
         setCareerForm({
           name: "",
           email: "",
@@ -2049,7 +2060,10 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
           message: ""
         });
         setResumeFile(null);
-      }, 1500);
+      } catch (err) {
+        console.error("Career forwarding failed:", err);
+        setIsSubmittingCareer(false);
+      }
     };
 
     return (
@@ -2461,7 +2475,14 @@ export default function InnerPages({ activePageSlug, onInquireProduct }: InnerPa
       setIsSubmitting(true);
       setSubmitStatus("idle");
       try {
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        await submitInquiry({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject || "Connect Us Corporate Inquiry",
+          message: formData.message,
+          type: "Inquiry"
+        });
         setSubmitStatus("success");
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
         setTimeout(() => setSubmitStatus("idle"), 5000);

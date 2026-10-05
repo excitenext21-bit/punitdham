@@ -1,3 +1,4 @@
+import { submitInquiry } from '../services/emailService';
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, Phone, MapPin, Send, Check, Loader2, Landmark, Globe, X, Award, Sparkles, Navigation, SendHorizontal } from "lucide-react";
@@ -86,9 +87,16 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
     }));
   };
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!subscribeEmail) return;
+    submitInquiry({
+      name: "Newsletter Subscriber",
+      email: subscribeEmail,
+      subject: "New Newsletter Subscription",
+      message: `Subscriber email: ${subscribeEmail}`,
+      type: "Newsletter"
+    }).catch(console.error);
     setSubscribeSuccess(true);
     setSubscribeEmail("");
     setTimeout(() => {
@@ -101,7 +109,14 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
     setIsSubmitting(true);
     setSubmitStatus("idle");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await submitInquiry({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject || (selectedProductName ? `Inquiry for ${selectedProductName}` : "General Inquiry"),
+        message: formData.message,
+        type: "Inquiry"
+      });
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -114,7 +129,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
         setIsBulkModalOpen(false);
         clearSelectedProduct();
         setSubmitStatus("idle");
-      }, 2500);
+      }, 3000);
     } catch (err) {
       setSubmitStatus("error");
     } finally {

@@ -1,3 +1,4 @@
+import { submitInquiry } from '../services/emailService';
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Mail, Phone, MapPin, Send, Check, Loader2, Building2, ShieldCheck, ArrowRight, ArrowLeft } from "./HandDrawnIcons";
@@ -34,8 +35,14 @@ export default function ContactPage({ onBackToHome }: ContactPageProps) {
     setIsSubmitting(true);
     setSubmitStatus("idle");
     try {
-      // Simulate submission request
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await submitInquiry({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject || "Direct Message via Contact Desk",
+        message: formData.message,
+        type: "Inquiry"
+      });
       setSubmitStatus("success");
       setFormData({
         name: "",
