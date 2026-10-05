@@ -50,8 +50,9 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
                       {localize({ en: "Corporate Email Desks", hi: "आधिकारिक ईमेल पता", gu: "કોર્પોરેટ ઇમેઇલ ડેસ્ક" })}
                     </h4>
                   </div>
-                  <button 
-                    onClick={() => setActiveTab(null)} 
+                  <button
+                    aria-label="Close Email Inboxes Panel"
+                    onClick={() => setActiveTab(null)}
                     className="text-xs font-mono text-brand-sage hover:text-brand-accent transition-colors cursor-pointer"
                   >
                     ESC
@@ -90,6 +91,7 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
                           <ExternalLink size={13} />
                         </a>
                         <button
+                          aria-label={`Copy email address ${email}`}
                           onClick={() => copyToClipboard(email, `email-${idx}`)}
                           className="p-1.5 rounded-lg border border-brand-green-light bg-brand-green-mid hover:bg-brand-green-light hover:border-brand-gold/50 transition-colors text-brand-sage hover:text-white cursor-pointer"
                           title={localize({ en: "Copy address", hi: "पता कॉपी करें", gu: "સરનામું કૉપિ કરો" })}
@@ -134,6 +136,7 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
 
             {/* 1. Squeezed Close button (at the top of the capsule) */}
             <button
+              aria-label="Minimize Support Desk"
               onClick={onToggle}
               className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-green-mid/80 border border-brand-gold/25 text-brand-accent hover:text-brand-gold hover:border-brand-gold/50 hover:bg-brand-green-light/80 transition-all duration-300 scale-90 hover:scale-100 cursor-pointer shrink-0 z-10"
               title={localize({ en: "Minimize desk", hi: "छोटा करें", gu: "સપોર્ટ બાર સંકોચો" })}
@@ -150,6 +153,7 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
               {/* Email item trigger */}
               <div className="relative group flex items-center justify-center w-full">
                 <button
+                  aria-label="Open Email Support Inboxes"
                   onClick={() => setActiveTab(activeTab === "email" ? null : "email")}
                   className={`flex items-center justify-center w-10 h-10 rounded-xl border transition-all duration-300 cursor-pointer ${
                     activeTab === "email"
@@ -178,6 +182,7 @@ export default function SidebarSupport({ isExpanded, onToggle }: SidebarSupportP
             className="pointer-events-auto"
           >
             <button
+              aria-label="Open Trade Support Desk"
               onClick={onToggle}
               className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-brand-green-dark border-2 border-brand-gold text-brand-accent hover:text-brand-gold hover:border-brand-accent shadow-2xl hover:shadow-[0_0_20px_rgba(212,175,55,0.45)] transition-all duration-300 focus:outline-none cursor-pointer"
               title={localize({ en: "Expand Support Sider", hi: "सहायता केंद्र खोलें", gu: "સપોર્ટ બાર ખોલો" })}

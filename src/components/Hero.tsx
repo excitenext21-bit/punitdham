@@ -9,6 +9,13 @@ interface HeroProps {
 }
 
 export default function Hero({ sectionId }: HeroProps) {
+  const [isDesktop, setIsDesktop] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
+      setIsDesktop(true);
+    }
+  }, []);
   const { localize } = useLanguage();
   const { setActivePageSlug } = useCMS();
 
@@ -40,16 +47,32 @@ export default function Hero({ sectionId }: HeroProps) {
     >
       {/* Background Video Wrapper - Native HTML5 video: zero YouTube UI, zero buttons */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute w-full h-full object-cover scale-105 opacity-100 pointer-events-none select-none"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+        {/* Instant crisp poster background for fast mobile LCP and zero bandwidth waste */}
+        <img
+          src="/milling_sorting_sortex.jpg"
+          alt="Punitdhan Pulses Advanced Milling Plant"
+          fetchPriority="high"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60 pointer-events-none select-none"
+        />
+
+        {/* High-definition ambient background video loaded conditionally on desktop screens */}
+        {isDesktop && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/milling_sorting_sortex.jpg"
+            onError={(e) => {
+              (e.currentTarget as HTMLElement).style.display = "none";
+            }}
+            className="hidden md:block absolute w-full h-full object-cover scale-105 opacity-100 pointer-events-none select-none transition-opacity duration-700"
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+        )}
         {/* Soft elegant green ambient gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-green-dark/95 via-brand-green-dark/70 via-brand-green-dark/30 to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-brand-green-dark via-brand-green-dark/60 to-transparent pointer-events-none" />

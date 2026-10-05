@@ -41,7 +41,9 @@ async function startServer() {
     console.log("==========================================");
 
     const inquiryId = "PUNIT-" + Date.now().toString(36).toUpperCase();
-    const formattedSubject = `[${inquiryId}] ${subject || "New Website Inquiry"} - ${name || email}`;
+    const senderName = (name || "").trim() || (email || "").trim() || "Website Visitor";
+    const userSubject = (subject || "").trim();
+    const formattedSubject = userSubject ? `${userSubject} - ${senderName}` : `New Inquiry from ${senderName}`;
 
     const bodyHtml = `
       <!DOCTYPE html>

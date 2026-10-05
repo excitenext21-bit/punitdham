@@ -65,7 +65,9 @@ if (empty($name) && empty($email) && empty($phone)) {
 $inquiryId   = 'PUNIT-' . strtoupper(substr(uniqid(), -6));
 $submittedAt = date('d M Y, h:i A T');
 
-$emailSubject = "[{$inquiryId}] " . ($subject ? $subject : "Inquiry from {$name}") . " - Punitdhan Pulses";
+$senderName = !empty($name) ? $name : (!empty($email) ? $email : "Website Visitor");
+$userSubject = !empty($subject) && $subject !== "New Inquiry from Punitdhan Website" ? $subject : "";
+$emailSubject = !empty($userSubject) ? "{$userSubject} - {$senderName}" : "New Inquiry from {$senderName}";
 
 $bodyHtml = "
 <!DOCTYPE html>

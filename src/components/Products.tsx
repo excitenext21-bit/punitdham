@@ -893,6 +893,7 @@ export default function Products({ onInquireProduct }: ProductsProps) {
                           
                           <button
                             onClick={() => onInquireProduct(getLocalizedProductName(prod))}
+                            aria-label={`Inquire about ${prod.name}`}
                             className="bg-[#f4d068] hover:bg-white text-zinc-900 rounded-full w-9 h-9 flex items-center justify-center transition-all shadow-md cursor-pointer font-extrabold text-sm active:scale-90"
                             title={localize({ en: "Request specific certificate", hi: "विशेष विनिर्देश की जांच करें", gu: "ઇન્ક્વાયરી કરો" })}
                           >

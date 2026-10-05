@@ -123,6 +123,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
               </div>
               <button
                 id="close-drawer-btn"
+                  aria-label="Close Inquiry Drawer"
                 onClick={onClose}
                 className="p-2.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all duration-200 cursor-pointer flex items-center justify-center shrink-0"
                 title={tLocal("close")}

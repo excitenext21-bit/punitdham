@@ -18,7 +18,9 @@ export interface FormSubmissionPayload {
 }
 
 export async function submitInquiry(payload: FormSubmissionPayload): Promise<{ success: boolean; message: string }> {
-  const formattedSubject = `[Punitdhan ${payload.type || "Inquiry"}] ${payload.subject || "Website Submission"} from ${payload.name || payload.email}`;
+  const senderName = (payload.name || "").trim() || (payload.email || "").trim() || "Website Visitor";
+  const userSubject = (payload.subject || "").trim();
+  const formattedSubject = userSubject ? `${userSubject} - ${senderName}` : `New Inquiry from ${senderName}`;
 
   const bodyData = {
     ...payload,
