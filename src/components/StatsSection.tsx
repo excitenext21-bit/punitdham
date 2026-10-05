@@ -144,9 +144,9 @@ export default function StatsSection() {
                       <span className="block text-2xl sm:text-3xl font-serif font-black text-[#f4d068] tracking-tight">
                         {stat.value}
                       </span>
-                      <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mt-1">
+                      <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold mt-1">
                         {stat.label}
-                      </h4>
+                      </h3>
                       <p className="text-xs text-gray-300 mt-1.5 leading-relaxed font-light">
                         {stat.desc}
                       </p>

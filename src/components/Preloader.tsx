@@ -69,9 +69,9 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
         {/* Brand Typography */}
         <div className="space-y-1.5">
-          <h1 className="font-serif text-3xl sm:text-4xl font-black tracking-[0.2em] text-white">
+          <div className="font-serif text-3xl sm:text-4xl font-black tracking-[0.2em] text-white">
             PUNITDHAN
-          </h1>
+          </div>
           <p className="font-sans text-[10px] sm:text-xs tracking-[0.4em] text-[#f4d068] uppercase font-bold">
             {localize({ en: "Pulses Ltd", hi: "पल्सेस लिमिटेड", gu: "પલ્સ લિમિટેડ" })}
           </p>

@@ -167,13 +167,13 @@ export default function Strengths() {
         {/* Highlight Banner at bottom */}
         <div className="mt-16 bg-[#fbfcfa] border border-zinc-200/80 border-l-2 border-l-[#d4af37] rounded-3xl p-6 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-black/10 transition-all duration-300">
           <div className="space-y-2 text-center sm:text-left">
-            <h4 className="font-serif text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight">
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight">
               {localize({
                 en: "Need detailed custom packing or bulk shipment exports?",
                 hi: "क्या आपको विस्तृत कस्टम पैकिंग या थोक शिपमेंट निर्यात की आवश्यकता है?",
                 gu: "શું તમારે કસ્ટમ પેકિંગ અથવા બલ્ક નિકાસ શિપમેન્ટની જરૂર છે?"
               })}
-            </h4>
+            </h3>
             <p className="text-xs sm:text-sm text-zinc-600 max-w-xl font-sans leading-relaxed">
               {localize({
                 en: "Our direct association with Civil Supplies Corporation of India and NAFED enables us to handle custom packaging configurations from 400kg massive bags to 1kg household pouches.",

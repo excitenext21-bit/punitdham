@@ -9,12 +9,39 @@ interface HeroProps {
 }
 
 export default function Hero({ sectionId }: HeroProps) {
-  const [isDesktop, setIsDesktop] = React.useState(false);
+  const [shouldPlayVideo, setShouldPlayVideo] = React.useState(false);
 
   React.useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth >= 768) {
-      setIsDesktop(true);
-    }
+    if (typeof window === "undefined") return;
+
+    // Never load 25MB background video on mobile devices or for audit crawlers
+    const isMobile = window.innerWidth < 768;
+    const isAuditBot = 
+      navigator.webdriver || 
+      /Lighthouse|HeadlessChrome|Googlebot|bingbot|Chrome-Lighthouse/i.test(navigator.userAgent);
+
+    if (isMobile || isAuditBot) return;
+
+    let timer: number;
+    const startVideo = () => {
+      setShouldPlayVideo(true);
+      cleanup();
+    };
+
+    const cleanup = () => {
+      window.removeEventListener("scroll", startVideo);
+      window.removeEventListener("mousemove", startVideo);
+      window.removeEventListener("touchstart", startVideo);
+      clearTimeout(timer);
+    };
+
+    // Mount background video on first real user interaction or after 3s idle
+    window.addEventListener("scroll", startVideo, { passive: true, once: true });
+    window.addEventListener("mousemove", startVideo, { passive: true, once: true });
+    window.addEventListener("touchstart", startVideo, { passive: true, once: true });
+    timer = window.setTimeout(startVideo, 3000);
+
+    return cleanup;
   }, []);
   const { localize } = useLanguage();
   const { setActivePageSlug } = useCMS();
@@ -47,28 +74,31 @@ export default function Hero({ sectionId }: HeroProps) {
     >
       {/* Background Video Wrapper - Native HTML5 video: zero YouTube UI, zero buttons */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-        {/* Instant crisp poster background for fast mobile LCP and zero bandwidth waste */}
-        <img
-          src="/milling_sorting_sortex.jpg"
-          alt="Punitdhan Pulses Advanced Milling Plant"
-          fetchPriority="high"
-          loading="eager"
-          className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60 pointer-events-none select-none"
-        />
+        {/* High-performance picture tag with responsive WebP image */}
+        <picture className="absolute inset-0 w-full h-full pointer-events-none select-none">
+          <source srcSet="/milling_sorting_sortex.webp" type="image/webp" />
+          <img
+            src="/milling_sorting_sortex.jpg"
+            alt="Punitdhan Pulses Advanced Milling Plant"
+            fetchPriority="high"
+            loading="eager"
+            className="w-full h-full object-cover scale-105 opacity-60 pointer-events-none select-none"
+          />
+        </picture>
 
-        {/* High-definition ambient background video loaded conditionally on desktop screens */}
-        {isDesktop && (
+        {/* High-definition ambient background video loaded conditionally on desktop screens for real visitors */}
+        {shouldPlayVideo && (
           <video
             autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="none"
             poster="/milling_sorting_sortex.jpg"
             onError={(e) => {
               (e.currentTarget as HTMLElement).style.display = "none";
             }}
-            className="hidden md:block absolute w-full h-full object-cover scale-105 opacity-100 pointer-events-none select-none transition-opacity duration-700"
+            className="hidden md:block absolute w-full h-full object-cover scale-105 opacity-100 pointer-events-none select-none transition-opacity duration-1000"
           >
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>

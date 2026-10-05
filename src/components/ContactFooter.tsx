@@ -163,7 +163,7 @@ export default function ContactFooter({ selectedProductName, clearSelectedProduc
                 className="inline-block group"
               >
                 <img
-                  src="https://excitetemplate.com/client-logo/logo-light.png"
+                  src="/logo-light.png" width="219" height="48"
                   alt="Punitdhan Pulses Limited"
                   className="h-11 sm:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                   referrerPolicy="no-referrer"

@@ -106,7 +106,7 @@ export default function Header({ onOpenDrawer, isSupportDrawerExpanded }: Header
               className="flex items-center gap-2 group shrink-0"
             >
               <img
-                src="https://excitetemplate.com/client-logo/logo-light.png"
+                src="/logo-light.png" width="219" height="48"
                 alt={globalSettings.siteName}
                 className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 referrerPolicy="no-referrer"

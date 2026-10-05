@@ -129,7 +129,7 @@ export default function App() {
       <div className="min-h-screen bg-brand-bg-light text-zinc-800 font-sans selection:bg-brand-accent selection:text-brand-green-dark flex overflow-x-hidden w-full relative">
       
       {/* Main Page Content Area */}
-      <div className="flex-1 min-w-0 relative flex flex-col">
+      <main id="main-content" className="flex-1 min-w-0 relative flex flex-col">
         {/* Decorative minimalist floating background elements */}
         <BackgroundElements />
 
@@ -195,7 +195,7 @@ export default function App() {
 
         {/* Sleek Right Side Contact & Support Drawer overlay */}
         <ContactDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
-      </div>
+      </main>
 
       {/* Sleek RHS Collapsible Support Sider Panel */}
       <SidebarSupport 
