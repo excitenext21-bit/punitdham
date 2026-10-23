@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Punitdhan Pulses Limited - SMTP Form Email Handler
  * POST endpoint: /send-inquiry.php
@@ -130,7 +130,7 @@ $bodyHtml .= "
 $sent = false;
 
 // ── Try PHPMailer via Gmail SMTP ──
-$phpmailerDir = __DIR__ . '/phpmailer';
+$phpmailerDir = file_exists(__DIR__ . '/phpmailer') ? __DIR__ . '/phpmailer' : __DIR__ . '/../phpmailer';
 if (file_exists($phpmailerDir . '/PHPMailer.php')) {
     require_once $phpmailerDir . '/Exception.php';
     require_once $phpmailerDir . '/PHPMailer.php';

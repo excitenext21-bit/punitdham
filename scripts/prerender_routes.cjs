@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 const distDir = path.join(__dirname, '..', 'dist');
@@ -458,8 +458,62 @@ routes.forEach((route) => {
     fs.mkdirSync(targetDir, { recursive: true });
   }
 
+  // Write subfolder index.html
   fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf8');
-  console.log(`Generated: ${route.slug}/index.html`);
+
+  // Write subfolder index.php wrapper for PHP-first servers
+  const subfolderPhpWrapper = `<?php
+$htmlFile = __DIR__ . '/index.html';
+if (file_exists($htmlFile)) {
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('Content-Type: text/html; charset=UTF-8');
+    readfile($htmlFile);
+    exit;
+}
+header('Location: /${route.slug}/');
+exit;
+`;
+  fs.writeFileSync(path.join(targetDir, 'index.php'), subfolderPhpWrapper, 'utf8');
+
+  // Also write standalone root-level HTML file (e.g. dist/about-us.html)
+  fs.writeFileSync(path.join(distDir, `${route.slug}.html`), html, 'utf8');
+
+  console.log(`Generated: ${route.slug}/index.html, ${route.slug}/index.php, and ${route.slug}.html`);
 });
 
-console.log(`\nSuccess! Pre-rendered ${routes.length} static routes for Googlebot crawling.`);
+// Ensure root dist/index.php exists
+const rootPhpFile = path.join(distDir, 'index.php');
+if (!fs.existsSync(rootPhpFile)) {
+  const rootPhpContent = `<?php
+/**
+ * Punitdhan Pulses Limited - Production PHP Web Hosting Entry Point
+ */
+$htmlFile = __DIR__ . '/index.html';
+if (file_exists($htmlFile)) {
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('X-XSS-Protection: 1; mode=block');
+    header('Content-Type: text/html; charset=UTF-8');
+    readfile($htmlFile);
+    exit;
+} else {
+    header('Content-Type: text/plain; charset=UTF-8');
+    echo 'Punitdhan Pulses Limited Web Portal is ready.';
+    exit;
+}
+`;
+  fs.writeFileSync(rootPhpFile, rootPhpContent, 'utf8');
+  console.log('Generated: dist/index.php');
+}
+
+// Ensure .htaccess is in dist
+const publicHtaccess = path.join(__dirname, '..', 'public', '.htaccess');
+const distHtaccess = path.join(distDir, '.htaccess');
+if (fs.existsSync(publicHtaccess)) {
+  fs.copyFileSync(publicHtaccess, distHtaccess);
+  console.log('Synchronized: dist/.htaccess');
+}
+
+console.log(`\nSuccess! Pre-rendered ${routes.length} static routes for Googlebot crawling & PHP/HTML hosting.`);
+

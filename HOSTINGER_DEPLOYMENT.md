@@ -1,83 +1,101 @@
-# Hostinger Deployment Guide
+# Punitdhan Pulses Limited — PHP/HTML Web Hosting Deployment Guide
 
-This guide provides step-by-step instructions to bundle and deploy your polished, bug-free **Punitdhan Pulses** React & Express application to Hostinger.
-
----
-
-## 📦 Option 1: Static Website Hosting (Recommended & Fastest)
-Since this application operates entirely as a high-performance, interactive Single Page Application (SPA), deploying it as a **Static Site** on Hostinger Shared hosting is the easiest, most robust approach. It yields exceptional loading speeds, zero runtime maintenance, and utilizes standard web hosting with no server process management.
-
-### Step 1: Export Your App from Google AI Studio
-1. In Google AI Studio, click on the **Settings (Gear Icon)** in the top right.
-2. Select **Export as ZIP** or **Export to GitHub**.
-3. Extract the ZIP on your local computer.
-
-### Step 2: Build the Application
-Ensure you have [Node.js](https://nodejs.org) installed on your computer.
-1. Open your terminal inside the project folder.
-2. Install the development dependencies:
-   ```bash
-   npm install
-   ```
-3. Generate the finalized production assets:
-   ```bash
-   npm run build
-   ```
-   *This creates a folder named `dist` containing all production-optimized HTML, CSS, JavaScript, and asset references.*
-
-### Step 3: Upload files to Hostinger
-1. Log in to your **Hostinger hPanel**.
-2. Go to **Websites** and click **Manage** next to your domain.
-3. Open the **File Manager** (located under the *Files* section).
-4. Go into the folder for your domain, usually named `public_html`.
-5. Upload the **contents** of the `dist` folder directly into `public_html`.
-   - *Ensure that `index.html` sits directly inside `public_html` (i.e., not nested inside a `public_html/dist/` subfolder).*
+This repository is fully configured and optimized for standard **PHP / HTML Shared Web Hosting** (Hostinger Shared Web Hosting, cPanel, Plesk, Apache, LiteSpeed, etc.) without requiring any Node.js server runtime, background processes, or VPS setup.
 
 ---
 
-## ⚙️ Option 2: Apache Server Redirects (.htaccess)
-Since Hostinger Shared Hosting runs on Apache, add a `.htaccess` file inside `public_html` so React router paths route gracefully:
-1. Create a file named `.htaccess` in your `public_html` folder.
-2. Add the following content:
-   ```apache
-   <IfModule mod_rewrite.c>
-     RewriteEngine On
-     RewriteBase /
-     RewriteRule ^index\.html$ - [L]
-     RewriteCond %{REQUEST_FILENAME} !-f
-     RewriteCond %{REQUEST_FILENAME} !-d
-     RewriteRule . /index.html [L]
-   </IfModule>
-   ```
+## 🌟 What Was Done to Make It 100% PHP / HTML Hosting Compatible
+
+1. **Dual Entry Points (`index.html` & `index.php`)**:
+   - Both `index.html` and `index.php` are placed at the root of `dist/`.
+   - On web hosts where Apache/LiteSpeed looks for `index.php` before `index.html`, `index.php` automatically outputs `index.html` with proper MIME headers.
+2. **Pre-rendered Clean URLs for All Routes**:
+   - Every page (`/about-us`, `/board-of-directors`, `/services`, `/products-specs`, `/alliances`, `/connect`, `/careers`) is pre-rendered into its own subfolder containing both `index.html` and `index.php`, as well as standalone `.html` files (e.g. `about-us.html`).
+   - Deep-linking and refreshing on any page works with zero 404 errors.
+3. **Optimized Apache `.htaccess` Included**:
+   - Built directly into `dist/.htaccess`.
+   - Handles automatic HTTPS redirection, gzip/deflate compression, Core Web Vitals caching, video streaming byte-ranges (`.mp4`), and clean SPA fallback routing.
+4. **Serverless PHP Form Email Handling**:
+   - Contact form inquiries, product RFQs, and job applications are processed through `send-inquiry.php` (and `api/send-inquiry.php`).
+   - Uses authenticated SMTP (via bundled PHPMailer or raw socket fallback) to dispatch all submissions directly to `punitdhan_pulses2025@yahoo.com`.
+   - Works immediately on any PHP 7.4+ / PHP 8.x hosting without Node.js!
+5. **Zero Design or Effect Changes**:
+   - Lenis smooth scrolling, Motion animations, responsive navigation, contact drawers, language switcher, video background, and all styles remain 100% preserved and fully interactive.
 
 ---
 
-## 🚀 Option 3: Hostinger Node.js Web App Deployment
-If you are using Hostinger's **Node.js Panel** or a VPS to run the actual live Express backend:
+## 🚀 How to Deploy to Hostinger / cPanel (Step-by-Step)
 
-### Step 1: Run the Build
-Run the following inside the project directory on your local machine or server:
+### Step 1: Build the Production Files
+In your project directory, run:
 ```bash
-npm install
 npm run build
 ```
-This command compiles the React frontend to `dist/` and compiles the Express backend (`server.ts`) to a production-optimized, standalone client-agnostic CommonJS server at `dist/server.cjs`.
+*(This compiles all React components, generates static route subfolders with `index.html` and `index.php`, syncs `.htaccess`, and places everything inside the `dist/` folder.)*
 
-### Step 2: Configure the Node.js App in Hostinger hPanel
-1. Navigate to **Websites** -> **Node.js** in hPanel.
-2. Set up a new Node.js application:
-   - **Application Entry File**: `server.js` (We've added a main `server.js` wrapper at the root that routes seamlessly into `dist/server.cjs`)
-   - **Application Root**: `/public_html` or your dedicated app directory
-   - **Node version**: Select **20.x** or **22.x**
-   - **Production Mode**: Enabled (`NODE_ENV=production`)
-3. Upload all files (including the compiled `dist` directory, root `server.js` file, and `package.json` file) to the specified root directory.
-4. Click **Run npm install** or run `npm install --omit=dev` inside the Hostinger console.
-5. Start/Restart the application from the Node.js dashboard.
+### Step 2: Upload `dist` to Hostinger File Manager
+1. Log in to your **Hostinger hPanel** (or cPanel).
+2. Go to **Websites** -> Click **Manage** next to `punitdhan.com`.
+3. Open **File Manager** (under the *Files* section).
+4. Navigate to your website's root folder: `public_html`.
+5. *(Optional but recommended)* Delete any default placeholder files (like `default.php`).
+6. Upload the **contents** of your local `dist/` folder directly into `public_html`.
+
+> [!IMPORTANT]
+> Upload the **contents inside** `dist/` directly into `public_html`, so that `index.html`, `index.php`, `.htaccess`, `send-inquiry.php`, and the `assets/` folder are located directly in `public_html`.
 
 ---
 
-## 🛠️ Bug-Free & Production Ready Features Included
-- **Streamlined Hybrid Server**: The clean standard TypeScript `server.ts` mounts the Vite dev server locally while serving compiled `dist/` statically in production.
-- **Compiled Build Security**: esbuild bundles and minimizes the server code to `dist/server.cjs` with full support for native static delivery and asset loading.
-- **Optimized Asset Delivery**: All images and structural media references utilize responsive, lightweight elements mapped directly inside the bundle.
-- **Clean Configuration**: No unused legacy scripts or unused module loaders; pure, production-grade output.
+## 📂 Verification of Files in `public_html`
+
+After uploading, your `public_html` should look like this:
+```
+public_html/
+├── .htaccess                 <- Apache rewrite, caching, security headers
+├── index.html                <- Main pre-rendered application HTML
+├── index.php                 <- PHP fallback entry point
+├── send-inquiry.php          <- PHP SMTP email handler
+├── phpmailer/                <- Bundled PHPMailer classes
+├── api/
+│   └── send-inquiry.php      <- Secondary API endpoint
+├── about-us/
+│   ├── index.html
+│   └── index.php
+├── board-of-directors/
+│   ├── index.html
+│   └── index.php
+├── services/
+│   ├── index.html
+│   └── index.php
+├── products-specs/
+│   ├── index.html
+│   └── index.php
+├── alliances/
+│   ├── index.html
+│   └── index.php
+├── connect/
+│   ├── index.html
+│   └── index.php
+├── careers/
+│   ├── index.html
+│   └── index.php
+├── assets/                   <- Production JavaScript & CSS chunks
+├── hero-video.mp4            <- Background media
+├── favicon.ico, sitemap.xml, robots.txt, etc.
+```
+
+---
+
+## 🧪 Testing Your Live Site
+
+1. Open `https://punitdhan.com/` in your browser.
+2. Navigate across pages:
+   - `https://punitdhan.com/about-us`
+   - `https://punitdhan.com/board-of-directors`
+   - `https://punitdhan.com/services`
+   - `https://punitdhan.com/products-specs`
+   - `https://punitdhan.com/alliances`
+   - `https://punitdhan.com/connect`
+   - `https://punitdhan.com/careers`
+3. Refresh the page on any sub-URL to verify that the server serves the pre-rendered page with zero 404s.
+4. Submit a test message through the Contact Form or Drawer — verify that it returns a success message and delivers an email to `punitdhan_pulses2025@yahoo.com`.

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Punitdhan Pulses Limited - Client Email Dispatcher
  * Directly forwards all website form submissions to punitdhan_pulses2025@yahoo.com
  */
@@ -29,38 +29,35 @@ export async function submitInquiry(payload: FormSubmissionPayload): Promise<{ s
     submittedAt: new Date().toISOString(),
   };
 
-  // 1. Try /api/send-inquiry (Node dev server or Apache rewrite)
-  try {
-    const res = await fetch("/api/send-inquiry", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(bodyData),
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success) {
-        return { success: true, message: `Inquiry successfully delivered to ${RECIPIENT_EMAIL}.` };
-      }
-    }
-  } catch (err) {
-    console.warn("[EmailService] /api/send-inquiry endpoint error:", err);
-  }
+  // Try PHP and Node endpoints with priority on standard PHP hosting
+  const endpoints = [
+    "/send-inquiry.php",
+    "/api/send-inquiry.php",
+    "/api/send-inquiry",
+  ];
 
-  // 2. Try direct /send-inquiry.php (Hostinger direct PHP endpoint)
-  try {
-    const res = await fetch("/send-inquiry.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(bodyData),
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success) {
-        return { success: true, message: `Inquiry successfully delivered to ${RECIPIENT_EMAIL}.` };
+  for (const endpoint of endpoints) {
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(bodyData),
+      });
+      if (res.ok) {
+        const contentType = res.headers.get("content-type") || "";
+        if (contentType.includes("application/json")) {
+          const data = await res.json();
+          if (data && data.success) {
+            return {
+              success: true,
+              message: data.message || `Inquiry successfully delivered to ${RECIPIENT_EMAIL}.`,
+            };
+          }
+        }
       }
+    } catch (err) {
+      console.warn(`[EmailService] ${endpoint} endpoint error:`, err);
     }
-  } catch (err) {
-    console.warn("[EmailService] /send-inquiry.php endpoint error:", err);
   }
 
   return {

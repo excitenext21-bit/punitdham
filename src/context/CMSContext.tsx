@@ -411,9 +411,16 @@ export function CMSProvider({ children }: { children: ReactNode }) {
     return saved ? JSON.parse(saved) : INITIAL_SETTINGS;
   });
 
+  // Helper to extract clean slug regardless of whether URL has trailing slash, .html, .php, or index.html/php
+  const extractSlugFromPath = (pathname: string): string => {
+    let clean = pathname.replace(/^\/+|\/+$/g, "");
+    clean = clean.replace(/(?:^|\/)index\.(?:html|php)$/i, "").replace(/\.(?:html|php)$/i, "");
+    clean = clean.replace(/^\/+|\/+$/g, "");
+    return clean || "home";
+  };
+
   const [activePageSlug, setActivePageSlugState] = useState<string>(() => {
-    const path = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
-    return path || "home";
+    return extractSlugFromPath(window.location.pathname);
   });
 
   const setActivePageSlug = (slug: string) => {
@@ -426,8 +433,7 @@ export function CMSProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
-      setActivePageSlugState(path || "home");
+      setActivePageSlugState(extractSlugFromPath(window.location.pathname));
     };
     window.addEventListener("popstate", handlePopState);
     return () => {

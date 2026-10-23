@@ -1,21 +1,58 @@
-﻿<IfModule mod_rewrite.c>
+# ── Directory Default Index ──
+DirectoryIndex index.html index.php
+
+# ── MIME Types for Modern Web Standards ──
+<IfModule mod_mime.c>
+  AddType text/html .html .htm
+  AddType text/css .css
+  AddType application/javascript .js .mjs
+  AddType application/json .json
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType image/png .png
+  AddType image/jpeg .jpg .jpeg
+  AddType video/mp4 .mp4
+  AddType video/webm .webm
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+<IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # 1. Force HTTPS redirect (Critical for Google Ranking Signal & SSL Trust)
+  # 1. Force HTTPS redirect safely (supporting Hostinger CDN & Cloudflare proxies)
   RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # 2. Serve existing files directly
+  # 2. Direct API routes for Form Inquiries
+  RewriteRule ^api/send-inquiry/?$ /send-inquiry.php [L,QSA]
+  RewriteRule ^api/inquiry/?$ /send-inquiry.php [L,QSA]
+
+  # 3. Direct pass-through for assets directory (NO REWRITING)
+  RewriteRule ^assets/.*$ - [L]
+
+  # 4. Serve existing physical files and directories directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # 3. Check for pre-rendered subfolder index.html
+  # 5. Check for pre-rendered subfolder index.html
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.*)/?$ /$1/index.html [L]
 
-  # 4. Fallback to SPA root index.html
+  # 6. Check for pre-rendered subfolder index.php
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.php -f
+  RewriteRule ^(.*)/?$ /$1/index.php [L]
+
+  # 7. Check for standalone .html files (e.g. /about-us -> /about-us.html)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)/?$ /$1.html [L]
+
+  # 8. SPA Fallback for all clean navigation routes (excluding asset extensions)
+  RewriteCond %{REQUEST_URI} !^/assets/
+  RewriteCond %{REQUEST_URI} !\.(css|js|mjs|json|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|mp4|webm|pdf|xml|txt|php)$ [NC]
   RewriteRule . /index.html [L]
 </IfModule>
 
@@ -38,6 +75,7 @@
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType application/manifest+json "access plus 1 week"
@@ -45,10 +83,4 @@
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/manifest+json
-</IfModule>
-
-# Video MIME & Byte-range support
-<IfModule mod_mime.c>
-  AddType video/mp4 .mp4
-  AddType video/webm .webm
 </IfModule>
